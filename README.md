@@ -73,7 +73,7 @@ grep -rn "TODO(placeholder)\|TODO(copy)" src/
 | What | Where | Notes |
 |---|---|---|
 | `CONTACT_EMAIL` | [`src/content/site.ts:9`](src/content/site.ts) | `hello@royto.tech`. Confirm the mailbox exists and is monitored. Every CTA and the form fallback point here. |
-| **Form destination** | [`src/app/api/contact/route.ts:46`](src/app/api/contact/route.ts) | `deliver()` is a no-op. The route validates and returns success but **sends nothing**. Wire it to email/CRM/webhook before launch, or the form silently drops enquiries. |
+| **SMTP credentials** | Vercel → Settings → Environment Variables | The contact form sends over SMTP via Namecheap Private Email. Needs `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD` (and optionally `SMTP_PORT`, `CONTACT_TO`). **Until these are set the form returns a 502 and tells the visitor to email instead** — it will never claim to have sent something it didn't. |
 | Social URLs | [`src/content/site.ts:41`](src/content/site.ts) | LinkedIn / Instagram / Facebook are guesses. Verify each, and delete any account Royto doesn't hold. |
 | Founder photo | [`src/components/ui/FounderPortrait.tsx`](src/components/ui/FounderPortrait.tsx) | Renders a designed placeholder with "Photo to come". Replace the component body; keep the frame and 4:5 ratio. |
 | Privacy page | [`src/app/privacy/page.tsx`](src/app/privacy/page.tsx) | Stub, `noindex`. Linked from every page's footer. |
@@ -81,6 +81,33 @@ grep -rn "TODO(placeholder)\|TODO(copy)" src/
 | Capability examples | [`src/content/capabilities.ts:36`](src/content/capabilities.ts) | The copy deck doesn't supply these six, so they were written to match its voice. **The only non-deck prose on the site — read them before launch.** |
 
 ---
+
+## Contact form
+
+Submissions go to `POST /api/contact`, which validates them and sends an email
+over SMTP using **Namecheap Private Email** — the same mailbox the domain's MX
+records already point at. No third-party email service.
+
+Set these in Vercel → Settings → Environment Variables (all environments):
+
+| Variable | Value |
+|---|---|
+| `SMTP_HOST` | `mail.privateemail.com` |
+| `SMTP_PORT` | `465` (implicit TLS) or `587` (STARTTLS) |
+| `SMTP_USER` | the full mailbox address, e.g. `hello@royto.tech` |
+| `SMTP_PASSWORD` | that mailbox's password |
+| `CONTACT_TO` | optional; defaults to `CONTACT_EMAIL` |
+
+For local development put the same values in `.env.local` (git-ignored).
+
+Two deliberate behaviours:
+
+- **It never reports a false success.** If SMTP is unconfigured or the send
+  fails, the route returns 502 and the form shows the `mailto:` fallback. An
+  enquiry is never silently swallowed — which is exactly what the earlier
+  placeholder implementation did.
+- **`replyTo` is the enquirer**, so hitting reply in your mail client answers
+  them directly rather than answering yourself.
 
 ## How it's put together
 

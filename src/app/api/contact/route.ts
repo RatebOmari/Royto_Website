@@ -1,14 +1,9 @@
+import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { CONTACT_EMAIL } from "@/content/site";
 
-/**
- * Contact form endpoint.
- *
- * TODO(placeholder): this validates and returns success but does not send
- * anything anywhere. Plug the real destination in at `deliver()` below — an
- * email API, a CRM, or a webhook. Until then no enquiry is delivered, so do
- * not go live with the form as the only contact route: the page also shows a
- * mailto: fallback for exactly this reason.
- */
+/** nodemailer needs the Node runtime, not Edge. */
+export const runtime = "nodejs";
 
 export type ContactFieldErrors = Partial<
   Record<"name" | "business" | "message" | "email", string>
@@ -42,9 +37,75 @@ function validate(body: Partial<ContactPayload>): ContactFieldErrors {
   return errors;
 }
 
+/**
+ * Anything interpolated into a mail header must not carry CR/LF, or a crafted
+ * value could inject extra headers. Bodies are unaffected.
+ */
+function headerSafe(value: string): string {
+  return value.replace(/[\r\n]+/g, " ").trim();
+}
+
+function config() {
+  const {
+    SMTP_HOST,
+    SMTP_PORT,
+    SMTP_USER,
+    SMTP_PASSWORD,
+    CONTACT_TO,
+  } = process.env;
+
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD) return null;
+
+  const port = Number(SMTP_PORT ?? 465);
+  return {
+    host: SMTP_HOST,
+    port,
+    // 465 is implicit TLS; 587 upgrades via STARTTLS.
+    secure: port === 465,
+    user: SMTP_USER,
+    password: SMTP_PASSWORD,
+    to: CONTACT_TO || CONTACT_EMAIL,
+  };
+}
+
 async function deliver(payload: ContactPayload): Promise<void> {
-  // TODO(placeholder): send `payload` to its real destination here.
-  void payload;
+  const smtp = config();
+  if (!smtp) {
+    // Throwing rather than returning quietly is the whole point: an enquiry
+    // that cannot be delivered must never be reported to the sender as sent.
+    throw new Error(
+      "SMTP is not configured. Set SMTP_HOST, SMTP_USER and SMTP_PASSWORD.",
+    );
+  }
+
+  const transporter = nodemailer.createTransport({
+    host: smtp.host,
+    port: smtp.port,
+    secure: smtp.secure,
+    auth: { user: smtp.user, pass: smtp.password },
+  });
+
+  const name = headerSafe(payload.name);
+  const business = headerSafe(payload.business);
+
+  await transporter.sendMail({
+    // Must be the authenticated mailbox — providers reject spoofed senders.
+    from: `"Royto website" <${smtp.user}>`,
+    to: smtp.to,
+    // So hitting reply in your mail client answers the enquirer directly.
+    replyTo: `"${name}" <${headerSafe(payload.email)}>`,
+    subject: `Audit request — ${business} (${name})`,
+    text: [
+      `Name:     ${payload.name}`,
+      `Business: ${payload.business}`,
+      `Email:    ${payload.email}`,
+      "",
+      "What's eating their week:",
+      payload.message,
+      "",
+      "— sent from the royto.tech contact form",
+    ].join("\n"),
+  });
 }
 
 export async function POST(request: Request) {
@@ -63,12 +124,25 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, errors }, { status: 400 });
   }
 
-  await deliver({
-    name: body.name!.trim(),
-    business: body.business!.trim(),
-    message: body.message!.trim(),
-    email: body.email!.trim(),
-  });
+  try {
+    await deliver({
+      name: body.name!.trim(),
+      business: body.business!.trim(),
+      message: body.message!.trim(),
+      email: body.email!.trim(),
+    });
+  } catch (error) {
+    // Logged for the server, never echoed to the visitor — the message could
+    // contain host or credential detail.
+    console.error("[contact] delivery failed:", error);
+    return NextResponse.json(
+      {
+        ok: false,
+        message: `We couldn’t send that. Please email ${CONTACT_EMAIL} directly — it reaches the same place.`,
+      },
+      { status: 502 },
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }

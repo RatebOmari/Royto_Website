@@ -108,7 +108,12 @@ export function ContactForm() {
       if (!response.ok) {
         setErrors(body.errors ?? {});
         setStatus("idle");
-        if (!body.errors) setFormError("Something went wrong. Try again?");
+        // A delivery failure returns a message rather than field errors. Show
+        // it verbatim: it names the mailto fallback, which is the only way the
+        // visitor still reaches us.
+        if (!body.errors) {
+          setFormError(body.message ?? "Something went wrong. Try again?");
+        }
         return;
       }
       setStatus("sent");
