@@ -1,0 +1,695 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Royto design tokens — brand.md is law.
+   Do not add colors, fonts, radii or shadows that aren't defined here.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --ink: #16212B;
+  --ink-soft: #3C4753;
+  --slate: #5C6773;
+  --paper: #F3F3EE;
+  --paper-raised: #FFFFFF;
+  --line: rgba(22, 33, 43, 0.13);
+  --line-strong: rgba(22, 33, 43, 0.22);
+  --teal: #0E6E5C;
+  --teal-ink: #0A5548;
+  --teal-soft: #E3F0EC;
+  --gold: #A9782F;
+  --gold-soft: #F6EBD6;
+
+  --card-shadow: 0 1px 2px rgba(22, 33, 43, 0.05),
+    0 12px 32px -16px rgba(22, 33, 43, 0.18);
+
+  /* Type faces. The --font-* vars come from next/font on <html>. */
+  --face-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --face-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --face-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* System dark, unless the user has explicitly chosen light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --ink: #ECEEEF;
+    --ink-soft: #C4CAD0;
+    --slate: #8E98A3;
+    --paper: #11161B;
+    --paper-raised: #171D24;
+    --line: rgba(255, 255, 255, 0.11);
+    --line-strong: rgba(255, 255, 255, 0.22);
+    --teal: #45B49B;
+    --teal-ink: #7ED2BC;
+    --teal-soft: rgba(69, 180, 155, 0.14);
+    --gold: #D6A855;
+    --gold-soft: rgba(214, 168, 85, 0.14);
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35),
+      0 16px 36px -18px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Explicit toggle wins in both directions. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ink: #ECEEEF;
+  --ink-soft: #C4CAD0;
+  --slate: #8E98A3;
+  --paper: #11161B;
+  --paper-raised: #171D24;
+  --line: rgba(255, 255, 255, 0.11);
+  --line-strong: rgba(255, 255, 255, 0.22);
+  --teal: #45B49B;
+  --teal-ink: #7ED2BC;
+  --teal-soft: rgba(69, 180, 155, 0.14);
+  --gold: #D6A855;
+  --gold-soft: rgba(214, 168, 85, 0.14);
+
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.35),
+    0 16px 36px -18px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   Tailwind theme.
+   Not `inline`: we redefine the raw tokens on :root itself, so the emitted
+   `--color-ink: var(--ink)` re-resolves on every theme change anyway — and
+   keeping them as real custom properties lets the base layer below use them.
+   -------------------------------------------------------------------------- */
+@theme {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-slate: var(--slate);
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-teal: var(--teal);
+  --color-teal-ink: var(--teal-ink);
+  --color-teal-soft: var(--teal-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+
+  --font-display: var(--face-display);
+  --font-sans: var(--face-sans);
+  --font-mono: var(--face-mono);
+  /* Tailwind preflight defaults, so <html> starts in the right face. */
+  --default-font-family: var(--face-sans);
+  --default-mono-font-family: var(--face-mono);
+
+  /* Type scale — brand.md. Fluid where the scale says fluid. */
+  --text-hero: clamp(34px, 5vw, 58px);
+  --text-hero--line-height: 1.06;
+  --text-hero--letter-spacing: -0.02em;
+  --text-h2: clamp(24px, 3vw, 34px);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: 17px;
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+  --text-lede: 17.5px;
+  --text-lede--line-height: 1.55;
+  --text-body: 16px;
+  --text-body--line-height: 1.6;
+  --text-small: 14px;
+  --text-small--line-height: 1.55;
+  --text-mono: 12.5px;
+  --text-mono--line-height: 1.4;
+  --text-mono-sm: 11.5px;
+  --text-mono-sm--line-height: 1.4;
+
+  /* Radius — 8 controls, 10 cards, 14 large panels. Nothing else. */
+  --radius-control: 8px;
+  --radius-card: 10px;
+  --radius-panel: 14px;
+
+  --shadow-card: var(--card-shadow);
+
+  /* The one container width. */
+  --container-royto: 1160px;
+
+  /* Motion — mirrors src/lib/motion.ts so CSS and JS agree. */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Base layer
+   -------------------------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto; /* Lenis owns smooth scroll; see SmoothScroll.tsx */
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink-soft);
+    font-family: var(--face-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--face-display);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* 2px teal, 3px offset — brief §5. */
+  :focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background: var(--teal);
+    color: var(--paper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* Deliberately no `scroll-behavior: smooth` here. Someone asking for
+       reduced motion does not want animated scrolling — and as of Next 16 the
+       router no longer neutralises it during navigation, so setting it would
+       animate a scroll-to-top on every route change. */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Utilities
+   -------------------------------------------------------------------------- */
+@utility container-royto {
+  width: 100%;
+  max-width: var(--container-royto);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* Section rhythm: 96px mobile, 128px from 768px up. */
+@utility section-y {
+  padding-block: 96px;
+  @media (width >= 768px) {
+    padding-block: 128px;
+  }
+}
+
+/* The mono voice: eyebrows, state tags, timestamps, system output. */
+@utility mono-label {
+  font-family: var(--face-mono);
+  font-size: 11.5px;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@utility measure {
+  max-width: 68ch;
+}
+
+@utility measure-lede {
+  max-width: 52ch;
+}
+
+/* 24px blueprint grid — hero and final CTA only (motion.md §7). */
+@utility blueprint {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Flow Canvas — hero. State lives in `data-state` on each node group so the
+   rAF loop only writes an attribute at beat boundaries, never a style per
+   frame. Colour transitions are 200ms; nothing here animates layout.
+   -------------------------------------------------------------------------- */
+.flow-shape {
+  fill: var(--paper-raised);
+  stroke: var(--line-strong);
+  stroke-width: 1;
+  transition: fill 200ms var(--ease-out-quad), stroke 200ms var(--ease-out-quad);
+}
+
+.flow-label {
+  fill: var(--slate);
+  font-family: var(--face-sans);
+  font-size: 12px;
+  font-weight: 500;
+  transition: fill 200ms var(--ease-out-quad);
+}
+
+.flow-node[data-state="active"] .flow-shape {
+  stroke: var(--teal);
+}
+.flow-node[data-state="active"] .flow-label {
+  fill: var(--ink);
+}
+
+.flow-node[data-state="done"] .flow-shape {
+  fill: var(--teal-soft);
+  stroke: var(--teal);
+}
+.flow-node[data-state="done"] .flow-label {
+  fill: var(--teal-ink);
+}
+
+/* Gold means exactly one thing: a human is needed. */
+.flow-node[data-state="waiting"] .flow-shape {
+  fill: var(--gold-soft);
+  stroke: var(--gold);
+}
+.flow-node[data-state="waiting"] .flow-label {
+  fill: var(--gold);
+}
+
+.flow-edge-base {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1.25;
+}
+
+.flow-edge-lit {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
+
+.flow-branch-label {
+  fill: var(--slate);
+  font-family: var(--face-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+/* The pointer highlight over the blueprint grid. Desktop only, very subtle. */
+.flow-highlight {
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, 40%),
+    color-mix(in srgb, var(--teal) 9%, transparent),
+    transparent 70%
+  );
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .flow-highlight {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Capability micro-diagrams — motion.md §3.
+
+   Driven entirely by CSS keyframes: no rAF, no JS per frame. Every element's
+   *resting* style is its final frame, and each keyframe animates FROM a
+   hidden/offset state TO that resting style. Three consequences fall out for
+   free:
+     - paused + fill-mode:both  → holds the first frame before playing
+     - after one play           → rests at the final frame
+     - prefers-reduced-motion   → animation:none reveals the final frame
+   Play once on view; loop only while hovered or focused. Six things looping
+   constantly is noise.
+   -------------------------------------------------------------------------- */
+.dg-anim {
+  animation-duration: var(--dg-dur, 600ms);
+  animation-delay: var(--dg-delay, 0ms);
+  animation-timing-function: var(--ease-out-expo);
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-play-state: paused;
+}
+
+[data-diagram][data-play="1"] .dg-anim {
+  animation-play-state: running;
+}
+
+/* Loop while the card is hovered or holds focus. */
+.dg-host:hover [data-diagram] .dg-anim,
+.dg-host:focus-within [data-diagram] .dg-anim {
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dg-anim,
+  .dg-host:hover [data-diagram] .dg-anim,
+  .dg-host:focus-within [data-diagram] .dg-anim {
+    animation: none !important;
+  }
+}
+
+@keyframes dg-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes dg-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes dg-pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: none; }
+}
+/* Slide in from an authored offset to the element's resting position. */
+@keyframes dg-slide {
+  from { opacity: 0; transform: translate(var(--dg-x, 0px), var(--dg-y, 0px)); }
+  25% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+/* Same, but the element is already visible as it travels. */
+@keyframes dg-travel {
+  from { transform: translate(var(--dg-x, 0px), var(--dg-y, 0px)); }
+  to { transform: none; }
+}
+@keyframes dg-draw {
+  from { stroke-dashoffset: var(--dg-len, 100); }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes dg-pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+@keyframes dg-count {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.dg-rise { animation-name: dg-rise; }
+.dg-fade { animation-name: dg-fade; }
+/* Scale about the element's own centre rather than the SVG origin. */
+.dg-pop {
+  animation-name: dg-pop;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.dg-slide { animation-name: dg-slide; }
+.dg-travel { animation-name: dg-travel; }
+.dg-draw { animation-name: dg-draw; }
+.dg-pulse { animation-name: dg-pulse; animation-timing-function: ease-in-out; }
+.dg-count { animation-name: dg-count; }
+
+/* Diagram palette. Mirrors the node styling in the Flow Canvas. */
+.dg-panel { fill: var(--paper); stroke: var(--line); stroke-width: 1; }
+.dg-chip { fill: var(--teal-soft); stroke: var(--teal); stroke-width: 1; }
+.dg-chip-gold { fill: var(--gold-soft); stroke: var(--gold); stroke-width: 1; }
+.dg-line { fill: none; stroke: var(--line-strong); stroke-width: 1.25; }
+.dg-line-teal { fill: none; stroke: var(--teal); stroke-width: 1.5; stroke-linecap: round; }
+.dg-line-gold { fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-linecap: round; }
+.dg-dot { fill: var(--teal); }
+.dg-dot-gold { fill: var(--gold); }
+.dg-text {
+  fill: var(--slate);
+  font-family: var(--face-mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------------------------------
+   Reveal — the workhorse entrance (motion.md §2), as a CSS transition rather
+   than a JS animation.
+
+   It appears ~30 times on the homepage. Running each one through Motion put
+   the whole library on the hydration path and pushed the hero's paint past
+   3.5s on a throttled phone. A transition on opacity/transform is
+   compositor-driven, costs no JS per frame, and is visually identical.
+
+   One shared IntersectionObserver flips `data-revealed`; see Reveal.tsx.
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 500ms var(--ease-out-expo),
+    transform 500ms var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal[data-revealed="1"],
+[data-revealed="1"] > .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Never leave will-change standing once the entrance has played. */
+.reveal[data-revealed="1"] {
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero entrance — motion.md §1 and §2, driven entirely by CSS.
+
+   The hero previously animated in through Motion, which meant nothing in it
+   could paint until React had hydrated: LCP landed at 3.4s on a throttled
+   phone, with ~2.9s of that pure render delay. CSS animations start as soon
+   as styles apply, so the hero now paints on its own schedule regardless of
+   when (or whether) JavaScript arrives.
+   -------------------------------------------------------------------------- */
+.hero-in {
+  animation: hero-in 500ms var(--ease-out-expo) both;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Headline lines rise 110% of their own height behind a clip mask. */
+.hero-line {
+  display: block;
+  animation: hero-line 800ms var(--ease-out-expo) both;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+@keyframes hero-line {
+  from { transform: translateY(110%); }
+  to { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in,
+  .hero-line {
+    animation: none;
+  }
+}
+
+/* Nav wordmark condense — motion.md §6. CSS rather than Motion: the wordmark
+   is above the fold on every page, and gating it on hydration made it the
+   LCP element. */
+.nav-wordmark {
+  display: block;
+  transform-origin: left center;
+  transition: transform 200ms var(--ease-out-quad);
+}
+
+[data-condensed="true"] .nav-wordmark {
+  transform: scale(0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-wordmark {
+    transition: none;
+  }
+}
+
+/* Footer wordmark: the teal period scales to 1.3 and back on hover.
+   One small joy, nothing more (motion.md §6) — and no reason to hydrate a
+   JS animation for it. */
+.footer-period {
+  display: inline-block;
+  transform-origin: 60% 80%;
+  transition: transform 300ms var(--ease-out-quad);
+}
+.footer-mark:hover .footer-period {
+  transform: scale(1.3);
+}
+
+/* Theme toggle: the two glyphs cross-fade and counter-rotate so the control
+   reads as one object changing state. */
+.theme-icon {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity 300ms var(--ease-out-quad),
+    transform 300ms var(--ease-out-quad);
+}
+.theme-sun { opacity: 1; transform: none; }
+.theme-moon { opacity: 0; transform: rotate(45deg) scale(0.6); }
+[data-theme-state="dark"] .theme-sun { opacity: 0; transform: rotate(-45deg) scale(0.6); }
+[data-theme-state="dark"] .theme-moon { opacity: 1; transform: none; }
+
+/* Mobile nav drawer. A discrete interaction, not a scroll-linked one, so
+   animating the row track is fine here. */
+.nav-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 400ms var(--ease-in-out-quart);
+}
+.nav-drawer[data-open="true"] { grid-template-rows: 1fr; }
+.nav-drawer > div { overflow: hidden; }
+
+.nav-burger span {
+  transition:
+    transform 200ms var(--ease-out-quad),
+    opacity 150ms var(--ease-out-quad);
+}
+[data-open="true"] .nav-burger-top { transform: translateY(5px) rotate(45deg); }
+[data-open="true"] .nav-burger-mid { opacity: 0; }
+[data-open="true"] .nav-burger-bot { transform: translateY(-5px) rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-period,
+  .theme-icon,
+  .nav-drawer,
+  .nav-burger span {
+    transition: none;
+  }
+}
+
+
+/* Contact form fields: the bottom border grows from the left on focus
+   (motion.md §6). A scaleX transform, so nothing lays out. */
+.field-underline {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 300ms var(--ease-out-expo);
+}
+.field-input:focus ~ .field-underline {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-underline {
+    transition: none;
+  }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { animation: spin 700ms linear infinite; }
+
+/* --------------------------------------------------------------------------
+   Custom cursor — motion.md §2. Trails the real pointer rather than replacing
+   it, so pointer accuracy and the native cursor are both preserved.
+   -------------------------------------------------------------------------- */
+.royto-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--teal);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    width 200ms var(--ease-out-quad),
+    height 200ms var(--ease-out-quad),
+    background-color 200ms var(--ease-out-quad),
+    border-color 200ms var(--ease-out-quad),
+    opacity 150ms linear;
+}
+
+.royto-cursor[data-active="1"] {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--teal);
+  /* Brand colour at low opacity, never mix-blend-mode. */
+  background: color-mix(in srgb, var(--teal) 12%, transparent);
+}
+
+.royto-cursor-label {
+  font-family: var(--face-mono);
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--teal-ink);
+  opacity: 0;
+  transition: opacity 150ms var(--ease-out-quad);
+}
+
+.royto-cursor[data-active="1"] .royto-cursor-label {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Page transitions — motion.md §2. Under 350ms end to end; the nav, wordmark
+   and footer live in the layout and are never re-rendered, so they persist
+   across the transition rather than re-animating.
+   -------------------------------------------------------------------------- */
+::view-transition {
+  /* Let clicks through while the transition runs. */
+  pointer-events: none;
+}
+
+::view-transition-old(.page) {
+  animation: 140ms var(--ease-out-quad) both vt-fade-out;
+}
+
+::view-transition-new(.page) {
+  animation: 200ms var(--ease-out-quad) 120ms both vt-fade-in;
+}
+
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
