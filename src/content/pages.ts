@@ -19,7 +19,7 @@ export type PageHeader = {
 export const pages = {
   whatWeAutomate: {
     title: "What we automate",
-    lede: "Six places the same problem shows up. Four we deliver today; two are on the roadmap, and we’ll tell you which is which before you spend anything.",
+    lede: "Six places the same problem shows up. Four are available today; two are on the roadmap, and we’ll tell you which is which before you spend anything.",
     metaTitle: "What we automate",
     metaDescription:
       "The six places repetitive work usually hides in a business — documents and back office, websites and lead capture, messaging, content and social, calls and bookings, and reviews. We say plainly which are available today and which are on the roadmap.",
