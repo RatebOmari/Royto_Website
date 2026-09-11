@@ -52,7 +52,7 @@ export const pages = {
     lede: "Priced from what delivery actually takes, not a round figure. Everything below is a starting number — you’ll get an exact one in writing before anything is built.",
     metaTitle: "Pricing",
     metaDescription:
-      "Audit, Build and Run priced with real numbers: a free audit while we take founding clients, builds from $1,200, and running it from $500/mo. Plus what actually changes the price.",
+      "Audit, Build and Run priced with real numbers: a free audit while we take founding clients, builds from $1,200, and running it from $500/mo. Websites from $2,500. Plus what actually changes the price.",
   },
   about: {
     eyebrow: "About",

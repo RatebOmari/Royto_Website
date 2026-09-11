@@ -67,7 +67,7 @@ export default function Page() {
           <Reveal delay={0.16}>
             <div className="mt-12">
               <ButtonLink href="/contact" arrow>
-                Get a free automation audit
+                Get a free audit
               </ButtonLink>
             </div>
           </Reveal>

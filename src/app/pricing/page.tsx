@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
 import { Faq } from "@/components/sections/Faq";
 import { PricingCard } from "@/components/sections/Pricing";
+import { FixedScopeNote, PackageCard } from "@/components/sections/Websites";
+import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { faq } from "@/content/faq";
 import { pages } from "@/content/pages";
 import { socialPricing, tiers, whatChangesPrice } from "@/content/pricing";
+import { websitePackages } from "@/content/websites";
 import { cx } from "@/lib/utils";
 
 const page = pages.pricing;
@@ -71,6 +74,28 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Websites: the same three packages as the homepage and /websites. */}
+      <section className="border-b border-line">
+        <div className="container-royto py-20 md:py-28">
+          <Reveal>
+            <h2 className="text-h2 font-extrabold text-ink">Websites</h2>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <p className="mono-label mt-4 text-slate">Fixed scope, fixed price</p>
+          </Reveal>
+          <ul className="mt-10 grid gap-4 md:grid-cols-3">
+            {websitePackages.map((pkg, index) => (
+              <Reveal as="li" key={pkg.name} delay={0.1 + index * 0.06}>
+                <PackageCard pkg={pkg} />
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={0.28} className="mt-8">
+            <FixedScopeNote />
+          </Reveal>
+        </div>
+      </section>
+
       {/*
         Product pricing is a separate block, clearly labelled. Royto Social is
         a fixed package; agency work is scoped to the business.
@@ -108,6 +133,23 @@ export default function Page() {
 
       {/* The pricing-relevant subset of the homepage FAQ. */}
       <Faq items={faq.filter((item) => item.pricing)} heading="Pricing questions" />
+
+      <section className="border-t border-line">
+        <div className="container-royto py-20 md:py-28">
+          <Reveal>
+            <p className="measure-lede text-lede text-ink">
+              Want an exact number? It starts with the free audit.
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="mt-8">
+              <ButtonLink href="/contact" arrow>
+                Get a free audit
+              </ButtonLink>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

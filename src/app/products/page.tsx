@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
 import { ProductCard } from "@/components/sections/Products";
+import { ButtonLink } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { allProducts, productsSection } from "@/content/products";
 import { pages } from "@/content/pages";
@@ -57,6 +58,24 @@ export default function Page() {
           </p>
         </Reveal>
       </div>
+
+      <section className="border-t border-line">
+        <div className="container-royto py-20 md:py-28">
+          <Reveal>
+            <p className="measure-lede text-lede text-ink">
+              Not sure whether you need a product or a build? That’s what the
+              audit is for.
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="mt-8">
+              <ButtonLink href="/contact" arrow>
+                Get a free audit
+              </ButtonLink>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

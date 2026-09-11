@@ -42,7 +42,7 @@ export const websitesSection = {
   heading: "The front door the automation lives in.",
   intro:
     "Most websites are a brochure that sits there. We build yours as the place leads actually arrive — with capture, booking and follow-up wired in from the first day, so the site does something after someone lands on it.",
-  cta: { label: "See what’s included", href: "/websites" },
+  cta: { label: "See the packages", href: "/websites" },
 } as const;
 
 /** /websites */

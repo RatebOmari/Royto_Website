@@ -11,6 +11,10 @@ import { cx } from "@/lib/utils";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+/** The reply promise. Shown above the form and repeated on success. */
+const NEXT_STEP =
+  "I’ll come back to you within two working days with either a time to talk or an honest “this isn’t worth automating yet.”";
+
 const FIELDS = [
   { name: "name", label: "Your name", type: "text", autoComplete: "name" },
   {
@@ -151,16 +155,16 @@ export function ContactForm() {
             transition={{ duration: 0.4, ease: ease.outExpo, delay: 0.1 }}
           />
         </svg>
-        <p className="mt-6 measure text-body text-ink">
-          Got it. I’ll come back to you within two working days with either a
-          time to talk or an honest “this isn’t worth automating yet.”
-        </p>
+        <p className="mt-6 measure text-body text-ink">Got it. {NEXT_STEP}</p>
       </motion.div>
     );
   }
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-7">
+      {/* What happens after sending, stated before anyone has to trust the button. */}
+      <p className="measure font-mono text-mono text-slate">{NEXT_STEP}</p>
+
       {FIELDS.map((field) => (
         <Field
           key={field.name}

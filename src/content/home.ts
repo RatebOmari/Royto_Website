@@ -9,7 +9,7 @@ export const hero = {
    */
   headlineLines: ["AI that does", "the work."],
   sub: "We build the automation that takes the repetitive part of your week off your plate — quotes and paperwork, customer messages, the website that feeds them — and then we run it for you. Not a tool to learn. Work that stops being yours.",
-  primaryCta: { label: "Get a free automation audit", href: "/contact" },
+  primaryCta: { label: "Get a free audit", href: "/contact" },
   secondaryCta: { label: "See how we work", href: "/#how-we-work" },
   trust:
     "A 30-minute look at where your hours actually go, plus a written map of what’s automatable — ranked by time saved. No tools to install, no account access needed.",

@@ -59,7 +59,7 @@ Two things to know when editing:
   both together. They're authored rather than measured so the reveal is pure
   CSS and paints without waiting for JavaScript.
 - **Status tags are load-bearing.** `status` on a capability and `stage` on a
-  product drive the "Available now" / "On the roadmap" / "Ready — taking first clients" tags. They
+  product drive the "Available now" / "On the roadmap" tags. They
   are not decoration — the site must never let a planned thing read as shipping.
 
 ---

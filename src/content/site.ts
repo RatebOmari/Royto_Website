@@ -38,11 +38,13 @@ export const site = {
 
 export type NavLink = { label: string; href: string };
 
+/**
+ * Four items. "How it works" lives on the homepage and /pricing, so it needs
+ * no entry; Products is reached from the footer and the Content & social card.
+ */
 export const navLinks: NavLink[] = [
   { label: "What we automate", href: "/what-we-automate" },
   { label: "Websites", href: "/websites" },
-  { label: "How we work", href: "/#how-we-work" },
-  { label: "Products", href: "/products" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
 ];

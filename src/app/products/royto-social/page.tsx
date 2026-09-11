@@ -164,7 +164,7 @@ export default function Page() {
       <section className="border-b border-line">
         <div className="container-royto py-20 md:py-28">
           <Reveal>
-            <h2 className="text-h2 font-extrabold text-ink">Pilot pricing</h2>
+            <h2 className="text-h2 font-extrabold text-ink">Pricing</h2>
           </Reveal>
           <ul className="mt-10 grid gap-4 md:grid-cols-3">
             {socialPricing.tiers.map((tier, index) => (

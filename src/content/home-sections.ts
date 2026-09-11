@@ -130,7 +130,7 @@ export const founderSection = {
 
 export const finalCta = {
   heading: "What would you stop doing yourself?",
-  button: { label: "Get a free automation audit", href: "/contact" },
+  button: { label: "Get a free audit", href: "/contact" },
   note: "royto.tech · 30 minutes, plus a written map of what’s automatable — ranked by hours saved",
 } as const;
 

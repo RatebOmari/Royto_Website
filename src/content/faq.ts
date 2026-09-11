@@ -49,7 +49,7 @@ export const faq: FaqItem[] = [
   {
     question: "What results should I realistically expect?",
     answer:
-      "Hours back, and fewer things dropped. We’re not going to promise a revenue number before we’ve built anything in your business — that’s what the pilot is for.",
+      "Hours back, and fewer things dropped. We’re not going to promise a revenue number before we’ve built anything in your business — that’s what the first build is for.",
     pricing: true,
   },
 ];
