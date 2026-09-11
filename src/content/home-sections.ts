@@ -42,6 +42,7 @@ export const included = {
     "Monitoring and fixes for anything on a Run plan",
     "A monthly summary in real numbers",
     "Any change of scope quoted before work begins",
+    "If the first build doesn’t do what the written scope says, you don’t pay the balance",
   ],
   no: [
     "Strategy decks or workshops with no build attached",
@@ -88,6 +89,7 @@ export const safeToTry = {
     "AI drafts; you approve anything about money, commitments or complaints",
     "You own everything we build",
     "Cancel Run whenever you like — the automation keeps running",
+    "If the first build doesn’t do what the written scope says, you don’t pay the balance",
   ],
 } as const;
 

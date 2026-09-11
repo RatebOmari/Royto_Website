@@ -5,7 +5,9 @@
  * planned capability read as a shipping one. Every surface that renders a
  * capability must render its status tag too.
  *
- * The order is the order they are hired for. It is rendered as-is everywhere,
+ * The order is revenue first — leads, quotes, the site, the inbox — then
+ * reputation, then content. Owners buy revenue before they buy hours. It is
+ * rendered as-is everywhere,
  * so reordering this array reorders the homepage grid, the /what-we-automate
  * sections and its side rail together.
  */
@@ -54,12 +56,29 @@ export type Capability = {
   buy?: { label: string; href: string };
 };
 
+const LEAD_PACKAGE = {
+  label: "Ready-made package: Never miss a lead — see what’s included",
+  href: "/never-miss-a-lead",
+};
+
 const CUSTOM_BUILD = {
   label: "Custom build, scoped from your audit — see how it’s priced",
   href: "/pricing",
 };
 
 export const capabilities: Capability[] = [
+  {
+    id: "calls",
+    title: "Calls & bookings",
+    status: "now",
+    pain: "The call you missed was a customer.",
+    buy: LEAD_PACKAGE,
+    body: "Missed calls answered and returned, appointments booked and confirmed, reminders and no-show follow-up sent on their own.",
+    expanded:
+      "A missed call is usually a lost customer. Calls answered or returned automatically, the appointment booked into the calendar you already use, and reminders sent so fewer people don’t show. Built on a voice platform we configure to your business, not from scratch — which is why it can be live in days.",
+    example:
+      "A call comes in while you are with a customer and nobody picks up. The caller gets a text back offering the next two free slots, and books one without you touching it.",
+  },
   {
     id: "back-office",
     title: "Documents & back office",
@@ -97,6 +116,18 @@ export const capabilities: Capability[] = [
       "Someone asks on Instagram whether you take walk-ins, and gets an answer in under a minute. Someone else asks to change a booking they have already paid for, and that one arrives in your approvals with a reply already drafted.",
   },
   {
+    id: "reviews",
+    title: "Reviews & reputation",
+    status: "now",
+    pain: "The review you found out about last.",
+    buy: LEAD_PACKAGE,
+    body: "A review request after every job, a drafted reply to every review that comes in, and an alert the moment something negative lands.",
+    expanded:
+      "A review request that goes out after every job without you remembering, a drafted reply waiting for every review that arrives, and an immediate alert on anything negative so you’re never the last to know. Part of the Never miss a lead package.",
+    example:
+      "A job is marked complete and a review request goes out that evening without anyone remembering. When a two-star review lands the next morning, you already have an alert and a drafted reply waiting.",
+  },
+  {
     id: "content",
     title: "Content & social",
     status: "now",
@@ -110,28 +141,6 @@ export const capabilities: Capability[] = [
       "We plan the month, write the posts, schedule them, and put every comment and DM into one place. Routine questions get answered; anything about price, booking or a complaint gets drafted and held for you. This is the work packaged as Royto Social.",
     example:
       "A cafe posts three times a week without anyone remembering to. The month’s plan is agreed on the first of the month, the posts go out on schedule, and the comments asking about opening hours are answered before the owner has read them.",
-  },
-  {
-    id: "calls",
-    title: "Calls & bookings",
-    status: "roadmap",
-    pain: "The call you missed was a customer.",
-    body: "Missed calls answered and returned, appointments booked and confirmed, reminders and no-show follow-up sent on their own.",
-    expanded:
-      "A missed call is usually a lost customer. The plan: calls answered or returned automatically, the appointment booked into the calendar you already use, and reminders sent so fewer people don’t show.",
-    example:
-      "A call comes in while you are with a customer and nobody picks up. The caller gets a text back offering the next two free slots, and books one without you touching it.",
-  },
-  {
-    id: "reviews",
-    title: "Reviews & reputation",
-    status: "roadmap",
-    pain: "The review you found out about last.",
-    body: "A review request after every job, a drafted reply to every review that comes in, and an alert the moment something negative lands.",
-    expanded:
-      "The plan: a review request that goes out after every job without you remembering, a drafted reply waiting for every review that arrives, and an immediate alert on anything negative so you’re never the last to know.",
-    example:
-      "A job is marked complete and a review request goes out that evening without anyone remembering. When a two-star review lands the next morning, you already have an alert and a drafted reply waiting.",
   },
 ];
 
@@ -164,7 +173,7 @@ export const capabilitiesSection = {
     "Every business has a different version of the same problem: work that repeats, that only a few people seem able to do. These are the six places we usually find it.",
   /** Who this is for — stated once, where the offer is laid out. */
   audience:
-    "Built for North Carolina businesses of five to two hundred people — trades, clinics, professional services, retail, hospitality — anywhere the same work repeats every week.",
+    "Built for North Carolina businesses of five to two hundred people — starting with the trades: HVAC, plumbing, electrical, roofing. If the same work repeats every week, it applies to you too.",
   /**
    * TODO(placeholder): name the tools once the list is confirmed — only ones
    * that can actually be connected today. Until then the line stays generic.

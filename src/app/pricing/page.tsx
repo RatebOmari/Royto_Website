@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { AuditMapExample } from "@/components/sections/AuditMapExample";
+import { MonthlyReportExample } from "@/components/sections/MonthlyReportExample";
 import { Faq } from "@/components/sections/Faq";
 import { Included } from "@/components/sections/Included";
 import { PricingCard } from "@/components/sections/Pricing";
@@ -13,11 +14,13 @@ import { faq } from "@/content/faq";
 import { pages } from "@/content/pages";
 import {
   lanes,
+  leadPricing,
   socialPricing,
   tiers,
   typicalEngagement,
   whatChangesPrice,
 } from "@/content/pricing";
+import { leadPackage } from "@/content/lead-package";
 import { websitePackages } from "@/content/websites";
 import { cx } from "@/lib/utils";
 
@@ -74,10 +77,48 @@ export default function Page() {
           <Reveal delay={0.24}>
             <p className="mt-8 measure text-body text-ink-soft">{typicalEngagement}</p>
           </Reveal>
-          {/* What the audit hands you, as a labelled example. Plain markup — one
-              observed element, not one per row. */}
-          <div className="mt-10 max-w-[640px]">
+          {/* What the audit hands you, and what Run sends every month — both as
+              labelled examples, plain markup. */}
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
             <AuditMapExample />
+            <MonthlyReportExample />
+          </div>
+
+          {/* The flagship package sits inside the lane, ahead of Royto Social. */}
+          <div className="mt-16 border-t border-line pt-12">
+            <Reveal>
+              <p className="mono-label text-slate">{leadPricing.eyebrow}</p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h3 className="mt-4 text-h3 font-semibold text-ink">{leadPricing.heading}</h3>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-3 measure text-body text-ink-soft">{leadPricing.intro}</p>
+            </Reveal>
+            <Reveal as="ul" delay={0.12} className="mt-8 grid gap-4 md:grid-cols-3">
+              {leadPackage.pricing.tiers.map((tier) => (
+                <li key={tier.name}>
+                  <Card className="h-full items-start p-7">
+                    <p className="mono-label text-slate">{tier.name}</p>
+                    <p className="mt-4 font-display text-[24px] font-extrabold leading-none tracking-[-0.02em] text-ink">
+                      {tier.price}
+                    </p>
+                    <p className="mt-4 text-small text-ink-soft">{tier.body}</p>
+                  </Card>
+                </li>
+              ))}
+            </Reveal>
+            <Reveal delay={0.3}>
+              <p className="mt-6">
+                <Link
+                  href={leadPricing.link.href}
+                  className="inline-flex items-center gap-2 font-mono text-mono text-teal-ink"
+                >
+                  {leadPricing.link.label}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </p>
+            </Reveal>
           </div>
 
           {/* Royto Social sits inside the lane: a build already scoped, priced monthly. */}

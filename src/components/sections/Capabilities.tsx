@@ -29,7 +29,10 @@ export function Capabilities() {
         />
         <Reveal delay={0.16}>
           <p className="mt-4 measure text-body text-ink-soft">
-            {capabilitiesSection.audience}
+            {capabilitiesSection.audience}{" "}
+            <Link href="/home-services" className="whitespace-nowrap font-mono text-mono-sm uppercase tracking-[0.09em] text-teal-ink">
+              Home services <span aria-hidden="true">→</span>
+            </Link>
           </p>
         </Reveal>
 

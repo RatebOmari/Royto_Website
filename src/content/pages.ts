@@ -19,10 +19,10 @@ export type PageHeader = {
 export const pages = {
   whatWeAutomate: {
     title: "What we automate",
-    lede: "Six places the same problem shows up. Four are available today; two are on the roadmap, and we’ll tell you which is which before you spend anything.",
+    lede: "Six places the same problem shows up, and every one of them says how you buy it. The audit tells you which is costing you most.",
     metaTitle: "What we automate",
     metaDescription:
-      "Six places repetitive work hides — documents and back office, websites, messaging, content, calls, reviews. Four available today, two on the roadmap.",
+      "Six places repetitive work hides — calls, quotes and paperwork, the website, the inbox, reviews, content — and how each one is bought.",
   },
   websites: {
     eyebrow: "Websites",
@@ -45,7 +45,7 @@ export const pages = {
     lede: "Two ways to work with Royto: automation, priced at each stage, and websites on fixed packages. Priced from what delivery actually takes, not a round figure — everything below is a starting number, and you’ll get an exact one in writing before anything is built.",
     metaTitle: "Pricing",
     metaDescription:
-      "Audit free while we take founding clients, builds from $1,200, Run from $500/mo, websites from $2,500 — and what changes the price.",
+      "Audit free while we take founding clients, builds from $2,500, Run from $750/mo, websites from $2,500 — and what changes the price.",
   },
   about: {
     eyebrow: "About",

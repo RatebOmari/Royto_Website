@@ -23,8 +23,8 @@ export const tiers: Tier[] = [
   {
     number: "02",
     name: "Build",
-    price: "From $1,200",
-    amount: 1200,
+    price: "From $2,500",
+    amount: 2500,
     prefix: "From $",
     body: "One-off project fee, scoped from the audit. Built and tested on your real accounts, documented, and handed over working.",
     featured: true,
@@ -32,8 +32,8 @@ export const tiers: Tier[] = [
   {
     number: "03",
     name: "Run",
-    price: "From $500/mo",
-    amount: 500,
+    price: "From $750/mo",
+    amount: 750,
     prefix: "From $",
     suffix: "/mo",
     body: "We operate, monitor, fix and improve it, plus a monthly summary. Cancel with 30 days’ notice.",
@@ -45,7 +45,7 @@ export const tiers: Tier[] = [
  * this page. TODO(placeholder): add a build range once there is real data.
  */
 export const typicalEngagement =
-  "A typical first engagement: the free audit, then one build from $1,200, then Run from $500 a month. Most businesses start with the single automation that gives back the most hours.";
+  "A typical first engagement: the free audit, then one build from $2,500, then Run from $750 a month. Most businesses start with the single automation that gives back the most hours.";
 
 /**
  * What the audit's written map looks like. Illustrative rows — mechanics,
@@ -61,6 +61,35 @@ export const auditMapExample = {
     { task: "Rewriting the staff rota each week", hours: "1 h", outcome: "Not worth automating yet", tone: "slate" },
   ],
   note: "Illustrative. Your map is built from your own week, ranked by hours saved.",
+} as const;
+
+/**
+ * What the Run plan's monthly summary looks like — the client's own units,
+ * one page, on the first of the month. Illustrative rows, labelled as an
+ * example on the page. This is the answer to "a good automation becomes
+ * invisible": the number arrives whether or not anyone noticed the work.
+ */
+export const monthlyReportExample = {
+  label: "Example monthly numbers",
+  period: "August — illustrative",
+  rows: [
+    { metric: "Calls answered", value: "41", note: "9 after hours" },
+    { metric: "Enquiries replied to within two minutes", value: "63", note: "of 63" },
+    { metric: "Quotes drafted for approval", value: "18", note: "14 sent" },
+    { metric: "Review requests sent", value: "27", note: "6 reviews in" },
+    { metric: "Hours given back", value: "~22", note: "your estimate, not ours" },
+    { metric: "Waiting on you", value: "4", note: "drafts to approve" },
+  ],
+  note: "Illustrative. Yours reports what your automation actually did, in your units, on the first of every month.",
+} as const;
+
+/** The lead package inside lane one: configured, not built, so it is priced monthly. */
+export const leadPricing = {
+  eyebrow: "Ready-made package",
+  heading: "Never miss a lead",
+  intro:
+    "Calls answered and booked, enquiries replied to in minutes, a review after every job — configured to your business on a voice platform, so it is live in days and priced by the month rather than scoped as a build.",
+  link: { label: "See what Never miss a lead includes", href: "/never-miss-a-lead" },
 } as const;
 
 export const pricingSection = {

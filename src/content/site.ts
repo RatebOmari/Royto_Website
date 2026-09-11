@@ -67,6 +67,7 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
     heading: "Agency",
     links: [
       { label: "What we automate", href: "/what-we-automate" },
+      { label: "Home services", href: "/home-services" },
       { label: "Websites", href: "/websites" },
       { label: "How we work", href: "/#how-we-work" },
       { label: "Pricing", href: "/pricing" },
@@ -76,6 +77,7 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
   {
     heading: "Packages",
     links: [
+      { label: "Never miss a lead", href: "/never-miss-a-lead" },
       { label: "Royto Social", href: "/products/royto-social" },
       { label: "Websites", href: "/websites" },
     ],

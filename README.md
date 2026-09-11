@@ -47,10 +47,12 @@ it is written inline in a component. Edit the text, save, done.
 | `home-sections.ts` | How it works (with prices), included/not, approval, founder, final CTA, About page |
 | `capabilities.ts` | The six capability areas (plus the custom-builds line), their status tags and examples |
 | `products.ts` | The Royto Social package page |
-| `pricing.ts` | The two lanes, agency tiers, Royto Social pricing, typical engagement, example audit map |
+| `pricing.ts` | The two lanes, agency tiers, the lead package and Royto Social blocks, typical engagement, the example audit map and monthly numbers |
 | `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing; `home: false` keeps one off the homepage) |
 | `contact.ts` | Contact intents — the `?for=` values, their ledes, message prompts and email subjects |
 | `websites.ts` | The homepage Websites section, the three packages, and /websites |
+| `lead-package.ts` | Never miss a lead — the flagship package page and its pricing |
+| `home-services.ts` | The /home-services vertical page |
 | `legal.ts` | Privacy, Terms, and the /work holding page |
 
 Two things to know when editing:
