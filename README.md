@@ -43,8 +43,8 @@ it is written inline in a component. Edit the text, save, done.
 |---|---|
 | `site.ts` | Nav, footer, contact email, social links, site metadata, founder name |
 | `pages.ts` | Each page's `<title>`, meta description, H1 and lede |
-| `home.ts` | Hero and founding-client bar |
-| `home-sections.ts` | Before/after, how we work, included/not, approval, founder, final CTA, About page |
+| `home.ts` | Hero, and the founding-client line it carries |
+| `home-sections.ts` | How it works (with prices), included/not, approval, founder, final CTA, About page |
 | `capabilities.ts` | The six capability areas (plus the custom-builds line), their status tags and examples |
 | `products.ts` | Royto Social and the roadmap products |
 | `pricing.ts` | Agency tiers, what changes the price, Royto Social pricing |
@@ -137,7 +137,7 @@ src/
   single shared `IntersectionObserver`. Routing them through Motion put the
   library on the hydration critical path and pushed the hero's paint past 3.4s
   on a throttled phone. Motion is still used where it earns its place: the
-  scrub, the pinned sequence, the accordion and the form.
+  the accordion and the form.
 - **`src/styles/globals.css` is the design system.** Colour tokens are raw
   custom properties on `:root`, redefined for dark under both
   `prefers-color-scheme` and `[data-theme]`. Tailwind's `@theme` block points
@@ -164,7 +164,7 @@ Measured on the production build, not assumed.
 | Interior pages, mobile | 94–95 Perf, 100 across the other three |
 | Responsive | No horizontal overflow at 375 / 768 / 1440 / 1920, both themes, all 7 pages |
 | Keyboard | Every focusable on every page has a 2px teal ring at 3px offset; skip link first |
-| Reduced motion | Zero animations running, all reveals visible, canvas static, pinned section unpinned |
+| Reduced motion | Zero animations running, all reveals visible, canvas static |
 | Honesty | No testimonials, logos, case studies or invented metrics on any page |
 
 ### Core Web Vitals: measure them on a real browser

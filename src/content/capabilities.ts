@@ -44,6 +44,8 @@ export type Capability = {
    * Review before launch.
    */
   example: string;
+  /** Where a capability is sold as a product, the card links through. */
+  link?: { label: string; href: string };
 };
 
 export const capabilities: Capability[] = [
@@ -82,6 +84,7 @@ export const capabilities: Capability[] = [
     title: "Content & social",
     status: "now",
     body: "Posts planned, written and scheduled, with comments and DMs in one place. Packaged as Royto Social.",
+    link: { label: "See Royto Social", href: "/products/royto-social" },
     expanded:
       "We plan the month, write the posts, schedule them, and put every comment and DM into one place. Routine questions get answered; anything about price, booking or a complaint gets drafted and held for you. This is the work packaged as Royto Social.",
     example:

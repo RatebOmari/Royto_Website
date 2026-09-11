@@ -82,7 +82,7 @@ function Item({
 }
 
 export function Faq({
-  items = allFaq,
+  items = allFaq.filter((item) => item.home !== false),
   heading = faqSection.heading,
   eyebrow = faqSection.eyebrow,
 }: {

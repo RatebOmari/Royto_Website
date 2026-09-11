@@ -1,7 +1,8 @@
 import { FlowCanvas } from "@/components/hero/FlowCanvas";
 import { HeroHeadline } from "@/components/hero/HeroHeadline";
 import { ButtonLink } from "@/components/ui/Button";
-import { hero } from "@/content/home";
+import Link from "next/link";
+import { foundingBar, hero } from "@/content/home";
 
 /**
  * The homepage hero — a Server Component. Nothing here waits on hydration:
@@ -50,11 +51,19 @@ export function Hero() {
             </ButtonLink>
           </div>
 
+          {/* The founding-client offer is the trust line — stated here, once. */}
           <p
-            className="hero-in mt-8 max-w-[54ch] border-l border-line pl-4 font-mono text-mono text-slate"
+            className="hero-in mt-8 max-w-[54ch] border-l border-teal pl-4 text-small text-ink-soft"
             style={{ "--hero-delay": "1460ms" } as React.CSSProperties}
           >
-            {hero.trust}
+            <strong className="font-semibold text-ink">{foundingBar.lead}</strong>{" "}
+            {foundingBar.body}{" "}
+            <Link
+              href={foundingBar.link.href}
+              className="whitespace-nowrap font-mono text-mono-sm uppercase tracking-[0.09em] text-teal-ink"
+            >
+              {foundingBar.link.label} <span aria-hidden="true">→</span>
+            </Link>
           </p>
         </div>
 

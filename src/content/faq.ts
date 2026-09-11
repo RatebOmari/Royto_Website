@@ -5,6 +5,8 @@ export type FaqItem = {
   answer: string;
   /** Reused on /pricing, which shows only the pricing-relevant subset. */
   pricing?: boolean;
+  /** False for items that only restate a homepage section; they show on /pricing instead. */
+  home?: false;
 };
 
 export const faqSection = {
@@ -18,6 +20,7 @@ export const faq: FaqItem[] = [
     answer:
       "A 30-minute conversation about where your week goes, then a written map of what could be automated, ranked by hours saved. You keep it either way — there’s no obligation to build anything with us.",
     pricing: true,
+    home: false,
   },
   {
     question: "Do I have to change the tools I already use?",
@@ -29,6 +32,8 @@ export const faq: FaqItem[] = [
     question: "What happens when the AI gets something wrong?",
     answer:
       "Anything involving money, a commitment, or a complaint is drafted but held for you. Only routine, reversible things run unattended — and every build states in writing which is which before it goes live.",
+    pricing: true,
+    home: false,
   },
   {
     question: "How long does a build take?",

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
 import { CapabilityDiagram } from "@/components/diagrams";
 import { Card } from "@/components/ui/Card";
@@ -40,6 +41,15 @@ export function Capabilities() {
                     </Tag>
                   </div>
                   <p className="mt-4 text-small text-ink-soft">{capability.body}</p>
+                  {capability.link ? (
+                    <Link
+                      href={capability.link.href}
+                      className="mt-4 inline-flex items-center gap-2 font-mono text-mono-sm uppercase tracking-[0.09em] text-teal-ink"
+                    >
+                      {capability.link.label}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  ) : null}
                   <div className="mt-6 rounded-control border border-line bg-paper p-3">
                     {/* Simulated activity must always say so, visibly. */}
                     <p className="mono-label mb-2 text-slate">Example workflow</p>

@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
+import { ButtonLink } from "@/components/ui/Button";
 import { FounderPortrait } from "@/components/ui/FounderPortrait";
 import { founderSection } from "@/content/home-sections";
 import { founder } from "@/content/site";
@@ -29,6 +30,13 @@ export function Founder() {
             <p className="mt-8 border-l border-teal pl-4 font-mono text-mono text-slate">
               {founder.signature}
             </p>
+          </Reveal>
+          <Reveal delay={0.24}>
+            <div className="mt-8">
+              <ButtonLink href={founderSection.link.href} variant="ghost" arrow>
+                {founderSection.link.label}
+              </ButtonLink>
+            </div>
           </Reveal>
         </div>
       </div>

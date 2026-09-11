@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
 import { Faq } from "@/components/sections/Faq";
+import { Included } from "@/components/sections/Included";
 import { PricingCard } from "@/components/sections/Pricing";
 import { FixedScopeNote, PackageCard } from "@/components/sections/Websites";
 import { ButtonLink } from "@/components/ui/Button";
@@ -50,6 +51,9 @@ export default function Page() {
           </ul>
         </div>
       </section>
+
+      {/* What an engagement includes and excludes — a scope statement, so it sits with the prices. */}
+      <Included />
 
       <section className="border-b border-line">
         <div className="container-royto py-20 md:py-28">
