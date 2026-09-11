@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
 import { Faq } from "@/components/sections/Faq";
 import { Included } from "@/components/sections/Included";
+import { AuditMapExample } from "@/components/sections/AuditMapExample";
 import { PricingCard } from "@/components/sections/Pricing";
 import { FixedScopeNote, PackageCard } from "@/components/sections/Websites";
 import { ButtonLink } from "@/components/ui/Button";
@@ -9,7 +10,12 @@ import { Card } from "@/components/ui/Card";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { faq } from "@/content/faq";
 import { pages } from "@/content/pages";
-import { socialPricing, tiers, whatChangesPrice } from "@/content/pricing";
+import {
+  socialPricing,
+  tiers,
+  typicalEngagement,
+  whatChangesPrice,
+} from "@/content/pricing";
 import { websitePackages } from "@/content/websites";
 import { cx } from "@/lib/utils";
 
@@ -49,6 +55,13 @@ export default function Page() {
               </Reveal>
             ))}
           </ul>
+          <Reveal delay={0.24}>
+            <p className="mt-8 measure text-body text-ink-soft">{typicalEngagement}</p>
+          </Reveal>
+          {/* What the audit hands you, as a labelled example. */}
+          <Reveal delay={0.3} className="mt-10 max-w-[640px]">
+            <AuditMapExample />
+          </Reveal>
         </div>
       </section>
 

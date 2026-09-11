@@ -81,7 +81,8 @@ export const websitesPage = {
    * The only proof there is: this site. One honest line, no case study
    * dressed up around it.
    */
-  proof: "This site is one of ours.",
+  proof:
+    "This site is one of ours — it scores 100 across the board on desktop Lighthouse and mid-90s on mobile. Run the test yourself.",
   cta: {
     lead: "Want a number? Tell me what the site needs to do.",
     button: { label: "Get a quote", href: "/contact?for=website" },

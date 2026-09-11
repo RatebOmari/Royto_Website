@@ -22,7 +22,16 @@ export function Capabilities() {
   return (
     <section id="what-we-automate" className="section-y border-b border-line">
       <div className="container-royto">
-        <SectionHeading {...capabilitiesSection} />
+        <SectionHeading
+          eyebrow={capabilitiesSection.eyebrow}
+          heading={capabilitiesSection.heading}
+          intro={capabilitiesSection.intro}
+        />
+        <Reveal delay={0.16}>
+          <p className="mt-4 measure text-body text-ink-soft">
+            {capabilitiesSection.audience}
+          </p>
+        </Reveal>
 
         <Reveal
           as="ul"
@@ -65,6 +74,11 @@ export function Capabilities() {
           <p className="mt-10 measure text-body text-ink-soft">
             <strong className="font-semibold text-ink">{customBuild.note.lead}</strong>{" "}
             {customBuild.note.body}
+          </p>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <p className="mt-6 max-w-[62ch] font-mono text-mono text-slate">
+            {capabilitiesSection.tools}
           </p>
         </Reveal>
       </div>

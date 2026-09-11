@@ -137,4 +137,13 @@ export const capabilitiesSection = {
   heading: "Whatever’s eating the week.",
   intro:
     "Every business has a different version of the same problem: work that repeats, that only a few people seem able to do. These are the six places we usually find it.",
+  /** Who this is for — stated once, where the offer is laid out. */
+  audience:
+    "Built for North Carolina businesses of five to two hundred people — trades, clinics, professional services, retail, hospitality — anywhere the same work repeats every week.",
+  /**
+   * TODO(placeholder): name the tools once the list is confirmed — only ones
+   * that can actually be connected today. Until then the line stays generic.
+   */
+  tools:
+    "Works with the tools you already have — accounting, CRM, calendar, messaging, email — and most things with an API or an inbox.",
 } as const;

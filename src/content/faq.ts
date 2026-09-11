@@ -29,6 +29,12 @@ export const faq: FaqItem[] = [
     pricing: true,
   },
   {
+    question: "Do you need access to my accounts?",
+    answer:
+      "Not for the audit — that’s a conversation and a document. A build does need access to the tools it connects, granted by you, at the lowest level that works, and revoked whenever you like. Your data stays in your own accounts; we don’t copy it out, and we never use what you share to train anything.",
+    pricing: true,
+  },
+  {
     question: "What happens when the AI gets something wrong?",
     answer:
       "Anything involving money, a commitment, or a complaint is drafted but held for you. Only routine, reversible things run unattended — and every build states in writing which is which before it goes live.",
@@ -40,6 +46,13 @@ export const faq: FaqItem[] = [
     answer:
       "Most first builds run one to three weeks from agreed scope to live, depending on how many tools have to be connected. You’ll get a date with the scope, not after it.",
     pricing: true,
+  },
+  {
+    question: "Do I have to take the Run plan?",
+    answer:
+      "No. After Build you get the automation working, documented in plain language, and the access to it. Plenty of businesses run it themselves. Run is for when you’d rather someone else watched it — and you can start it later.",
+    pricing: true,
+    home: false,
   },
   {
     question: "Do you only work with North Carolina businesses?",

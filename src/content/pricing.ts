@@ -40,6 +40,29 @@ export const tiers: Tier[] = [
   },
 ];
 
+/**
+ * A typical first engagement, in one sentence, using only numbers already on
+ * this page. TODO(placeholder): add a build range once there is real data.
+ */
+export const typicalEngagement =
+  "A typical first engagement: the free audit, then one build from $1,200, then Run from $500 a month. Most businesses start with the single automation that gives back the most hours.";
+
+/**
+ * What the audit's written map looks like. Illustrative rows — mechanics,
+ * not a client's figures — and labelled as an example on the page.
+ */
+export const auditMapExample = {
+  label: "Example audit map",
+  rows: [
+    { task: "Quotes from email enquiries", hours: "4 h", outcome: "Draft held for approval", tone: "gold" },
+    { task: "Copying leads into the spreadsheet", hours: "2 h", outcome: "Runs on its own", tone: "teal" },
+    { task: "Chasing overdue invoices", hours: "1 h", outcome: "Message held for approval", tone: "gold" },
+    { task: "Monthly figures into the accountant’s template", hours: "3 h", outcome: "Runs on its own", tone: "teal" },
+    { task: "Rewriting the staff rota each week", hours: "1 h", outcome: "Not worth automating yet", tone: "slate" },
+  ],
+  note: "Illustrative. Your map is built from your own week, ranked by hours saved.",
+} as const;
+
 export const pricingSection = {
   eyebrow: "Pricing",
   heading: "Real numbers, not “call us.”",
