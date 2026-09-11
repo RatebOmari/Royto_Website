@@ -22,7 +22,7 @@ export function Tag({
       className={cx(
         "mono-label inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-control px-2 py-1",
         tone === "teal" && "bg-teal-soft text-teal-ink",
-        tone === "gold" && "bg-gold-soft text-gold",
+        tone === "gold" && "bg-gold-soft text-gold-ink",
         tone === "slate" && "border border-line text-slate",
         className,
       )}

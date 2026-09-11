@@ -1,21 +1,16 @@
-"use client";
-
-import { motion } from "motion/react";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, RevealItem } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { included } from "@/content/home-sections";
-import { duration, ease, stagger, viewportOnce } from "@/lib/motion";
-import { useReducedMotion } from "@/lib/useReducedMotion";
+import { stagger } from "@/lib/motion";
 
 /**
- * The ✓ and ✕ marks draw in as SVG paths rather than fading — motion.md §6.
- * 250ms, staggered 60ms down each column.
+ * Included / not included. A Server Component driven by the shared CSS
+ * reveal: one observer on each column, rows staggered by index. It used to
+ * hydrate a Motion tree that drew every ✓ and ✕ as a path — the one
+ * section on /pricing still paying for JavaScript animation — and the
+ * marks read no differently drawn or not.
  */
 function Mark({ kind }: { kind: "yes" | "no" }) {
-  const reduced = useReducedMotion();
-  const d = kind === "yes" ? "M2,7 l4,4 l8,-9" : "M3,3 l10,10 M13,3 l-10,10";
-  const length = kind === "yes" ? 20 : 30;
-
   return (
     <svg
       viewBox="0 0 16 16"
@@ -27,22 +22,7 @@ function Mark({ kind }: { kind: "yes" | "no" }) {
       strokeLinejoin="round"
       stroke={kind === "yes" ? "var(--teal)" : "var(--slate)"}
     >
-      {reduced ? (
-        <path d={d} />
-      ) : (
-        <motion.path
-          d={d}
-          strokeDasharray={length}
-          initial={{ strokeDashoffset: length }}
-          variants={{
-            hidden: { strokeDashoffset: length },
-            visible: {
-              strokeDashoffset: 0,
-              transition: { duration: 0.25, ease: ease.outQuad },
-            },
-          }}
-        />
-      )}
+      <path d={kind === "yes" ? "M2,7 l4,4 l8,-9" : "M3,3 l10,10 M13,3 l-10,10"} />
     </svg>
   );
 }
@@ -56,42 +36,22 @@ function Column({
   items: readonly string[];
   kind: "yes" | "no";
 }) {
-  const reduced = useReducedMotion();
   return (
     <div>
       <h3 className="mono-label text-slate">{heading}</h3>
-      <motion.ul
-        className="mt-6 space-y-4"
-        initial={reduced ? undefined : "hidden"}
-        whileInView={reduced ? undefined : "visible"}
-        viewport={viewportOnce}
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: stagger.line } },
-        }}
-      >
-        {items.map((item) => (
-          <motion.li
+      <Reveal as="ul" stagger={stagger.line} className="mt-6 space-y-4">
+        {items.map((item, index) => (
+          <RevealItem
+            as="li"
             key={item}
+            index={index}
             className="flex gap-3 text-small text-ink-soft"
-            variants={
-              reduced
-                ? undefined
-                : {
-                    hidden: { opacity: 0, y: 8 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: duration.base, ease: ease.outExpo },
-                    },
-                  }
-            }
           >
             <Mark kind={kind} />
             <span className={kind === "no" ? "text-slate" : undefined}>{item}</span>
-          </motion.li>
+          </RevealItem>
         ))}
-      </motion.ul>
+      </Reveal>
     </div>
   );
 }
@@ -105,10 +65,10 @@ export function Included() {
           heading={included.heading}
           intro={included.intro}
         />
-        <Reveal delay={0.18} className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
+        <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
           <Column heading="Included" items={included.yes} kind="yes" />
           <Column heading="Not included" items={included.no} kind="no" />
-        </Reveal>
+        </div>
       </div>
     </section>
   );

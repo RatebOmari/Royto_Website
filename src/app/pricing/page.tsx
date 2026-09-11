@@ -74,10 +74,11 @@ export default function Page() {
           <Reveal delay={0.24}>
             <p className="mt-8 measure text-body text-ink-soft">{typicalEngagement}</p>
           </Reveal>
-          {/* What the audit hands you, as a labelled example. */}
-          <Reveal delay={0.3} className="mt-10 max-w-[640px]">
+          {/* What the audit hands you, as a labelled example. Plain markup — one
+              observed element, not one per row. */}
+          <div className="mt-10 max-w-[640px]">
             <AuditMapExample />
-          </Reveal>
+          </div>
 
           {/* Royto Social sits inside the lane: a build already scoped, priced monthly. */}
           <div className="mt-16 border-t border-line pt-12">
@@ -90,9 +91,9 @@ export default function Page() {
             <Reveal delay={0.1}>
               <p className="mt-3 measure text-body text-ink-soft">{socialPricing.intro}</p>
             </Reveal>
-            <ul className="mt-8 grid gap-4 md:grid-cols-3">
-              {socialPricing.tiers.map((tier, index) => (
-                <Reveal as="li" key={tier.name} delay={0.12 + index * 0.06}>
+            <Reveal as="ul" delay={0.12} className="mt-8 grid gap-4 md:grid-cols-3">
+              {socialPricing.tiers.map((tier) => (
+                <li key={tier.name}>
                   <Card className="h-full items-start p-7">
                     <p className="mono-label text-slate">{tier.name}</p>
                     <p className="mt-4 font-display text-[24px] font-extrabold leading-none tracking-[-0.02em] text-ink">
@@ -100,9 +101,9 @@ export default function Page() {
                     </p>
                     <p className="mt-4 text-small text-ink-soft">{tier.body}</p>
                   </Card>
-                </Reveal>
+                </li>
               ))}
-            </ul>
+            </Reveal>
             <Reveal delay={0.3}>
               <p className="mt-6">
                 <Link
