@@ -10,6 +10,7 @@ import { HowWeWork } from "@/components/sections/HowWeWork";
 import { Included } from "@/components/sections/Included";
 import { Pricing } from "@/components/sections/Pricing";
 import { Products } from "@/components/sections/Products";
+import { Websites } from "@/components/sections/Websites";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Capabilities />
       <BeforeAfter />
       <HowWeWork />
+      <Websites />
       <Included />
       <ApprovalSafety />
       <Founder />

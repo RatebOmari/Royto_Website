@@ -8,6 +8,7 @@ import { SITE_URL } from "@/content/site";
 const routes = [
   { path: "", priority: 1 },
   { path: "/what-we-automate", priority: 0.9 },
+  { path: "/websites", priority: 0.9 },
   { path: "/products", priority: 0.8 },
   { path: "/products/royto-social", priority: 0.8 },
   { path: "/pricing", priority: 0.9 },

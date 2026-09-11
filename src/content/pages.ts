@@ -22,7 +22,15 @@ export const pages = {
     lede: "Six places the same problem shows up. Four we deliver today; two are on the roadmap, and we’ll tell you which is which before you spend anything.",
     metaTitle: "What we automate",
     metaDescription:
-      "The six places repetitive work usually hides in a small business — content and social, messaging, calls and bookings, reviews, back office, and custom builds. We say plainly which we deliver today and which are on the roadmap.",
+      "The six places repetitive work usually hides in a business — documents and back office, websites and lead capture, messaging, content and social, calls and bookings, and reviews. We say plainly which are available today and which are on the roadmap.",
+  },
+  websites: {
+    eyebrow: "Websites",
+    title: "The front door the automation lives in.",
+    lede: "Most small business websites are a brochure that sits there. We build yours as the place leads actually arrive — fast, current, and wired to do something once someone lands on it.",
+    metaTitle: "Websites",
+    metaDescription:
+      "Fixed-scope websites for North Carolina businesses, built with lead capture and follow-up wired in. From $2,500.",
   },
   products: {
     title: "Products",

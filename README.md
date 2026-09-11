@@ -49,6 +49,7 @@ it is written inline in a component. Edit the text, save, done.
 | `products.ts` | Royto Social and the roadmap products |
 | `pricing.ts` | Agency tiers, what changes the price, Royto Social pricing |
 | `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing) |
+| `websites.ts` | The homepage Websites section, the three packages, and /websites |
 
 Two things to know when editing:
 

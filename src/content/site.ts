@@ -40,6 +40,7 @@ export type NavLink = { label: string; href: string };
 
 export const navLinks: NavLink[] = [
   { label: "What we automate", href: "/what-we-automate" },
+  { label: "Websites", href: "/websites" },
   { label: "How we work", href: "/#how-we-work" },
   { label: "Products", href: "/products" },
   { label: "Pricing", href: "/pricing" },
@@ -64,6 +65,7 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
     heading: "Agency",
     links: [
       { label: "What we automate", href: "/what-we-automate" },
+      { label: "Websites", href: "/websites" },
       { label: "How we work", href: "/#how-we-work" },
       { label: "Pricing", href: "/pricing" },
       { label: "About", href: "/about" },
