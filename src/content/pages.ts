@@ -22,7 +22,7 @@ export const pages = {
     lede: "Six places the same problem shows up. Four are available today; two are on the roadmap, and we’ll tell you which is which before you spend anything.",
     metaTitle: "What we automate",
     metaDescription:
-      "The six places repetitive work usually hides in a business — documents and back office, websites and lead capture, messaging, content and social, calls and bookings, and reviews. We say plainly which are available today and which are on the roadmap.",
+      "Six places repetitive work hides — documents and back office, websites, messaging, content, calls, reviews. Four available today, two on the roadmap.",
   },
   websites: {
     eyebrow: "Websites",
@@ -37,7 +37,7 @@ export const pages = {
     lede: "A product is agency work that has repeated often enough to earn a fixed scope and a fixed price. Royto Social is the first. Everything after it is a roadmap, not an offer.",
     metaTitle: "Products",
     metaDescription:
-      "Royto Social is the first Royto product, ready and taking its first clients. Royto Voice, Reviews, Chat and Flows are on the roadmap — not available to buy yet.",
+      "Royto Social is the first Royto product, open for its first clients. Voice, Reviews, Chat and Flows are on the roadmap — not for sale yet.",
   },
   roytoSocial: {
     eyebrow: "Royto Social — a Royto product",
@@ -45,21 +45,21 @@ export const pages = {
     lede: "Royto Social plans, writes, schedules and helps answer your social media — while you approve anything that needs your judgment. For any business that runs its own accounts and would rather not.",
     metaTitle: "Royto Social",
     metaDescription:
-      "Royto Social plans, writes, schedules and helps answer your social media, while you approve anything that needs your judgment. Ready and taking its first clients now.",
+      "Royto Social plans, writes, schedules and helps answer your social media; you approve anything that needs your judgment. Taking its first clients now.",
   },
   pricing: {
     title: "Pricing",
     lede: "Priced from what delivery actually takes, not a round figure. Everything below is a starting number — you’ll get an exact one in writing before anything is built.",
     metaTitle: "Pricing",
     metaDescription:
-      "Audit, Build and Run priced with real numbers: a free audit while we take founding clients, builds from $1,200, and running it from $500/mo. Websites from $2,500. Plus what actually changes the price.",
+      "Audit free while we take founding clients, builds from $1,200, Run from $500/mo, websites from $2,500 — and what changes the price.",
   },
   about: {
     eyebrow: "About",
     title: "An engineer who got tired of watching people do work a system could do.",
     metaTitle: "About",
     metaDescription:
-      "Royto is built by Rateb Al-Omari, an engineer in Raleigh who spent years building automation inside a technical firm before turning the same instinct toward other North Carolina businesses.",
+      "Royto is built by Rateb Al-Omari, a Raleigh engineer who automated repetitive work for years before turning to North Carolina businesses.",
   },
   contact: {
     title: "What would you stop doing yourself?",

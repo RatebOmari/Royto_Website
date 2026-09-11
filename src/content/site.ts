@@ -28,7 +28,7 @@ export const site = {
   wordmark: "royto",
   title: "Royto — AI agency for North Carolina businesses",
   description:
-    "Royto builds the AI automation that takes repetitive work off your plate — quotes and paperwork, customer messages, the website that feeds them — and then runs it for you. Free automation audit, Raleigh NC.",
+    "AI automation that takes repetitive work off your plate — quotes, paperwork, customer messages — built and then run for you. Free audit. Raleigh, NC.",
   tagline:
     "Royto — an AI agency for small and mid-sized businesses. Raleigh, North Carolina. We build the automation, and then we run it.",
   legal: "© 2026 Royto. All rights reserved.",

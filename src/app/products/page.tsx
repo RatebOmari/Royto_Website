@@ -29,10 +29,10 @@ export default function Page() {
         <Reveal>
           <p className="measure text-body text-ink-soft">
             We don’t design products in advance. We do the work by hand for real
-            businesses, notice what we’ve now built four times, and only then
-            freeze it into something with a name and a price. It’s slower, and
-            it means nothing on this page is speculative by the time you can buy
-            it.
+            businesses first, and once the same build has repeated enough times,
+            we freeze it into something with a name and a fixed price. It’s slower,
+            and it means nothing here gets called proven until it has run for real
+            clients.
           </p>
         </Reveal>
 

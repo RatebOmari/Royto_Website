@@ -56,14 +56,14 @@ export const homeProducts: Product[] = [
     name: "voice & reviews",
     fullName: "Royto Voice & Reviews",
     stage: "next",
-    body: "Missed calls answered and booked. Review requests sent after every job, replies drafted for every review that arrives.",
+    body: "The plan: missed calls answered and booked. Review requests sent after every job, replies drafted for every review that arrives.",
   },
   {
     id: "chat-flows",
     name: "chat & flows",
     fullName: "Royto Chat & Flows",
     stage: "later",
-    body: "A site widget that qualifies and books around the clock, and back-office automation packaged: invoicing, syncing, reporting.",
+    body: "The plan: a site widget that qualifies and books around the clock, and back-office automation packaged: invoicing, syncing, reporting.",
   },
 ];
 
@@ -75,40 +75,40 @@ export const allProducts: Product[] = [
     name: "voice",
     fullName: "Royto Voice",
     stage: "next",
-    body: "Missed calls answered and booked, appointments confirmed, and reminders sent so fewer people don’t show.",
+    body: "The plan: missed calls answered and booked, appointments confirmed, and reminders sent so fewer people don’t show.",
   },
   {
     id: "reviews",
     name: "reviews",
     fullName: "Royto Reviews",
     stage: "next",
-    body: "Review requests sent after every job, replies drafted for every review that arrives, and an alert the moment something negative lands.",
+    body: "The plan: review requests sent after every job, replies drafted for every review that arrives, and an alert the moment something negative lands.",
   },
   {
     id: "chat",
     name: "chat",
     fullName: "Royto Chat",
     stage: "later",
-    body: "A site widget that qualifies and books around the clock, so an enquiry at 11pm is still an enquiry in the morning.",
+    body: "The plan: a site widget that qualifies and books around the clock, so an enquiry at 11pm is still an enquiry in the morning.",
   },
   {
     id: "flows",
     name: "flows",
     fullName: "Royto Flows",
     stage: "later",
-    body: "Back-office automation packaged: invoicing, syncing between the tools you already pay for, and recurring reporting.",
+    body: "The plan: back-office automation packaged: invoicing, syncing between the tools you already pay for, and recurring reporting.",
   },
 ];
 
 /** Shown on every roadmap card, so a planned product never reads as shipping. */
 export const ROADMAP_NOTE =
-  "Not available yet. On the roadmap, and it stays there until it’s been delivered for real clients.";
+  "Not available as a product yet. Most of this we already build as agency work — see What we automate. The product is the packaged, fixed-price version, and it stays on the roadmap until it has run for real clients.";
 
 export const productsSection = {
   eyebrow: "Products",
   heading: "Work that repeats becomes a product.",
   intro:
-    "When we’ve built the same automation enough times, we freeze it into a package with a fixed scope and price. Royto Social is the first. Nothing here gets promoted before it’s been delivered for real clients.",
+    "When we’ve built the same automation enough times, we freeze it into a package with a fixed scope and price. Royto Social is the first, and it’s open for its first clients now. Nothing here gets called proven before it has run for real clients.",
   noteLead: "Everything above starts as agency work.",
   noteBody:
     "Until a product has run for real clients, it’s on this page as a roadmap — not as something you can buy today.",

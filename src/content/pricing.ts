@@ -64,7 +64,7 @@ export const socialPricing = {
     {
       name: "Pilot",
       price: "$500–750",
-      body: "Flat, 30 days, limited scope in exchange for feedback and case-study permission.",
+      body: "Flat, 30 days, limited scope in exchange for feedback and case-study permission. This is the founding-client offer for Royto Social.",
     },
     {
       name: "Core",
@@ -77,5 +77,5 @@ export const socialPricing = {
       body: "For multi-location, higher volume, original content or deeper integrations.",
     },
   ],
-  note: "Product pricing is separate from an agency engagement. Royto Social is a fixed package; agency work is scoped to your business.",
+  note: "Product pricing is separate from an agency engagement. Royto Social is a fixed package that includes the work itself — twelve posts a month, written and scheduled, and the inbox drafted — which is why it sits above a Run plan, where we operate something already built. Agency work is scoped to your business.",
 } as const;

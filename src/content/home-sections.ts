@@ -14,7 +14,7 @@ export const howWeWork = {
     {
       number: "01",
       title: "Audit",
-      body: "A 30-minute conversation about where your week goes, then a written map of what’s automatable — ranked by hours saved. Yours to keep, whether or not you build anything.",
+      body: "A 30-minute conversation about where your week goes, then a written map of what’s automatable — ranked by hours saved. No tools to install, no account access needed, and yours to keep whether or not you build anything.",
     },
     {
       number: "02",
@@ -24,7 +24,7 @@ export const howWeWork = {
     {
       number: "03",
       title: "Run",
-      body: "We operate it, watch it, fix it when something changes, and improve it — and send you a monthly summary in plain numbers. Cancel with 30 days’ notice.",
+      body: "We operate it, watch it, fix it when something changes, and improve it — and send you a monthly summary in plain numbers. Cancel with 30 days’ notice: the automation stays yours and keeps running; you just stop getting the monitoring and fixes.",
     },
   ],
 } as const;
@@ -35,9 +35,9 @@ export const included = {
   intro:
     "“AI for your business” is too broad to trust. Here’s precisely what’s in a Royto engagement — and what isn’t.",
   yes: [
-    "A named person on your account",
+    "The founder on your account — no account manager in between",
     "A written scope agreed before any build starts",
-    "The automation built and tested on your real accounts, not a demo",
+    "The automation built and tested on your real accounts, not a demo — and it’s yours: the accounts, the workflows, the documentation. If you leave, it keeps running",
     "Plain-language documentation of what it does",
     "Monitoring and fixes for anything on a Run plan",
     "A monthly summary in real numbers",
@@ -83,7 +83,7 @@ export const finalCta = {
 
 export const aboutPage = {
   bodies: [
-    "I spent years automating repetitive technical work as an engineer — scripts and systems that gave a team back hours a week. Somewhere in that, I kept noticing the same thing outside of work: small businesses doing by hand, every week, exactly the kind of work I’d spent my career teaching systems to do.",
+    "I spent years automating repetitive technical work as an engineer — scripts and systems that gave a team back hours a week. Somewhere in that, I kept noticing the same thing outside of work: businesses of every size doing by hand, every week, exactly the kind of work I’d spent my career teaching systems to do.",
     "Not because they don’t know better. Because nobody builds it for them. Software hands them another app to operate. An agency does the work, but costs what an agency costs. Neither one actually solves it.",
     "So Royto does the fourth thing: we look at where your week actually goes, build the automation for the parts that repeat, and then run it — with anything involving money, a commitment, or a complaint still waiting on a person.",
     "Royto is early. There’s no client wall on this site because there aren’t clients to put on it yet — I’d rather show you that than a page of stock logos. Right now I’m running a handful of free audits and taking the first founding clients.",

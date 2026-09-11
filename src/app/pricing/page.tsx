@@ -136,7 +136,7 @@ export default function Page() {
       </section>
 
       {/* The pricing-relevant subset of the homepage FAQ. */}
-      <Faq items={faq.filter((item) => item.pricing)} heading="Pricing questions" />
+      <Faq items={faq.filter((item) => item.pricing)} heading="Questions" />
 
       <section className="border-t border-line">
         <div className="container-royto py-20 md:py-28">

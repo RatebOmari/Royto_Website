@@ -44,7 +44,7 @@ export const faq: FaqItem[] = [
   {
     question: "Do you only work with North Carolina businesses?",
     answer:
-      "For now, mostly yes — and deliberately. Being able to sit in your office beats a video call, and the early work is better for it. If you’re elsewhere and the fit is obviously right, ask anyway.",
+      "For now, mostly yes — and deliberately. We’re in Raleigh: the Triangle (Raleigh, Durham, Chapel Hill) first, the rest of North Carolina next. Being able to sit in your office beats a video call, and the early work is better for it. If you’re elsewhere and the fit is obviously right, ask anyway.",
   },
   {
     question: "We’re bigger than a small business. Is that a problem?",
