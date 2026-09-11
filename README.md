@@ -142,11 +142,15 @@ src/
   single shared `IntersectionObserver`. Routing them through Motion put the
   library on the hydration critical path and pushed the hero's paint past 3.4s
   on a throttled phone. Motion is still used where it earns its place: the
-  the accordion and the form.
+  accordion and the form. (Included / not included was the last section
+  drawing its marks through Motion; it is CSS now.)
 - **`src/styles/globals.css` is the design system.** Colour tokens are raw
   custom properties on `:root`, redefined for dark under both
   `prefers-color-scheme` and `[data-theme]`. Tailwind's `@theme` block points
-  at them. Don't add colours, radii or shadows that aren't in `brand.md`.
+  at them. Don't add colours, radii or shadows that aren't in `brand.md`. The
+  one addition is `--gold-ink`, the gold equivalent of `--teal-ink`: gold text
+  on the gold-soft tag ground was 3.3:1, below AA, and only went unnoticed
+  because those tags were inside reveal wrappers Lighthouse couldn't see.
 - **The Flow Canvas markup is the finished graph.** It renders fully drawn with
   the sensitive branch resolved to gold, and JavaScript rewinds it only when
   the animation can actually run. So reduced-motion visitors, no-JS visitors
@@ -164,9 +168,9 @@ Measured on the production build, not assumed.
 | Check | Result |
 |---|---|
 | `npm run build` | Clean — no TS errors, no ESLint warnings |
-| Lighthouse `/` mobile | Perf 96 · A11y 100 · Best Practices 100 · SEO 100 (11 Sep 2026, after the site review passes) |
+| Lighthouse `/` mobile | Perf 95–96 · A11y 100 · Best Practices 100 · SEO 100 (11 Sep 2026, after the review passes and the two-lanes restructure) |
 | Lighthouse `/` desktop | Perf 100 · A11y 100 · Best Practices 100 · SEO 100 |
-| Interior pages, mobile | 93–95 Perf, 100 across the other three. `/contact` is server-rendered on demand (it reads `?for=`) and sits at 94 |
+| Interior pages, mobile | 91–94 Perf, 100 across the other three. `/pricing` sits at 93 after the restructure added the Royto Social block and the example audit map; converting its Included section from Motion to the CSS reveal did not move the score — the LCP is the framework floor described below, not app animation. `/contact` is server-rendered on demand (it reads `?for=`) |
 | Responsive | No horizontal overflow at 375 / 768 / 1440 / 1920, both themes, all 7 pages |
 | Keyboard | Every focusable on every page has a 2px teal ring at 3px offset; skip link first |
 | Reduced motion | Zero animations running, all reveals visible, canvas static |
