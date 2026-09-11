@@ -44,8 +44,19 @@ export type Capability = {
    * Review before launch.
    */
   example: string;
-  /** Where a capability is sold as a product, the card links through. */
-  link?: { label: string; href: string };
+  /** One problem-led line an owner recognises before the category name. */
+  pain: string;
+  /**
+   * How you buy it. Every area is one of three: a custom build scoped from
+   * the audit, a ready-made package, or a fixed website package. Roadmap
+   * areas have none — the tag does that job.
+   */
+  buy?: { label: string; href: string };
+};
+
+const CUSTOM_BUILD = {
+  label: "Custom build, scoped from your audit — see how it’s priced",
+  href: "/pricing",
 };
 
 export const capabilities: Capability[] = [
@@ -53,6 +64,8 @@ export const capabilities: Capability[] = [
     id: "back-office",
     title: "Documents & back office",
     status: "now",
+    pain: "The quote that takes an afternoon.",
+    buy: CUSTOM_BUILD,
     body: "Quotes, estimates and proposals drafted in minutes instead of days. Reports assembled, and data kept in sync between the tools you already pay for.",
     expanded:
       "The quote that takes an afternoon, the proposal assembled from four old ones, the report rebuilt every month, the same figures re-keyed into three systems. This is where skilled people lose the most hours, and where a system pays for itself fastest. We start with whatever produces revenue — usually quoting and estimating, because the business that quotes first tends to win the job.",
@@ -63,6 +76,8 @@ export const capabilities: Capability[] = [
     id: "websites",
     title: "Websites & lead capture",
     status: "now",
+    pain: "A site that just sits there.",
+    buy: { label: "Fixed packages — see the packages", href: "/websites" },
     body: "A fast, modern site on a fixed scope and price — with lead capture, booking and follow-up wired in from day one, not bolted on afterwards.",
     expanded:
       "A site that looks current and loads fast, built on a fixed scope and price. The difference is what happens after someone arrives: enquiries captured properly, routed to the right person, and followed up automatically instead of sitting in an inbox until Thursday.",
@@ -73,6 +88,8 @@ export const capabilities: Capability[] = [
     id: "messaging",
     title: "Messaging & inbox",
     status: "now",
+    pain: "DMs answered whenever there’s a gap.",
+    buy: CUSTOM_BUILD,
     body: "Customer messages across WhatsApp, Instagram and Facebook — answered when they’re routine, routed to you when they’re not.",
     expanded:
       "Customers message on whichever channel they happen to be in. We pull WhatsApp, Instagram and Facebook into one lane, answer what’s routine, capture the details into your records, and route the rest to you with a draft already written.",
@@ -83,8 +100,12 @@ export const capabilities: Capability[] = [
     id: "content",
     title: "Content & social",
     status: "now",
+    pain: "Posts that never quite go out.",
+    buy: {
+      label: "Ready-made package: Royto Social — see what’s included",
+      href: "/products/royto-social",
+    },
     body: "Posts planned, written and scheduled, with comments and DMs in one place. Packaged as Royto Social.",
-    link: { label: "See Royto Social", href: "/products/royto-social" },
     expanded:
       "We plan the month, write the posts, schedule them, and put every comment and DM into one place. Routine questions get answered; anything about price, booking or a complaint gets drafted and held for you. This is the work packaged as Royto Social.",
     example:
@@ -94,6 +115,7 @@ export const capabilities: Capability[] = [
     id: "calls",
     title: "Calls & bookings",
     status: "roadmap",
+    pain: "The call you missed was a customer.",
     body: "Missed calls answered and returned, appointments booked and confirmed, reminders and no-show follow-up sent on their own.",
     expanded:
       "A missed call is usually a lost customer. The plan: calls answered or returned automatically, the appointment booked into the calendar you already use, and reminders sent so fewer people don’t show.",
@@ -104,6 +126,7 @@ export const capabilities: Capability[] = [
     id: "reviews",
     title: "Reviews & reputation",
     status: "roadmap",
+    pain: "The review you found out about last.",
     body: "A review request after every job, a drafted reply to every review that comes in, and an alert the moment something negative lands.",
     expanded:
       "The plan: a review request that goes out after every job without you remembering, a drafted reply waiting for every review that arrives, and an immediate alert on anything negative so you’re never the last to know.",
@@ -121,6 +144,8 @@ export const customBuild: Capability & { note: { lead: string; body: string } } 
   id: "custom",
   title: "Custom builds",
   status: "case-by-case",
+  pain: "The spreadsheet someone rebuilds every Monday.",
+  buy: CUSTOM_BUILD,
   body: "Whatever the audit turns up that doesn’t fit a box above — scoped and quoted as a one-off build on your existing tools.",
   expanded:
     "Most businesses have one thing that doesn’t fit any box — a spreadsheet that gets rebuilt weekly, a handover that only works because someone remembers it. If the audit turns it up, we’ll scope and quote it as a one-off build on the tools you already have.",

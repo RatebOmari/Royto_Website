@@ -1,118 +1,17 @@
 /**
- * Products — verbatim from attachments/copy.md.
+ * Royto Social — the one ready-made package, sold from its capability
+ * (Content & social) and priced inside the automation lane on /pricing.
  *
  * The naming rule the whole site exists to protect: "Royto" alone always
- * means the agency. A product always carries its full name — "Royto Social" —
- * and is never shortened to "Royto". Royto Social is one product Royto makes.
+ * means the agency. A package always carries its full name — "Royto Social" —
+ * and is never shortened to "Royto".
  *
- * `stage` must be rendered everywhere a product appears. Nothing gets promoted
- * before it has been delivered for real clients.
+ * There is no public product roadmap. Future packages get a page, and a link
+ * from their capability, when they are real — not before.
  */
 
-export type ProductStage = "pilot" | "next" | "later";
-
-/**
- * One status vocabulary across the whole site — the same two labels the
- * capability grid uses. `pilot` is the stage key for the one product that is
- * ready to sell (it is still priced as a pilot, see pricing.ts); the label
- * must never imply a pilot is *running*. `next` and `later` share the tag —
- * neither can be bought today — and differ only in the sequence line below.
- */
-export const STAGE_LABEL: Record<ProductStage, string> = {
-  pilot: "Available now",
-  next: "On the roadmap",
-  later: "On the roadmap",
-};
-
-/** Where a roadmap product sits in the queue. Mono sub-line on the card. */
-export const STAGE_SEQUENCE: Partial<Record<ProductStage, string>> = {
-  next: "Next",
-  later: "Later",
-};
-
-export type Product = {
-  id: string;
-  /** The part that follows the wordmark: "royto. social". */
-  name: string;
-  fullName: string;
-  stage: ProductStage;
-  body: string;
-  /** Only Royto Social has a page to link through to. */
-  href?: string;
-};
-
-/** The three cards on the homepage. */
-export const homeProducts: Product[] = [
-  {
-    id: "social",
-    name: "social",
-    fullName: "Royto Social",
-    stage: "pilot",
-    body: "Social media, run for you — planned, written, scheduled, and the inbox answered. For any business that runs its own accounts and would rather not.",
-    href: "/products/royto-social",
-  },
-  {
-    id: "voice-reviews",
-    name: "voice & reviews",
-    fullName: "Royto Voice & Reviews",
-    stage: "next",
-    body: "The plan: missed calls answered and booked. Review requests sent after every job, replies drafted for every review that arrives.",
-  },
-  {
-    id: "chat-flows",
-    name: "chat & flows",
-    fullName: "Royto Chat & Flows",
-    stage: "later",
-    body: "The plan: a site widget that qualifies and books around the clock, and back-office automation packaged: invoicing, syncing, reporting.",
-  },
-];
-
-/** The five cards on /products, where the pairs are split out. */
-export const allProducts: Product[] = [
-  homeProducts[0],
-  {
-    id: "voice",
-    name: "voice",
-    fullName: "Royto Voice",
-    stage: "next",
-    body: "The plan: missed calls answered and booked, appointments confirmed, and reminders sent so fewer people don’t show.",
-  },
-  {
-    id: "reviews",
-    name: "reviews",
-    fullName: "Royto Reviews",
-    stage: "next",
-    body: "The plan: review requests sent after every job, replies drafted for every review that arrives, and an alert the moment something negative lands.",
-  },
-  {
-    id: "chat",
-    name: "chat",
-    fullName: "Royto Chat",
-    stage: "later",
-    body: "The plan: a site widget that qualifies and books around the clock, so an enquiry at 11pm is still an enquiry in the morning.",
-  },
-  {
-    id: "flows",
-    name: "flows",
-    fullName: "Royto Flows",
-    stage: "later",
-    body: "The plan: back-office automation packaged: invoicing, syncing between the tools you already pay for, and recurring reporting.",
-  },
-];
-
-/** Shown on every roadmap card, so a planned product never reads as shipping. */
-export const ROADMAP_NOTE =
-  "Not available as a product yet. Most of this we already build as agency work — see What we automate. The product is the packaged, fixed-price version, and it stays on the roadmap until it has run for real clients.";
-
-export const productsSection = {
-  eyebrow: "Products",
-  heading: "Work that repeats becomes a product.",
-  intro:
-    "When we’ve built the same automation enough times, we freeze it into a package with a fixed scope and price. Royto Social is the first, and it’s open for its first clients now. Nothing here gets called proven before it has run for real clients.",
-  noteLead: "Everything above starts as agency work.",
-  noteBody:
-    "Until a product has run for real clients, it’s on this page as a roadmap — not as something you can buy today.",
-} as const;
+/** Same vocabulary as the capability grid. */
+export const PACKAGE_STATUS = "Available now";
 
 /** /products/royto-social — verbatim from attachments/copy.md. */
 export const roytoSocial = {

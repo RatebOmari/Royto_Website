@@ -1,14 +1,12 @@
-import { Reveal, RevealItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   fixedScopeNote,
-  websitePackages,
   websitesSection,
   type WebsitePackage,
 } from "@/content/websites";
-import { stagger } from "@/lib/motion";
 
 /** One package card — shared with /websites so the two never drift. */
 export function PackageCard({ pkg }: { pkg: WebsitePackage }) {
@@ -34,9 +32,9 @@ export function FixedScopeNote() {
 }
 
 /**
- * Homepage section. Quieter than the automation sections on purpose — plain
- * reveals, no diagrams, no scroll-linked motion. This is an offer, not the
- * thesis.
+ * Homepage section. Quieter than the automation sections on purpose — no
+ * cards, no diagrams: the heading, the fixed-scope line with the starting
+ * price, and a link. This is an offer, not the thesis.
  */
 export function Websites() {
   return (
@@ -48,24 +46,13 @@ export function Websites() {
           intro={websitesSection.intro}
         />
 
-        <Reveal
-          as="ul"
-          stagger={stagger.capability}
-          className="mt-12 grid gap-4 md:grid-cols-3"
-        >
-          {websitePackages.map((pkg, index) => (
-            <RevealItem as="li" key={pkg.name} index={index}>
-              <PackageCard pkg={pkg} />
-            </RevealItem>
-          ))}
-        </Reveal>
-
+        {/* One line, one link. The packages live on /websites and /pricing. */}
         <Reveal delay={0.1} className="mt-8">
           <FixedScopeNote />
         </Reveal>
 
         <Reveal delay={0.16}>
-          <div className="mt-10">
+          <div className="mt-8">
             <ButtonLink href={websitesSection.cta.href} variant="ghost" arrow>
               {websitesSection.cta.label}
             </ButtonLink>

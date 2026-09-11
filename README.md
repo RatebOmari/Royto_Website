@@ -46,8 +46,8 @@ it is written inline in a component. Edit the text, save, done.
 | `home.ts` | Hero, and the founding-client line it carries |
 | `home-sections.ts` | How it works (with prices), included/not, approval, founder, final CTA, About page |
 | `capabilities.ts` | The six capability areas (plus the custom-builds line), their status tags and examples |
-| `products.ts` | Royto Social and the roadmap products |
-| `pricing.ts` | Agency tiers, what changes the price, Royto Social pricing |
+| `products.ts` | The Royto Social package page |
+| `pricing.ts` | The two lanes, agency tiers, Royto Social pricing, typical engagement, example audit map |
 | `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing; `home: false` keeps one off the homepage) |
 | `contact.ts` | Contact intents — the `?for=` values, their ledes, message prompts and email subjects |
 | `websites.ts` | The homepage Websites section, the three packages, and /websites |

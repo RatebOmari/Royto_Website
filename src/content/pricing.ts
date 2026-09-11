@@ -80,9 +80,33 @@ export const whatChangesPrice = {
   ],
 } as const;
 
-/** Product pricing is separate from an agency engagement. Keep it visibly so. */
+/**
+ * Two ways to work with Royto. Lane one is the ladder; lane two is websites.
+ * Royto Social is not a third system — it sits inside lane one.
+ */
+export const lanes = {
+  automation: {
+    eyebrow: "01 · Automation",
+    heading: "Audit, build, run.",
+    intro:
+      "One shape for every automation, priced at each stage. You can stop after any of them, and the number you rely on is the one in the written scope.",
+  },
+  websites: {
+    eyebrow: "02 · Websites",
+    heading: "Fixed packages, with the lead capture built in.",
+    intro:
+      "A website is quoted together with the automation behind it — capture, booking, follow-up — never as a separate project.",
+    link: "What each package includes",
+  },
+} as const;
+
+/** Royto Social: a build we have already scoped, priced as a monthly plan. */
 export const socialPricing = {
-  heading: "Royto Social — product pricing",
+  eyebrow: "Ready-made package",
+  heading: "Royto Social",
+  intro:
+    "Content & social as a build we’ve already scoped, so there is nothing to audit first. It includes the work itself — twelve posts a month, written and scheduled, and the inbox drafted — which is why it sits above a Run plan, where we operate something already built.",
+  link: { label: "See what Royto Social includes", href: "/products/royto-social" },
   tiers: [
     {
       name: "Pilot",
@@ -100,5 +124,4 @@ export const socialPricing = {
       body: "For multi-location, higher volume, original content or deeper integrations.",
     },
   ],
-  note: "Product pricing is separate from an agency engagement. Royto Social is a fixed package that includes the work itself — twelve posts a month, written and scheduled, and the inbox drafted — which is why it sits above a Run plan, where we operate something already built. Agency work is scoped to your business.",
 } as const;

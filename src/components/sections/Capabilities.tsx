@@ -49,14 +49,15 @@ export function Capabilities() {
                       {STATUS_LABEL[capability.status]}
                     </Tag>
                   </div>
-                  <p className="mt-4 text-small text-ink-soft">{capability.body}</p>
-                  {capability.link ? (
+                  <p className="mt-3 text-body font-medium text-ink">{capability.pain}</p>
+                  <p className="mt-2 text-small text-ink-soft">{capability.body}</p>
+                  {capability.buy ? (
                     <Link
-                      href={capability.link.href}
-                      className="mt-4 inline-flex items-center gap-2 font-mono text-mono-sm uppercase tracking-[0.09em] text-teal-ink"
+                      href={capability.buy.href}
+                      className="mt-4 inline-flex items-start gap-2 font-mono text-mono-sm text-teal-ink"
                     >
-                      {capability.link.label}
-                      <span aria-hidden="true">→</span>
+                      <span>{capability.buy.label}</span>
+                      <span aria-hidden="true" className="shrink-0">→</span>
                     </Link>
                   ) : null}
                   <div className="mt-6 rounded-control border border-line bg-paper p-3">

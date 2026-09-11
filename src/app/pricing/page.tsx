@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { AuditMapExample } from "@/components/sections/AuditMapExample";
 import { Faq } from "@/components/sections/Faq";
 import { Included } from "@/components/sections/Included";
-import { AuditMapExample } from "@/components/sections/AuditMapExample";
 import { PricingCard } from "@/components/sections/Pricing";
 import { FixedScopeNote, PackageCard } from "@/components/sections/Websites";
 import { ButtonLink } from "@/components/ui/Button";
@@ -11,6 +12,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { faq } from "@/content/faq";
 import { pages } from "@/content/pages";
 import {
+  lanes,
   socialPricing,
   tiers,
   typicalEngagement,
@@ -32,18 +34,32 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Two ways to work with Royto. Lane one is the ladder — Audit, Build, Run —
+ * with Royto Social inside it as a build already scoped. Lane two is
+ * websites on fixed packages. A price appears where the offer is bought and
+ * once here; nowhere else.
+ */
 export default function Page() {
   return (
     <>
       <PageHeader {...page} />
 
-      {/* The agency engagement. */}
+      {/* Lane 1 — Automation: the ladder. */}
       <section className="border-b border-line">
         <div className="container-royto py-20 md:py-28">
           <Reveal>
-            <h2 className="mono-label text-slate">Agency engagement</h2>
+            <p className="mono-label text-slate">{lanes.automation.eyebrow}</p>
           </Reveal>
-          <ul className="mt-8 grid items-start gap-4 md:grid-cols-3">
+          <Reveal delay={0.06}>
+            <h2 className="mt-4 max-w-[20ch] text-h2 font-extrabold text-ink">
+              {lanes.automation.heading}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mt-5 measure text-body text-ink-soft">{lanes.automation.intro}</p>
+          </Reveal>
+          <ul className="mt-12 grid items-start gap-4 md:grid-cols-3">
             {tiers.map((tier, index) => (
               <Reveal
                 as="li"
@@ -61,6 +77,81 @@ export default function Page() {
           {/* What the audit hands you, as a labelled example. */}
           <Reveal delay={0.3} className="mt-10 max-w-[640px]">
             <AuditMapExample />
+          </Reveal>
+
+          {/* Royto Social sits inside the lane: a build already scoped, priced monthly. */}
+          <div className="mt-16 border-t border-line pt-12">
+            <Reveal>
+              <p className="mono-label text-slate">{socialPricing.eyebrow}</p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h3 className="mt-4 text-h3 font-semibold text-ink">{socialPricing.heading}</h3>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-3 measure text-body text-ink-soft">{socialPricing.intro}</p>
+            </Reveal>
+            <ul className="mt-8 grid gap-4 md:grid-cols-3">
+              {socialPricing.tiers.map((tier, index) => (
+                <Reveal as="li" key={tier.name} delay={0.12 + index * 0.06}>
+                  <Card className="h-full items-start p-7">
+                    <p className="mono-label text-slate">{tier.name}</p>
+                    <p className="mt-4 font-display text-[24px] font-extrabold leading-none tracking-[-0.02em] text-ink">
+                      {tier.price}
+                    </p>
+                    <p className="mt-4 text-small text-ink-soft">{tier.body}</p>
+                  </Card>
+                </Reveal>
+              ))}
+            </ul>
+            <Reveal delay={0.3}>
+              <p className="mt-6">
+                <Link
+                  href={socialPricing.link.href}
+                  className="inline-flex items-center gap-2 font-mono text-mono text-teal-ink"
+                >
+                  {socialPricing.link.label}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Lane 2 — Websites: fixed packages. */}
+      <section className="border-b border-line bg-paper-raised">
+        <div className="container-royto py-20 md:py-28">
+          <Reveal>
+            <p className="mono-label text-slate">{lanes.websites.eyebrow}</p>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h2 className="mt-4 max-w-[20ch] text-h2 font-extrabold text-ink">
+              {lanes.websites.heading}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mt-5 measure text-body text-ink-soft">{lanes.websites.intro}</p>
+          </Reveal>
+          <ul className="mt-12 grid gap-4 md:grid-cols-3">
+            {websitePackages.map((pkg, index) => (
+              <Reveal as="li" key={pkg.name} delay={0.1 + index * 0.06}>
+                <PackageCard pkg={pkg} />
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={0.28} className="mt-8">
+            <FixedScopeNote />
+          </Reveal>
+          <Reveal delay={0.32}>
+            <p className="mt-6">
+              <Link
+                href="/websites"
+                className="inline-flex items-center gap-2 font-mono text-mono text-teal-ink"
+              >
+                {lanes.websites.link}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </p>
           </Reveal>
         </div>
       </section>
@@ -87,63 +178,6 @@ export default function Page() {
                 <span className="measure">{item}</span>
               </li>
             ))}
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Websites: the same three packages as the homepage and /websites. */}
-      <section className="border-b border-line">
-        <div className="container-royto py-20 md:py-28">
-          <Reveal>
-            <h2 className="text-h2 font-extrabold text-ink">Websites</h2>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <p className="mono-label mt-4 text-slate">Fixed scope, fixed price</p>
-          </Reveal>
-          <ul className="mt-10 grid gap-4 md:grid-cols-3">
-            {websitePackages.map((pkg, index) => (
-              <Reveal as="li" key={pkg.name} delay={0.1 + index * 0.06}>
-                <PackageCard pkg={pkg} />
-              </Reveal>
-            ))}
-          </ul>
-          <Reveal delay={0.28} className="mt-8">
-            <FixedScopeNote />
-          </Reveal>
-        </div>
-      </section>
-
-      {/*
-        Product pricing is a separate block, clearly labelled. Royto Social is
-        a fixed package; agency work is scoped to the business.
-      */}
-      <section className="border-b border-line bg-paper-raised">
-        <div className="container-royto py-20 md:py-28">
-          <Reveal>
-            <h2 className="text-h2 font-extrabold text-ink">
-              {socialPricing.heading}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <p className="mono-label mt-4 text-slate">Product pricing</p>
-          </Reveal>
-          <ul className="mt-10 grid gap-4 md:grid-cols-3">
-            {socialPricing.tiers.map((tier, index) => (
-              <Reveal as="li" key={tier.name} delay={0.1 + index * 0.06}>
-                <Card className="h-full items-start bg-paper p-7">
-                  <p className="mono-label text-slate">{tier.name}</p>
-                  <p className="mt-4 font-display text-[24px] font-extrabold leading-none tracking-[-0.02em] text-ink">
-                    {tier.price}
-                  </p>
-                  <p className="mt-4 text-small text-ink-soft">{tier.body}</p>
-                </Card>
-              </Reveal>
-            ))}
-          </ul>
-          <Reveal delay={0.28}>
-            <p className="mt-8 measure text-small text-slate">
-              {socialPricing.note}
-            </p>
           </Reveal>
         </div>
       </section>

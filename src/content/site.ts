@@ -40,7 +40,7 @@ export type NavLink = { label: string; href: string };
 
 /**
  * Four items. "How it works" lives on the homepage and /pricing, so it needs
- * no entry; Products is reached from the footer and the Content & social card.
+ * no entry; Royto Social is reached from its capability and the footer.
  */
 export const navLinks: NavLink[] = [
   { label: "What we automate", href: "/what-we-automate" },
@@ -74,10 +74,10 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
     ],
   },
   {
-    heading: "Products",
+    heading: "Packages",
     links: [
-      { label: "All products", href: "/products" },
       { label: "Royto Social", href: "/products/royto-social" },
+      { label: "Websites", href: "/websites" },
     ],
   },
   {

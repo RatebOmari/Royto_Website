@@ -5,11 +5,13 @@ import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Founder } from "@/components/sections/Founder";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { SafeToTry } from "@/components/sections/SafeToTry";
 import { Websites } from "@/components/sections/Websites";
 
 /**
- * Seven sections. Everything else on the site is one link away:
- * scope on /pricing, products on /products, the founder on /about.
+ * Eight sections. Everything else on the site is one link away:
+ * scope on /pricing, the Royto Social package from its capability, the
+ * founder on /about.
  */
 export default function Home() {
   return (
@@ -21,6 +23,7 @@ export default function Home() {
       <ApprovalSafety />
       <Founder />
       <Faq />
+      <SafeToTry />
       <FinalCta />
     </>
   );

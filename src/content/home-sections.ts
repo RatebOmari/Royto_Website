@@ -75,6 +75,22 @@ export const founderSection = {
   link: { label: "More about Royto", href: "/about" },
 } as const;
 
+/**
+ * The risk reversal, stated once before the ask. Nothing here is new — each
+ * line is a term the site already makes elsewhere.
+ */
+export const safeToTry = {
+  eyebrow: "Before you ask",
+  heading: "Why it’s safe to try.",
+  items: [
+    "The audit is free and needs no account access",
+    "The scope and the price are in writing before anything starts",
+    "AI drafts; you approve anything about money, commitments or complaints",
+    "You own everything we build",
+    "Cancel Run whenever you like — the automation keeps running",
+  ],
+} as const;
+
 export const finalCta = {
   heading: "What would you stop doing yourself?",
   button: { label: "Get a free audit", href: "/contact" },

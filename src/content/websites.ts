@@ -32,7 +32,7 @@ export const websitePackages: WebsitePackage[] = [
 
 /** The protection clause. It is on both surfaces, in bold, for a reason. */
 export const fixedScopeNote = {
-  lead: "Fixed scope, fixed price, fixed timeline, two revision rounds.",
+  lead: "Fixed scope, fixed price, fixed timeline, two revision rounds — from $2,500.",
   body: "No open-ended quotes and no surprise invoices — you’ll know the number and the date before anything starts.",
 } as const;
 

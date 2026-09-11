@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CapabilityDiagram } from "@/components/diagrams";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { CapabilityRail } from "@/components/sections/CapabilityRail";
 import { ButtonLink } from "@/components/ui/Button";
@@ -62,11 +63,27 @@ export default function Page() {
                       {capability.title}
                     </h2>
                   </Reveal>
+                  <Reveal delay={0.1}>
+                    <p className="mt-4 text-lede font-medium text-ink">{capability.pain}</p>
+                  </Reveal>
                   <Reveal delay={0.12}>
-                    <p className="mt-5 measure text-body text-ink-soft">
+                    <p className="mt-4 measure text-body text-ink-soft">
                       {capability.expanded}
                     </p>
                   </Reveal>
+                  {capability.buy ? (
+                    <Reveal delay={0.15}>
+                      <p className="mt-5">
+                        <Link
+                          href={capability.buy.href}
+                          className="inline-flex items-start gap-2 font-mono text-mono text-teal-ink"
+                        >
+                          <span>{capability.buy.label}</span>
+                          <span aria-hidden="true" className="shrink-0">→</span>
+                        </Link>
+                      </p>
+                    </Reveal>
+                  ) : null}
                   <Reveal delay={0.18}>
                     <div className="mt-7 rounded-card border border-line bg-paper-raised p-5">
                       <p className="mono-label text-slate">Example</p>
