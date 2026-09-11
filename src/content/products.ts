@@ -111,7 +111,7 @@ export const productsSection = {
 /** /products/royto-social — verbatim from attachments/copy.md. */
 export const roytoSocial = {
   statusLine: "Ready — taking the first clients now.",
-  primaryCta: { label: "Apply for a pilot spot", href: "/contact" },
+  primaryCta: { label: "Apply for a pilot spot", href: "/contact?for=social" },
   secondaryCta: { label: "See what’s included", href: "#included" },
   forWho: {
     heading: "Who it’s for",

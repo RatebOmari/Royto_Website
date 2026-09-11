@@ -63,7 +63,7 @@ export const pages = {
   },
   contact: {
     title: "What would you stop doing yourself?",
-    lede: "Tell me what’s eating your week. If there’s something automatable in it, I’ll map it and send it back — 30 minutes, free, and yours whether or not we work together.",
+    /** The lede depends on `?for=` — see content/contact.ts. */
     metaTitle: "Contact",
     metaDescription:
       "Tell us what’s eating your week and we’ll map what’s automatable in it — 30 minutes, free, and yours whether or not we work together.",

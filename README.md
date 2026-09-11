@@ -48,7 +48,8 @@ it is written inline in a component. Edit the text, save, done.
 | `capabilities.ts` | The six capability areas (plus the custom-builds line), their status tags and examples |
 | `products.ts` | Royto Social and the roadmap products |
 | `pricing.ts` | Agency tiers, what changes the price, Royto Social pricing |
-| `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing) |
+| `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing; `home: false` keeps one off the homepage) |
+| `contact.ts` | Contact intents — the `?for=` values, their ledes, message prompts and email subjects |
 | `websites.ts` | The homepage Websites section, the three packages, and /websites |
 | `legal.ts` | Privacy, Terms, and the /work holding page |
 
@@ -111,6 +112,10 @@ Two deliberate behaviours:
   placeholder implementation did.
 - **`replyTo` is the enquirer**, so hitting reply in your mail client answers
   them directly rather than answering yourself.
+- **The subject line says what it's about.** Contextual buttons link to
+  `/contact?for=website|social|founding`; the form pre-selects the intent and
+  the email arrives as e.g. `Website quote — Acme (Jane)`. Anything unknown is
+  filed as an audit request.
 
 ## How it's put together
 

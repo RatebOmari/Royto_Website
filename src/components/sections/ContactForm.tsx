@@ -4,6 +4,10 @@ import { AnimatePresence, motion } from "motion/react";
 import { useId, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import type { ContactFieldErrors } from "@/app/api/contact/route";
+import {
+  contactIntents,
+  type ContactIntent,
+} from "@/content/contact";
 import { CONTACT_EMAIL } from "@/content/site";
 import { ease } from "@/lib/motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -15,24 +19,31 @@ type Status = "idle" | "sending" | "sent" | "error";
 const NEXT_STEP =
   "I’ll come back to you within two working days with either a time to talk or an honest “this isn’t worth automating yet.”";
 
-const FIELDS = [
-  { name: "name", label: "Your name", type: "text", autoComplete: "name" },
-  {
-    name: "business",
-    label: "Business name",
-    type: "text",
-    autoComplete: "organization",
-  },
-  { name: "message", label: "What’s eating your week?", type: "textarea" },
-  { name: "email", label: "Email", type: "email", autoComplete: "email" },
-] as const;
+const INTENT_OPTIONS = Object.entries(contactIntents) as [ContactIntent, (typeof contactIntents)[ContactIntent]][];
+
+/** The message label follows the chosen intent; everything else is fixed. */
+function fields(intent: ContactIntent) {
+  return [
+    { name: "name", label: "Your name", type: "text", autoComplete: "name" },
+    {
+      name: "business",
+      label: "Business name",
+      type: "text",
+      autoComplete: "organization",
+    },
+    { name: "message", label: contactIntents[intent].prompt, type: "textarea" },
+    { name: "email", label: "Email", type: "email", autoComplete: "email" },
+  ] as const;
+}
+
+type FieldSpec = ReturnType<typeof fields>[number];
 
 function Field({
   field,
   error,
   disabled,
 }: {
-  field: (typeof FIELDS)[number];
+  field: FieldSpec;
   error?: string;
   disabled: boolean;
 }) {
@@ -88,8 +99,10 @@ function Field({
   );
 }
 
-export function ContactForm() {
+export function ContactForm({ intent: initial }: { intent: ContactIntent }) {
   const reduced = useReducedMotion();
+  const intentId = useId();
+  const [intent, setIntent] = useState<ContactIntent>(initial);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<ContactFieldErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -165,7 +178,40 @@ export function ContactForm() {
       {/* What happens after sending, stated before anyone has to trust the button. */}
       <p className="measure font-mono text-mono text-slate">{NEXT_STEP}</p>
 
-      {FIELDS.map((field) => (
+      {/* Pre-set from ?for=, so a "Get a quote" click arrives already filed. */}
+      <div>
+        <label htmlFor={intentId} className="mono-label block text-slate">
+          What is this about?
+        </label>
+        <div className="relative mt-2">
+          <select
+            id={intentId}
+            name="for"
+            value={intent}
+            onChange={(event) => setIntent(event.target.value as ContactIntent)}
+            disabled={status === "sending"}
+            className="field-input peer w-full appearance-none rounded-none border-0 border-b border-line bg-transparent px-0 py-3 pr-8 text-body text-ink disabled:opacity-60"
+          >
+            {INTENT_OPTIONS.map(([value, copy]) => (
+              <option key={value} value={value}>
+                {copy.label}
+              </option>
+            ))}
+          </select>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 font-mono text-mono text-slate"
+          >
+            ↓
+          </span>
+          <span
+            aria-hidden="true"
+            className="field-underline absolute inset-x-0 bottom-0 block h-px bg-teal"
+          />
+        </div>
+      </div>
+
+      {fields(intent).map((field) => (
         <Field
           key={field.name}
           field={field}

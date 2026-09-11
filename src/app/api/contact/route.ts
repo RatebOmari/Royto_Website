@@ -1,5 +1,11 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import {
+  contactIntents,
+  DEFAULT_INTENT,
+  isContactIntent,
+  type ContactIntent,
+} from "@/content/contact";
 import { CONTACT_EMAIL } from "@/content/site";
 
 /** nodemailer needs the Node runtime, not Edge. */
@@ -14,6 +20,7 @@ type ContactPayload = {
   business: string;
   message: string;
   email: string;
+  intent: ContactIntent;
 };
 
 // Deliberately permissive: the goal is to catch typos, not to police
@@ -87,6 +94,7 @@ async function deliver(payload: ContactPayload): Promise<void> {
 
   const name = headerSafe(payload.name);
   const business = headerSafe(payload.business);
+  const about = contactIntents[payload.intent];
 
   await transporter.sendMail({
     // Must be the authenticated mailbox — providers reject spoofed senders.
@@ -94,13 +102,14 @@ async function deliver(payload: ContactPayload): Promise<void> {
     to: smtp.to,
     // So hitting reply in your mail client answers the enquirer directly.
     replyTo: `"${name}" <${headerSafe(payload.email)}>`,
-    subject: `Audit request — ${business} (${name})`,
+    subject: `${about.subject} — ${business} (${name})`,
     text: [
+      `About:    ${about.label}`,
       `Name:     ${payload.name}`,
       `Business: ${payload.business}`,
       `Email:    ${payload.email}`,
       "",
-      "What's eating their week:",
+      `${about.prompt}`,
       payload.message,
       "",
       "— sent from the royto.tech contact form",
@@ -109,7 +118,7 @@ async function deliver(payload: ContactPayload): Promise<void> {
 }
 
 export async function POST(request: Request) {
-  let body: Partial<ContactPayload>;
+  let body: Partial<ContactPayload> & { for?: string };
   try {
     body = await request.json();
   } catch {
@@ -118,6 +127,9 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
+
+  // The form posts the intent as `for`; normalise it onto the payload shape.
+  body.intent = isContactIntent(body.for) ? body.for : DEFAULT_INTENT;
 
   const errors = validate(body);
   if (Object.keys(errors).length > 0) {
@@ -130,6 +142,8 @@ export async function POST(request: Request) {
       business: body.business!.trim(),
       message: body.message!.trim(),
       email: body.email!.trim(),
+      // An unknown or missing value is filed as an audit, never rejected.
+      intent: isContactIntent(body.intent) ? body.intent : DEFAULT_INTENT,
     });
   } catch (error) {
     // Logged for the server, never echoed to the visitor — the message could

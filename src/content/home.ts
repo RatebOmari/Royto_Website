@@ -18,5 +18,5 @@ export const hero = {
 export const foundingBar = {
   lead: "Now taking founding clients in the Triangle.",
   body: "The first two or three North Carolina businesses get a free audit, a discounted build, and my full attention — in exchange for permission to write up what we did.",
-  link: { label: "Apply as a founding client", href: "/contact" },
+  link: { label: "Apply as a founding client", href: "/contact?for=founding" },
 } as const;
