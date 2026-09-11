@@ -81,8 +81,9 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
   {
     heading: "Company",
     links: [
+      { label: "Work", href: "/work" },
       { label: "Contact", href: "/contact" },
-      /** TODO(placeholder): both legal pages are stubs awaiting real copy. */
+      /** TODO(review): both legal pages are drafts awaiting review. */
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
     ],

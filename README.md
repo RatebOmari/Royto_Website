@@ -50,6 +50,7 @@ it is written inline in a component. Edit the text, save, done.
 | `pricing.ts` | Agency tiers, what changes the price, Royto Social pricing |
 | `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing) |
 | `websites.ts` | The homepage Websites section, the three packages, and /websites |
+| `legal.ts` | Privacy, Terms, and the /work holding page |
 
 Two things to know when editing:
 
@@ -68,7 +69,7 @@ Two things to know when editing:
 Every one is greppable:
 
 ```bash
-grep -rn "TODO(placeholder)\|TODO(copy)" src/
+grep -rn "TODO(placeholder)\|TODO(copy)\|TODO(review)" src/
 ```
 
 | What | Where | Notes |
@@ -77,8 +78,9 @@ grep -rn "TODO(placeholder)\|TODO(copy)" src/
 | **SMTP credentials** | Vercel → Settings → Environment Variables | The contact form sends over SMTP via Namecheap Private Email. Needs `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD` (and optionally `SMTP_PORT`, `CONTACT_TO`). **Until these are set the form returns a 502 and tells the visitor to email instead** — it will never claim to have sent something it didn't. |
 | Social URLs | [`src/content/site.ts:41`](src/content/site.ts) | LinkedIn / Instagram / Facebook are guesses. Verify each, and delete any account Royto doesn't hold. |
 | Founder photo | [`src/components/ui/FounderPortrait.tsx`](src/components/ui/FounderPortrait.tsx) | Renders a designed placeholder with "Photo to come". Replace the component body; keep the frame and 4:5 ratio. |
-| Privacy page | [`src/app/privacy/page.tsx`](src/app/privacy/page.tsx) | Stub, `noindex`. Linked from every page's footer. |
-| Terms page | [`src/app/terms/page.tsx`](src/app/terms/page.tsx) | Stub, `noindex`. |
+| Privacy page | [`src/content/legal.ts`](src/content/legal.ts) | Real draft written from what the site actually does, marked "Draft — review before launch" on the page. `noindex` and disallowed in `robots.ts` until reviewed — lift both then. |
+| Terms page | [`src/content/legal.ts`](src/content/legal.ts) | Same treatment. Engagement terms live in the written scope, not here. |
+| `/work` | [`src/app/work/page.tsx`](src/app/work/page.tsx) | Honestly empty holding page, `noindex`. The first founding-client write-up goes here; nothing invented in the meantime. |
 | Capability examples | [`src/content/capabilities.ts:36`](src/content/capabilities.ts) | The copy deck doesn't supply these seven (six areas plus custom builds), so they were written to match its voice. **The only non-deck prose on the site — read them before launch.** |
 
 ---
