@@ -5,7 +5,7 @@ import { CapabilityRail } from "@/components/sections/CapabilityRail";
 import { ButtonLink } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Tag } from "@/components/ui/Tag";
-import { capabilities, STATUS_LABEL } from "@/content/capabilities";
+import { capabilities, customBuild, STATUS_LABEL } from "@/content/capabilities";
 import { pages } from "@/content/pages";
 import { cx } from "@/lib/utils";
 
@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   },
 };
 
+/** The six areas, then custom builds as the closing section. */
+const sections = [...capabilities, customBuild];
+
 export default function Page() {
   return (
     <>
@@ -31,7 +34,7 @@ export default function Page() {
         <CapabilityRail />
 
         <div className="space-y-24 md:space-y-32">
-          {capabilities.map((capability, index) => (
+          {sections.map((capability, index) => (
             <section
               key={capability.id}
               id={capability.id}

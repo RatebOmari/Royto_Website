@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { capabilities, STATUS_LABEL } from "@/content/capabilities";
+import { capabilities, customBuild, STATUS_LABEL } from "@/content/capabilities";
 import { cx } from "@/lib/utils";
+
+/** Mirrors the section order on /what-we-automate. */
+const entries = [...capabilities, customBuild];
 
 /**
  * Sticky side rail showing which capability you are currently in.
@@ -12,10 +15,10 @@ import { cx } from "@/lib/utils";
  * rather than whichever happens to be largest on screen.
  */
 export function CapabilityRail() {
-  const [active, setActive] = useState(capabilities[0].id);
+  const [active, setActive] = useState(entries[0].id);
 
   useEffect(() => {
-    const sections = capabilities
+    const sections = entries
       .map((c) => document.getElementById(c.id))
       .filter((el): el is HTMLElement => Boolean(el));
     if (!sections.length) return;
@@ -54,7 +57,7 @@ export function CapabilityRail() {
     <nav aria-label="Capabilities" className="sticky top-28 hidden lg:block">
       <p className="mono-label text-slate">On this page</p>
       <ul className="mt-5 space-y-1">
-        {capabilities.map((capability) => {
+        {entries.map((capability) => {
           const current = active === capability.id;
           return (
             <li key={capability.id}>
@@ -75,7 +78,11 @@ export function CapabilityRail() {
                     capability.status === "now" ? "text-teal-ink" : "text-slate",
                   )}
                 >
-                  {capability.status === "now" ? "now" : "soon"}
+                  {capability.status === "now"
+                    ? "now"
+                    : capability.status === "roadmap"
+                      ? "soon"
+                      : "quoted"}
                 </span>
               </a>
             </li>
@@ -84,8 +91,8 @@ export function CapabilityRail() {
       </ul>
       <p className="sr-only">
         Currently reading:{" "}
-        {capabilities.find((c) => c.id === active)?.title} —{" "}
-        {STATUS_LABEL[capabilities.find((c) => c.id === active)!.status]}
+        {entries.find((c) => c.id === active)?.title} —{" "}
+        {STATUS_LABEL[entries.find((c) => c.id === active)!.status]}
       </p>
     </nav>
   );

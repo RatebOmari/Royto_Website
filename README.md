@@ -45,7 +45,7 @@ it is written inline in a component. Edit the text, save, done.
 | `pages.ts` | Each page's `<title>`, meta description, H1 and lede |
 | `home.ts` | Hero and founding-client bar |
 | `home-sections.ts` | Before/after, how we work, included/not, approval, founder, final CTA, About page |
-| `capabilities.ts` | The six capability areas, their status tags and examples |
+| `capabilities.ts` | The six capability areas (plus the custom-builds line), their status tags and examples |
 | `products.ts` | Royto Social and the roadmap products |
 | `pricing.ts` | Agency tiers, what changes the price, Royto Social pricing |
 | `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing) |
@@ -78,7 +78,7 @@ grep -rn "TODO(placeholder)\|TODO(copy)" src/
 | Founder photo | [`src/components/ui/FounderPortrait.tsx`](src/components/ui/FounderPortrait.tsx) | Renders a designed placeholder with "Photo to come". Replace the component body; keep the frame and 4:5 ratio. |
 | Privacy page | [`src/app/privacy/page.tsx`](src/app/privacy/page.tsx) | Stub, `noindex`. Linked from every page's footer. |
 | Terms page | [`src/app/terms/page.tsx`](src/app/terms/page.tsx) | Stub, `noindex`. |
-| Capability examples | [`src/content/capabilities.ts:36`](src/content/capabilities.ts) | The copy deck doesn't supply these six, so they were written to match its voice. **The only non-deck prose on the site — read them before launch.** |
+| Capability examples | [`src/content/capabilities.ts:36`](src/content/capabilities.ts) | The copy deck doesn't supply these seven (six areas plus custom builds), so they were written to match its voice. **The only non-deck prose on the site — read them before launch.** |
 
 ---
 
@@ -119,7 +119,7 @@ src/
 │   ├── layout/             Nav, Footer, ThemeScript, SmoothScroll, StructuredData
 │   ├── motion/             Reveal, Magnetic, CountUp, Cursor
 │   ├── hero/               FlowCanvas + hero composition
-│   ├── diagrams/           the six capability micro-diagrams
+│   ├── diagrams/           the capability micro-diagrams (six areas + custom builds)
 │   ├── sections/           one file per page section
 │   └── ui/                 Button, Card, Tag, Wordmark, PageHeader, FounderPortrait
 ├── content/                all copy (see above)

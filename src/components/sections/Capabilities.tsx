@@ -6,6 +6,7 @@ import { Tag } from "@/components/ui/Tag";
 import {
   capabilities,
   capabilitiesSection,
+  customBuild,
   STATUS_LABEL,
   type CapabilityStatus,
 } from "@/content/capabilities";
@@ -47,6 +48,14 @@ export function Capabilities() {
                 </Card>
               </RevealItem>
           ))}
+        </Reveal>
+
+        {/* Custom builds is a line, not a seventh card — six fill the grid. */}
+        <Reveal delay={0.1}>
+          <p className="mt-10 measure text-body text-ink-soft">
+            <strong className="font-semibold text-ink">{customBuild.note.lead}</strong>{" "}
+            {customBuild.note.body}
+          </p>
         </Reveal>
       </div>
     </section>

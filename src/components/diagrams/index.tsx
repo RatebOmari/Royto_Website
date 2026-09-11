@@ -4,7 +4,7 @@ import { anim, Diagram } from "./Diagram";
 import type { CapabilityId } from "@/content/capabilities";
 
 /* ------------------------------------------------------------------------ *
- * The six capability micro-diagrams. Each shows that specific automation in
+ * The capability micro-diagrams — six areas plus custom builds. Each shows that specific automation in
  * motion — motion.md §3. Geometry is authored at the final frame; the
  * keyframes animate in from an offset, so the resting state is always right.
  * ------------------------------------------------------------------------ */
@@ -160,17 +160,25 @@ function ReviewsReputation() {
   );
 }
 
-/** A record moves between two tool panels; a third panel tallies. */
-function BackOffice() {
+/** A quote drafts itself line by line, then its figures travel into a second tool; a third panel tallies. */
+function DocumentsBackOffice() {
   return (
-    <Diagram title="A record moving from one tool into another, while a third panel tallies the running total.">
+    <Diagram title="A quote drafting itself line by line, its figures moving into a second tool, while a third panel tallies the running total.">
       <g className="dg-anim dg-fade" style={anim({ duration: 400 })}>
         <rect x={12} y={26} width={70} height={72} rx={6} className="dg-panel" />
-        <text x={20} y={42} className="dg-text">TOOL A</text>
-        {[54, 66, 78].map((y) => (
-          <line key={y} x1={20} y1={y} x2={74} y2={y} className="dg-line" />
-        ))}
+        <text x={20} y={42} className="dg-text">QUOTE</text>
       </g>
+      {[54, 66, 78].map((y, i) => (
+        <line
+          key={y}
+          x1={20}
+          y1={y}
+          x2={i === 2 ? 52 : 74}
+          y2={y}
+          className="dg-line-teal dg-anim dg-draw"
+          style={anim({ delay: 200 + 140 * i, duration: 350, len: 60 })}
+        />
+      ))}
       <g className="dg-anim dg-fade" style={anim({ delay: 140, duration: 400 })}>
         <rect x={110} y={26} width={70} height={72} rx={6} className="dg-panel" />
         <text x={118} y={42} className="dg-text">TOOL B</text>
@@ -178,7 +186,7 @@ function BackOffice() {
           <line key={y} x1={118} y1={y} x2={172} y2={y} className="dg-line" />
         ))}
       </g>
-      <path d="M86,62 H106" className="dg-line-teal dg-anim dg-draw" style={anim({ delay: 420, duration: 400, len: 22 })} />
+      <path d="M86,62 H106" className="dg-line-teal dg-anim dg-draw" style={anim({ delay: 700, duration: 400, len: 22 })} />
       <rect
         x={118}
         y={50}
@@ -186,7 +194,7 @@ function BackOffice() {
         height={10}
         rx={2}
         className="dg-chip dg-anim dg-travel"
-        style={anim({ delay: 620, duration: 800, x: -98, y: 0 })}
+        style={anim({ delay: 900, duration: 800, x: -98, y: 0 })}
       />
       <g className="dg-anim dg-rise" style={anim({ delay: 1200, duration: 500 })}>
         <rect x={12} y={112} width={168} height={32} rx={5} className="dg-panel" />
@@ -200,6 +208,59 @@ function BackOffice() {
       >
         128
       </text>
+    </Diagram>
+  );
+}
+
+/** A visitor submits the site's form; the lead is captured, routed, and a follow-up queues beneath. */
+function WebsitesLeadCapture() {
+  return (
+    <Diagram title="A form on a website being submitted, the enquiry captured and routed to a person, and a follow-up message queued underneath.">
+      {/* Browser frame with a small form inside it. */}
+      <g className="dg-anim dg-fade" style={anim({ duration: 400 })}>
+        <rect x={12} y={20} width={96} height={120} rx={6} className="dg-panel" />
+        <line x1={12} y1={36} x2={108} y2={36} className="dg-line" />
+        {[22, 28, 34].map((x) => (
+          <circle key={x} cx={x} cy={28} r={2} className="dg-line" />
+        ))}
+        <line x1={22} y1={50} x2={80} y2={50} className="dg-line" />
+        <line x1={22} y1={58} x2={64} y2={58} className="dg-line" />
+      </g>
+      {[72, 90].map((y, i) => (
+        <rect
+          key={y}
+          x={22}
+          y={y}
+          width={76}
+          height={12}
+          rx={3}
+          className="dg-panel dg-anim dg-rise"
+          style={anim({ delay: 300 + 160 * i, duration: 400 })}
+        />
+      ))}
+      <rect
+        x={22}
+        y={110}
+        width={76}
+        height={16}
+        rx={3}
+        className="dg-chip dg-anim dg-pop"
+        style={anim({ delay: 700, duration: 400 })}
+      />
+      <text x={38} y={121} className="dg-text">SEND</text>
+      {/* The submission leaves the page and becomes a captured lead. */}
+      <path d="M112,118 H128 Q140,118 140,100 V62 H150" className="dg-line-teal dg-anim dg-draw" style={anim({ delay: 1000, duration: 600, len: 110 })} />
+      <g className="dg-anim dg-pop" style={anim({ delay: 1500, duration: 400 })}>
+        <rect x={152} y={50} width={76} height={22} rx={4} className="dg-chip" />
+        <text x={160} y={64} className="dg-text">LEAD CAPTURED</text>
+      </g>
+      <path d="M190,76 V96" className="dg-line-teal dg-anim dg-draw" style={anim({ delay: 1850, duration: 300, len: 22 })} />
+      <g className="dg-anim dg-rise" style={anim({ delay: 2050, duration: 500 })}>
+        <rect x={152} y={98} width={76} height={38} rx={5} className="dg-panel" />
+        <text x={160} y={112} className="dg-text">FOLLOW-UP</text>
+        <line x1={160} y1={122} x2={220} y2={122} className="dg-line" />
+        <line x1={160} y1={129} x2={196} y2={129} className="dg-line" />
+      </g>
     </Diagram>
   );
 }
@@ -248,11 +309,12 @@ function CustomBuilds() {
 }
 
 export const DIAGRAMS: Record<CapabilityId, () => React.JSX.Element> = {
-  content: ContentSocial,
+  "back-office": DocumentsBackOffice,
+  websites: WebsitesLeadCapture,
   messaging: MessagingInbox,
+  content: ContentSocial,
   calls: CallsBookings,
   reviews: ReviewsReputation,
-  "back-office": BackOffice,
   custom: CustomBuilds,
 };
 
