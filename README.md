@@ -164,9 +164,9 @@ Measured on the production build, not assumed.
 | Check | Result |
 |---|---|
 | `npm run build` | Clean — no TS errors, no ESLint warnings |
-| Lighthouse `/` mobile | Perf 90–95 · A11y 100 · Best Practices 100 · SEO 100 |
+| Lighthouse `/` mobile | Perf 96 · A11y 100 · Best Practices 100 · SEO 100 (11 Sep 2026, after the site review passes) |
 | Lighthouse `/` desktop | Perf 100 · A11y 100 · Best Practices 100 · SEO 100 |
-| Interior pages, mobile | 94–95 Perf, 100 across the other three |
+| Interior pages, mobile | 93–95 Perf, 100 across the other three. `/contact` is server-rendered on demand (it reads `?for=`) and sits at 94 |
 | Responsive | No horizontal overflow at 375 / 768 / 1440 / 1920, both themes, all 7 pages |
 | Keyboard | Every focusable on every page has a 2px teal ring at 3px offset; skip link first |
 | Reduced motion | Zero animations running, all reveals visible, canvas static |
