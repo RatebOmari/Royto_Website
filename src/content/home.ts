@@ -17,6 +17,6 @@ export const hero = {
 /** Rendered as the hero trust line — the one place the offer is stated. */
 export const foundingBar = {
   lead: "Now taking founding clients in the Triangle.",
-  body: "The first two or three North Carolina businesses get a free audit, a discounted build, and my full attention — in exchange for permission to write up what we did.",
+  body: "The first two or three North Carolina businesses get a free audit, the build at 25% off the scoped price, and my full attention — in exchange for permission to write up what we did.",
   link: { label: "Apply as a founding client", href: "/contact?for=founding" },
 } as const;
