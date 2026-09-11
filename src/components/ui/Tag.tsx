@@ -3,7 +3,7 @@ import { cx } from "@/lib/utils";
 /**
  * Mono state tag. `tone` carries meaning, not decoration:
  *
- * - `teal`   — delivering now, handled, done
+ * - `teal`   — available now, handled, done
  * - `gold`   — a human is needed. Nothing else, ever. Its scarcity is what
  *              makes it legible (brand.md).
  * - `slate`  — roadmap, neutral, not yet buyable

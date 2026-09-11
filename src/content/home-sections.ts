@@ -139,7 +139,7 @@ export const aboutPage = {
     "I spent years automating repetitive technical work as an engineer — scripts and systems that gave a team back hours a week. Somewhere in that, I kept noticing the same thing outside of work: small businesses doing by hand, every week, exactly the kind of work I’d spent my career teaching systems to do.",
     "Not because they don’t know better. Because nobody builds it for them. Software hands them another app to operate. An agency does the work, but costs what an agency costs. Neither one actually solves it.",
     "So Royto does the fourth thing: we look at where your week actually goes, build the automation for the parts that repeat, and then run it — with anything involving money, a commitment, or a complaint still waiting on a person.",
-    "Royto is early. There’s no client wall on this site because there aren’t clients to put on it yet — I’d rather show you that than a page of stock logos. Right now I’m running a handful of free audits and building by hand for a small number of founding clients.",
+    "Royto is early. There’s no client wall on this site because there aren’t clients to put on it yet — I’d rather show you that than a page of stock logos. Right now I’m running a handful of free audits and taking the first founding clients.",
   ],
   doesNot: {
     heading: "What Royto deliberately doesn’t do",

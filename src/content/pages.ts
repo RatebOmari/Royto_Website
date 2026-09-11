@@ -29,7 +29,7 @@ export const pages = {
     lede: "A product is agency work that has repeated often enough to earn a fixed scope and a fixed price. Royto Social is the first. Everything after it is a roadmap, not an offer.",
     metaTitle: "Products",
     metaDescription:
-      "Royto Social is the first Royto product, currently in pilot. Royto Voice, Reviews, Chat and Flows are on the roadmap — not available to buy yet.",
+      "Royto Social is the first Royto product, ready and taking its first clients. Royto Voice, Reviews, Chat and Flows are on the roadmap — not available to buy yet.",
   },
   roytoSocial: {
     eyebrow: "Royto Social — a Royto product",
@@ -37,7 +37,7 @@ export const pages = {
     lede: "Royto Social plans, writes, schedules and helps answer your social media — while you approve anything that needs your judgment. For any business that runs its own accounts and would rather not.",
     metaTitle: "Royto Social",
     metaDescription:
-      "Royto Social plans, writes, schedules and helps answer your social media, while you approve anything that needs your judgment. In pilot with a small number of founding businesses.",
+      "Royto Social plans, writes, schedules and helps answer your social media, while you approve anything that needs your judgment. Ready and taking its first clients now.",
   },
   pricing: {
     title: "Pricing",

@@ -9,7 +9,7 @@
 export type CapabilityStatus = "now" | "roadmap" | "case-by-case";
 
 export const STATUS_LABEL: Record<CapabilityStatus, string> = {
-  now: "Delivering now",
+  now: "Available now",
   roadmap: "On the roadmap",
   "case-by-case": "Case by case",
 };

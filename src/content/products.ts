@@ -11,8 +11,13 @@
 
 export type ProductStage = "pilot" | "next" | "later";
 
+/**
+ * `pilot` is the stage key for the one product that is ready to sell. It is
+ * still priced as a pilot (see pricing.ts), but the label must never imply a
+ * pilot is *running* — nothing has been delivered for an outside client yet.
+ */
 export const STAGE_LABEL: Record<ProductStage, string> = {
-  pilot: "In pilot",
+  pilot: "Ready — taking first clients",
   next: "Next",
   later: "Later",
 };
@@ -103,7 +108,7 @@ export const productsSection = {
 
 /** /products/royto-social — verbatim from attachments/copy.md. */
 export const roytoSocial = {
-  statusLine: "In pilot — running by hand for a small number of founding businesses.",
+  statusLine: "Ready — taking the first clients now.",
   primaryCta: { label: "Apply for a pilot spot", href: "/contact" },
   secondaryCta: { label: "See what’s included", href: "#included" },
   forWho: {

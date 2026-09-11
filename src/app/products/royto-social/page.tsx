@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Tag";
 import { ProductWordmark } from "@/components/ui/Wordmark";
 import { pages } from "@/content/pages";
-import { roytoSocial } from "@/content/products";
+import { roytoSocial, STAGE_LABEL } from "@/content/products";
 import { socialPricing } from "@/content/pricing";
 
 const page = pages.roytoSocial;
@@ -89,7 +89,7 @@ export default function Page() {
           </Reveal>
           <Reveal delay={0.28}>
             <p className="mt-8 flex flex-wrap items-center gap-3">
-              <Tag tone="teal">In pilot</Tag>
+              <Tag tone="teal">{STAGE_LABEL.pilot}</Tag>
               <span className="font-mono text-mono text-slate">
                 {roytoSocial.statusLine}
               </span>

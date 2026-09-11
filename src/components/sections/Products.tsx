@@ -13,7 +13,7 @@ import {
 } from "@/content/products";
 import { stagger } from "@/lib/motion";
 
-/** Only the piloted product is a link; a roadmap card must not look buyable. */
+/** Only the product that is ready is a link; a roadmap card must not look buyable. */
 export function ProductCard({ product }: { product: Product }) {
   const inner = (
     <Card
