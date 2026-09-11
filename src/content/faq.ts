@@ -37,6 +37,16 @@ export const faq: FaqItem[] = [
     pricing: true,
   },
   {
+    question: "Do you only work with North Carolina businesses?",
+    answer:
+      "For now, mostly yes — and deliberately. Being able to sit in your office beats a video call, and the early work is better for it. If you’re elsewhere and the fit is obviously right, ask anyway.",
+  },
+  {
+    question: "We’re bigger than a small business. Is that a problem?",
+    answer:
+      "The opposite. Most of what we build pays off hardest at 20–200 people, where there’s enough repetition to be worth automating and enough going on that nobody has time to fix it.",
+  },
+  {
     question: "What results should I realistically expect?",
     answer:
       "Hours back, and fewer things dropped. We’re not going to promise a revenue number before we’ve built anything in your business — that’s what the pilot is for.",

@@ -51,7 +51,7 @@ export const pages = {
     title: "An engineer who got tired of watching people do work a system could do.",
     metaTitle: "About",
     metaDescription:
-      "Royto is built by Rateb Al-Omari, an engineer who spent years automating repetitive technical work before turning the same instinct toward small businesses.",
+      "Royto is built by Rateb Al-Omari, an engineer in Raleigh who spent years building automation inside a technical firm before turning the same instinct toward other North Carolina businesses.",
   },
   contact: {
     title: "What would you stop doing yourself?",

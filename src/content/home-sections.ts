@@ -125,7 +125,7 @@ export const approval = {
 export const founderSection = {
   eyebrow: "Why Royto exists",
   heading: "Built by someone who automates for a living.",
-  body: "Royto is built by Rateb Al-Omari, an engineer who spent years automating repetitive technical work before turning the same instinct toward small businesses — the ones with real customers, real messages, and nobody to hand the admin to. Royto is the agency that does that work for them: we build it, and then we run it.",
+  body: "Royto is built by Rateb Al-Omari, an engineer in Raleigh who spent years building automation inside a technical firm — and stood up its digital solutions practice — before turning the same instinct toward other North Carolina businesses. The ones with real customers, real paperwork, and nobody to hand the admin to. Royto is the agency that does that work for them: we build it, and then we run it.",
 } as const;
 
 export const finalCta = {

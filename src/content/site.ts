@@ -11,15 +11,26 @@ export const CONTACT_EMAIL = "hello@royto.tech";
 
 export const SITE_URL = "https://royto.tech";
 
+/**
+ * Where Royto is and who it serves — feeds the LocalBusiness schema. No street
+ * address or phone until they are real; never invent either.
+ */
+export const location = {
+  locality: "Raleigh",
+  region: "NC",
+  country: "US",
+  areaServed: "North Carolina",
+} as const;
+
 export const site = {
   name: "Royto",
   /** The wordmark is always lowercase, with the period in teal. */
   wordmark: "royto",
-  title: "Royto — AI agency for small businesses",
+  title: "Royto — AI agency for North Carolina businesses",
   description:
-    "Royto builds the AI automation that takes repetitive work off your plate — customer messages, content, admin — and then runs it for you. Free automation audit.",
+    "Royto builds the AI automation that takes repetitive work off your plate — quotes and paperwork, customer messages, the website that feeds them — and then runs it for you. Free automation audit, Raleigh NC.",
   tagline:
-    "Royto — an AI agency for small businesses. We build the automation, and then we run it.",
+    "Royto — an AI agency for small and mid-sized businesses. Raleigh, North Carolina. We build the automation, and then we run it.",
   legal: "© 2026 Royto. All rights reserved.",
   email: CONTACT_EMAIL,
   url: SITE_URL,

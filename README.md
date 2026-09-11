@@ -1,6 +1,6 @@
 # royto.tech
 
-The marketing site for **Royto**, an AI agency for small businesses.
+The marketing site for **Royto**, an AI agency for small and mid-sized businesses in North Carolina.
 
 Next.js 16 (App Router) · TypeScript strict · Tailwind CSS v4 · Motion · Lenis.
 No CMS, no UI kit, and no runtime network requests — fonts are self-hosted,

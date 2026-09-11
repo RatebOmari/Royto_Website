@@ -1,11 +1,20 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { hero } from "@/content/home";
 import { site } from "@/content/site";
 
 export const alt = site.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+/**
+ * The card carries the same lines as the hero. The eyebrow drops the "Royto —"
+ * prefix because the wordmark already says it; the sub keeps the list but
+ * stops before the second sentence so it fits at 28px.
+ */
+const ogEyebrow = hero.eyebrow.replace(/^Royto\s*—\s*/, "").toUpperCase();
+const ogSub = hero.sub.split(". ")[0] + ".";
 
 /**
  * The social card. Built from the brand tokens rather than a screenshot, so it
@@ -80,14 +89,13 @@ export default async function OpengraphImage({
               maxWidth: 900,
             }}
           >
-            We build the automation that takes the repetitive part of your week
-            off your plate — and then we run it for you.
+            {ogSub}
           </div>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", fontSize: 20, color: slate, letterSpacing: "0.09em" }}>
-            AN AI AGENCY FOR SMALL BUSINESSES
+            {ogEyebrow}
           </div>
           <div style={{ display: "flex", height: 6, width: 120, background: teal }} />
         </div>
