@@ -9,6 +9,7 @@ import {
   productsSection,
   ROADMAP_NOTE,
   STAGE_LABEL,
+  STAGE_SEQUENCE,
   type Product,
 } from "@/content/products";
 import { stagger } from "@/lib/motion";
@@ -40,9 +41,12 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         </span>
       ) : (
-        <p className="mt-6 border-t border-line pt-4 text-small text-slate">
-          {ROADMAP_NOTE}
-        </p>
+        <div className="mt-6 border-t border-line pt-4">
+          {STAGE_SEQUENCE[product.stage] ? (
+            <p className="mono-label text-slate">{STAGE_SEQUENCE[product.stage]}</p>
+          ) : null}
+          <p className="mt-2 text-small text-slate">{ROADMAP_NOTE}</p>
+        </div>
       )}
     </Card>
   );

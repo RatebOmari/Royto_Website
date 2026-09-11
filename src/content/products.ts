@@ -15,13 +15,19 @@ export type ProductStage = "pilot" | "next" | "later";
  * One status vocabulary across the whole site — the same two labels the
  * capability grid uses. `pilot` is the stage key for the one product that is
  * ready to sell (it is still priced as a pilot, see pricing.ts); the label
- * must never imply a pilot is *running*. `next` and `later` keep their order
- * in the arrays but read identically: neither can be bought today.
+ * must never imply a pilot is *running*. `next` and `later` share the tag —
+ * neither can be bought today — and differ only in the sequence line below.
  */
 export const STAGE_LABEL: Record<ProductStage, string> = {
   pilot: "Available now",
   next: "On the roadmap",
   later: "On the roadmap",
+};
+
+/** Where a roadmap product sits in the queue. Mono sub-line on the card. */
+export const STAGE_SEQUENCE: Partial<Record<ProductStage, string>> = {
+  next: "Next",
+  later: "Later",
 };
 
 export type Product = {
