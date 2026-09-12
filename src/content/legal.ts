@@ -21,7 +21,7 @@ export const privacy = {
       body: [
         "If you use the contact form, we receive what you type into it: your name, your business name, your email address, and your message. That is sent to hello@royto.tech as an email and kept in that mailbox. It is used to reply to you and for nothing else.",
         "If you email us directly, we keep the email the way anyone keeps email.",
-        "The site itself sets no cookies and runs no analytics or tracking scripts. It stores one preference in your browser — whether you chose light or dark — and that never leaves your device.",
+        "The site sets no cookies. It runs one analytics script, Vercel Web Analytics, which counts page views and the paths visitors take without cookies, without identifying anyone, and without following you to other sites. It also stores one preference in your browser — whether you chose light or dark — and that never leaves your device.",
       ],
     },
     {

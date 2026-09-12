@@ -64,12 +64,10 @@ export const navLinks: NavLink[] = [
 export const navCta = { label: "Get a free audit", href: "/contact" };
 
 /**
- * TODO(placeholder): social handles are not confirmed. These render as links
- * so the footer is structurally complete — verify or replace every URL, and
- * delete any account Royto does not actually hold, before launch.
+ * Only accounts Royto actually holds. LinkedIn was removed on 12 Sep 2026 —
+ * the company page did not exist; add it back when it does.
  */
 export const socialLinks: NavLink[] = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/royto" },
   { label: "Instagram", href: "https://www.instagram.com/royto.tech" },
   { label: "Facebook", href: "https://www.facebook.com/royto.tech" },
 ];

@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { ViewTransition } from "react";
 import { Cursor } from "@/components/motion/Cursor";
@@ -68,6 +69,12 @@ export default function RootLayout({
           <main id="main">{children}</main>
         </ViewTransition>
         <Footer />
+        {/*
+          Vercel Web Analytics: first-party, cookieless, no personal data —
+          page views and the paths people take, nothing else. The one script
+          the site loads that isn't its own.
+        */}
+        <Analytics />
       </body>
     </html>
   );

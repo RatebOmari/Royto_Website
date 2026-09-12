@@ -3,8 +3,9 @@
 The marketing site for **Royto**, an AI agency for small and mid-sized businesses — based in Raleigh, working anywhere.
 
 Next.js 16 (App Router) · TypeScript strict · Tailwind CSS v4 · Motion · Lenis.
-No CMS, no UI kit, and no runtime network requests — fonts are self-hosted,
-every illustration is inline SVG, and there are no third-party scripts.
+No CMS, no UI kit — fonts are self-hosted, every illustration is inline SVG,
+and the only script that isn't the site's own is Vercel Web Analytics
+(first-party, cookieless).
 
 ---
 
@@ -79,7 +80,7 @@ grep -rn "TODO(placeholder)\|TODO(copy)\|TODO(review)" src/
 |---|---|---|
 | `CONTACT_EMAIL` | [`src/content/site.ts:9`](src/content/site.ts) | `hello@royto.tech`. Confirm the mailbox exists and is monitored. Every CTA and the form fallback point here. |
 | **SMTP credentials** | Vercel → Settings → Environment Variables | The contact form sends over SMTP via Namecheap Private Email. Needs `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD` (and optionally `SMTP_PORT`, `CONTACT_TO`). **Until these are set the form returns a 502 and tells the visitor to email instead** — it will never claim to have sent something it didn't. |
-| Social URLs | [`src/content/site.ts:41`](src/content/site.ts) | LinkedIn / Instagram / Facebook are guesses. Verify each, and delete any account Royto doesn't hold. |
+| Social URLs | [`src/content/site.ts`](src/content/site.ts) | Instagram and Facebook resolve. LinkedIn was removed (the company page didn't exist) — add it back when it does. |
 | Founder photo | [`src/components/ui/FounderPortrait.tsx`](src/components/ui/FounderPortrait.tsx) | Renders a designed placeholder with "Photo to come". Replace the component body; keep the frame and 4:5 ratio. |
 | Privacy page | [`src/content/legal.ts`](src/content/legal.ts) | Real draft written from what the site actually does, marked "Draft — review before launch" on the page. `noindex` and disallowed in `robots.ts` until reviewed — lift both then. |
 | Terms page | [`src/content/legal.ts`](src/content/legal.ts) | Same treatment. Engagement terms live in the written scope, not here. |
