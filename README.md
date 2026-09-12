@@ -130,7 +130,7 @@ src/
 │   ├── motion/             Reveal, Magnetic, CountUp, Cursor
 │   ├── hero/               FlowCanvas + hero composition
 │   ├── diagrams/           the capability micro-diagrams (six areas + custom builds)
-│   ├── sections/           one file per page section; PackagePage is the one template for the three package pages
+│   ├── sections/           one file per page section; PackagePage is the one template for the three package pages (breadcrumb + More-packages strip built in); PageRail is the sticky on-this-page bar
 │   └── ui/                 Button, Card, Tag, Wordmark, PageHeader, FounderPortrait
 ├── content/                all copy (see above)
 ├── lib/                    motion system, fonts, theme + media-query hooks

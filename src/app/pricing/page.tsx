@@ -5,6 +5,7 @@ import { Faq } from "@/components/sections/Faq";
 import { Included } from "@/components/sections/Included";
 import { MonthlyReportExample } from "@/components/sections/MonthlyReportExample";
 import { PackageSummaryCard } from "@/components/sections/PackagesRow";
+import { PageRail } from "@/components/sections/PageRail";
 import { PricingCard } from "@/components/sections/Pricing";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -22,6 +23,14 @@ import { fixedScopeNote, websitePackages } from "@/content/websites";
 import { cx } from "@/lib/utils";
 
 const page = pages.pricing;
+
+const rail = [
+  { id: "automation", label: "Automation" },
+  { id: "websites", label: "Websites" },
+  { id: "included", label: "What’s included" },
+  { id: "changes", label: "What changes the price" },
+  { id: "questions", label: "Questions" },
+] as const;
 
 export const metadata: Metadata = {
   title: page.metaTitle,
@@ -44,9 +53,10 @@ export default function Page() {
   return (
     <>
       <PageHeader {...page} />
+      <PageRail entries={rail} />
 
       {/* Lane 1 — Automation: the ladder. */}
-      <section className="border-b border-line">
+      <section id="automation" className="scroll-mt-32 border-b border-line">
         <div className="container-royto py-20 md:py-28">
           <Reveal>
             <p className="mono-label text-slate">{lanes.automation.eyebrow}</p>
@@ -91,7 +101,7 @@ export default function Page() {
       </section>
 
       {/* Lane 2 — Websites: fixed packages. */}
-      <section className="border-b border-line bg-paper-raised">
+      <section id="websites" className="scroll-mt-32 border-b border-line bg-paper-raised">
         <div className="container-royto py-20 md:py-28">
           <Reveal>
             <p className="mono-label text-slate">{lanes.websites.eyebrow}</p>
@@ -132,9 +142,9 @@ export default function Page() {
       </section>
 
       {/* What an engagement includes and excludes — a scope statement, so it sits with the prices. */}
-      <Included />
+      <Included id="included" />
 
-      <section className="border-b border-line">
+      <section id="changes" className="scroll-mt-32 border-b border-line">
         <div className="container-royto py-20 md:py-28">
           <Reveal>
             <h2 className="text-h2 font-extrabold text-ink">{whatChangesPrice.heading}</h2>
@@ -150,7 +160,7 @@ export default function Page() {
         </div>
       </section>
 
-      <Faq items={faq.filter((item) => item.pricing)} heading="Questions" />
+      <Faq id="questions" items={faq.filter((item) => item.pricing)} heading="Questions" />
 
       <section className="border-t border-line">
         <div className="container-royto py-20 md:py-28">

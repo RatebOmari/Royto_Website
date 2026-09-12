@@ -85,15 +85,17 @@ export function Faq({
   items = allFaq.filter((item) => item.home !== false),
   heading = faqSection.heading,
   eyebrow = faqSection.eyebrow,
+  id,
 }: {
   items?: FaqItem[];
   heading?: string;
   eyebrow?: string;
+  id?: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-y border-b border-line">
+    <section id={id} className="scroll-mt-32 section-y border-b border-line">
       <div className="container-royto">
         <SectionHeading eyebrow={eyebrow} heading={heading} />
         <Reveal delay={0.12}>

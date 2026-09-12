@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { ButtonLink } from "@/components/ui/Button";
 import { Wordmark } from "@/components/ui/Wordmark";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { cx } from "@/lib/utils";
-import { navCta, navLinks } from "@/content/site";
+import { navCta, navLinks, type NavLink } from "@/content/site";
 import { ThemeToggle } from "./ThemeToggle";
 
 /**
@@ -31,8 +32,22 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isActive = (href: string) =>
-    href.startsWith("/#") ? false : pathname === href || pathname.startsWith(`${href}/`);
+  // The drawer is a phone-and-tablet control. If the window is widened past
+  // the breakpoint while it is open, the desktop nav appears above an open
+  // drawer — so close it the moment the desktop nav takes over.
+  const desktop = useMediaQuery("(min-width: 1024px)");
+  useEffect(() => {
+    if (desktop) setMenuOpen(false);
+  }, [desktop]);
+
+  // "Current" by section, not by URL prefix: a package page at a flat URL
+  // still lights up Packages.
+  const isActive = ({ href, covers = [] }: NavLink) =>
+    href.startsWith("/#")
+      ? false
+      : [href, ...covers].some(
+          (route) => pathname === route || pathname.startsWith(`${route}/`),
+        );
 
   return (
     <header
@@ -62,7 +77,7 @@ export function Nav() {
 
         <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
-            const active = isActive(link.href);
+            const active = isActive(link);
             return (
               <li key={link.href} className="relative">
                 <Link

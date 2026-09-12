@@ -16,6 +16,7 @@
 import type { PackageContent } from "@/components/sections/PackagePage";
 
 export const leadPackage = {
+  href: "/never-miss-a-lead",
   name: "Never miss a lead",
   eyebrow: "Never miss a lead — a Royto package",
   title: "Every call answered. Every enquiry replied to. Every job followed by a review.",

@@ -36,7 +36,15 @@ export const site = {
   url: SITE_URL,
 } as const;
 
-export type NavLink = { label: string; href: string };
+export type NavLink = {
+  label: string;
+  href: string;
+  /**
+   * Other routes this item is "current" for. A package page lives at a flat
+   * URL, so the Packages item has to claim it explicitly.
+   */
+  covers?: readonly string[];
+};
 
 /**
  * Four items. Packages is a category, so it gets the slot rather than any
@@ -44,7 +52,11 @@ export type NavLink = { label: string; href: string };
  */
 export const navLinks: NavLink[] = [
   { label: "What we automate", href: "/what-we-automate" },
-  { label: "Packages", href: "/packages" },
+  {
+    label: "Packages",
+    href: "/packages",
+    covers: ["/never-miss-a-lead", "/royto-social", "/websites"],
+  },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
 ];

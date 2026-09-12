@@ -3,6 +3,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Tag";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { MorePackages } from "@/components/sections/MorePackages";
 
 /**
  * One shape for every package page — Never miss a lead, Royto Social,
@@ -15,6 +17,10 @@ import { Tag } from "@/components/ui/Tag";
 export type PackageTier = { name: string; price: string; body: string };
 
 export type PackageContent = {
+  /** This page's route — for the breadcrumb and the "more packages" strip. */
+  href: string;
+  /** Short name for the breadcrumb. */
+  name: string;
   eyebrow: string;
   title: string;
   lede: string;
@@ -63,8 +69,9 @@ export function PackagePage({
   return (
     <>
       <header className="border-b border-line">
-        <div className="container-royto pb-16 pt-[144px] md:pb-20 md:pt-[184px]">
+        <div className="container-royto pb-16 pt-[136px] md:pb-20 md:pt-[176px]">
           <Reveal>
+            <Breadcrumb parent={{ label: "Packages", href: "/packages" }} current={c.name} />
             <p className="mono-label text-slate">{c.eyebrow}</p>
           </Reveal>
           <Reveal delay={0.1}>
@@ -202,6 +209,8 @@ export function PackagePage({
           </Reveal>
         </div>
       </section>
+
+      <MorePackages current={c.href} />
     </>
   );
 }

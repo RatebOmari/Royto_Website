@@ -18,6 +18,8 @@ import { socialPricing } from "@/content/pricing";
 
 /** /royto-social — verbatim from attachments/copy.md. */
 export const roytoSocial = {
+  href: "/royto-social",
+  name: "Royto Social",
   eyebrow: "Royto Social — a Royto package",
   title: "Your social media, on autopilot.",
   lede: "Royto Social plans, writes, schedules and helps answer your social media — while you approve anything that needs your judgment. For any business that runs its own accounts and would rather not.",

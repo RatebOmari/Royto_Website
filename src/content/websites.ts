@@ -49,6 +49,8 @@ export const websitesSection = {
 
 /** /websites — on the shared package template. */
 export const websitesPage = {
+  href: "/websites",
+  name: "Websites",
   eyebrow: "Websites — a Royto package",
   title: "The front door the automation lives in.",
   lede: "Most small business websites are a brochure that sits there. We build yours as the place leads actually arrive — fast, current, and wired to do something once someone lands on it.",

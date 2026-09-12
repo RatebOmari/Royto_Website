@@ -56,9 +56,9 @@ function Column({
   );
 }
 
-export function Included() {
+export function Included({ id }: { id?: string }) {
   return (
-    <section className="section-y border-b border-line">
+    <section id={id} className="scroll-mt-32 section-y border-b border-line">
       <div className="container-royto">
         <SectionHeading
           eyebrow={included.eyebrow}
