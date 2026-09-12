@@ -13,8 +13,8 @@ export const contentType = "image/png";
  * prefix because the wordmark already says it; the sub keeps the list but
  * stops before the second sentence so it fits at 28px.
  */
-const ogEyebrow = hero.eyebrow.replace(/^Royto\s*—\s*/, "").toUpperCase();
-const ogSub = hero.sub.split(". ")[0] + ".";
+const ogEyebrow = "AI THAT DOES THE WORK · FOR TRADES IN THE TRIANGLE";
+const ogSub = hero.sub.split(". ").slice(1, 2).join("") + ".";
 
 /**
  * The social card. Built from the brand tokens rather than a screenshot, so it
@@ -70,14 +70,14 @@ export default async function OpengraphImage({
           <div
             style={{
               display: "flex",
-              fontSize: 76,
+              fontSize: 56,
               fontFamily: "Archivo",
               color: ink,
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
             }}
           >
-            AI that does the work.
+            {hero.headline}
           </div>
           <div
             style={{

@@ -1,29 +1,28 @@
 import { Hero } from "@/components/hero/Hero";
 import { ApprovalSafety } from "@/components/sections/ApprovalSafety";
-import { Capabilities } from "@/components/sections/Capabilities";
+import { CapabilityIndex } from "@/components/sections/CapabilityIndex";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
-import { Founder } from "@/components/sections/Founder";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { SafeToTry } from "@/components/sections/SafeToTry";
-import { Websites } from "@/components/sections/Websites";
+import { ThreePains } from "@/components/sections/ThreePains";
+import { TrustAndFounder } from "@/components/sections/TrustAndFounder";
 
 /**
- * Eight sections. Everything else on the site is one link away:
- * scope on /pricing, the Royto Social package from its capability, the
- * founder on /about.
+ * The front door speaks to the trade in the Triangle; everyone else is one
+ * link away. Seven sections: the promise, the three pains, the index of the
+ * six areas, how it works and what it costs, the approval rule, the terms and
+ * the person, then questions and the ask.
  */
 export default function Home() {
   return (
     <>
       <Hero />
-      <Capabilities />
+      <ThreePains />
+      <CapabilityIndex />
       <HowItWorks />
-      <Websites />
       <ApprovalSafety />
-      <Founder />
+      <TrustAndFounder />
       <Faq />
-      <SafeToTry />
       <FinalCta />
     </>
   );

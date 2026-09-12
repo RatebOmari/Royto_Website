@@ -32,14 +32,6 @@ export const pages = {
     metaDescription:
       "Fixed-scope websites for North Carolina businesses, built with lead capture and follow-up wired in. From $2,500.",
   },
-  roytoSocial: {
-    eyebrow: "Royto Social — a Royto package",
-    title: "Your social media, on autopilot.",
-    lede: "Royto Social plans, writes, schedules and helps answer your social media — while you approve anything that needs your judgment. For any business that runs its own accounts and would rather not.",
-    metaTitle: "Royto Social",
-    metaDescription:
-      "Royto Social plans, writes, schedules and helps answer your social media; you approve anything that needs your judgment. Taking its first clients now.",
-  },
   pricing: {
     title: "Pricing",
     lede: "Two ways to work with Royto: automation, priced at each stage, and websites on fixed packages. Priced from what delivery actually takes, not a round figure — everything below is a starting number, and you’ll get an exact one in writing before anything is built.",

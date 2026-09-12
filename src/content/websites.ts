@@ -1,3 +1,5 @@
+import type { PackageContent } from "@/components/sections/PackagePage";
+
 /**
  * Websites — verbatim from attachments/copy.md.
  *
@@ -45,10 +47,21 @@ export const websitesSection = {
   cta: { label: "See the packages", href: "/websites" },
 } as const;
 
-/** /websites */
+/** /websites — on the shared package template. */
 export const websitesPage = {
+  eyebrow: "Websites — a Royto package",
+  title: "The front door the automation lives in.",
+  lede: "Most small business websites are a brochure that sits there. We build yours as the place leads actually arrive — fast, current, and wired to do something once someone lands on it.",
+  statusLine: "Fixed scope, fixed price, fixed timeline, two revision rounds.",
+  primaryCta: { label: "Get a quote", href: "/contact?for=website" },
+  secondaryCta: { label: "See what’s included", href: "#included" },
+  forWho: {
+    heading: "Who it’s for",
+    body: "Any business whose site is a brochure that sits there. A site on its own is a cost. A site with capture, booking and follow-up built in is the cheapest salesperson you’ll ever hire. That’s the only version we build, and it’s why we quote a website and an automation together rather than as two projects.",
+  },
   body: "A site on its own is a cost. A site with capture, booking and follow-up built in is the cheapest salesperson you’ll ever hire. That’s the only version we build, and it’s why we quote a website and an automation together rather than as two projects.",
-  howItWorks: {
+  how: {
+    kind: "steps",
     heading: "How it works",
     steps: [
       "One call to agree scope and content",
@@ -58,9 +71,7 @@ export const websitesPage = {
       "Launch, then the care plan takes over",
     ],
   },
-  included: {
-    heading: "What’s included",
-    yes: [
+  included: [
       "Design and build",
       "Mobile and accessibility pass",
       "Lead capture and routing",
@@ -68,23 +79,23 @@ export const websitesPage = {
       "Analytics set up properly",
       "Basic SEO structure",
       "Training so you can edit the pages that change",
-    ],
-    no: [
+  ],
+  notIncluded: [
       "Original photography or video",
       "Ongoing content writing beyond launch",
       "Paid ad management",
       "E-commerce storefronts — we don’t do those, and we’ll tell you who does",
-    ],
+  ],
+  pricing: {
+    heading: "Packages",
+    tiers: websitePackages,
+    note: `${fixedScopeNote.lead} ${fixedScopeNote.body}`,
   },
-  packagesHeading: "Packages",
   /**
    * The only proof there is: this site. One honest line, no case study
    * dressed up around it.
    */
   proof:
     "This site is one of ours — it scores 100 across the board on desktop Lighthouse and mid-90s on mobile. Run the test yourself.",
-  cta: {
-    lead: "Want a number? Tell me what the site needs to do.",
-    button: { label: "Get a quote", href: "/contact?for=website" },
-  },
-} as const;
+  closing: { heading: "Want a number? Tell me what the site needs to do." },
+} as const satisfies PackageContent & { body: string };

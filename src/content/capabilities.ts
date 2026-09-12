@@ -134,7 +134,7 @@ export const capabilities: Capability[] = [
     pain: "Posts that never quite go out.",
     buy: {
       label: "Ready-made package: Royto Social — see what’s included",
-      href: "/products/royto-social",
+      href: "/royto-social",
     },
     body: "Posts planned, written and scheduled, with comments and DMs in one place. Packaged as Royto Social.",
     expanded:

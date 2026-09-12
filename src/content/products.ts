@@ -13,8 +13,14 @@
 /** Same vocabulary as the capability grid. */
 export const PACKAGE_STATUS = "Available now";
 
-/** /products/royto-social — verbatim from attachments/copy.md. */
+import type { PackageContent } from "@/components/sections/PackagePage";
+import { socialPricing } from "@/content/pricing";
+
+/** /royto-social — verbatim from attachments/copy.md. */
 export const roytoSocial = {
+  eyebrow: "Royto Social — a Royto package",
+  title: "Your social media, on autopilot.",
+  lede: "Royto Social plans, writes, schedules and helps answer your social media — while you approve anything that needs your judgment. For any business that runs its own accounts and would rather not.",
   statusLine: "Ready — taking the first clients now.",
   primaryCta: { label: "Apply for a pilot spot", href: "/contact?for=social" },
   secondaryCta: { label: "See what’s included", href: "#included" },
@@ -40,10 +46,20 @@ export const roytoSocial = {
     "Complaints, pricing disputes, or medical and legal questions",
     "Guaranteed reach, leads, or revenue",
   ],
-  approval: {
+  how: {
+    kind: "approval",
     heading: "How approval works",
     automatic:
       "Hours, location, general availability and “do you offer X” are answered automatically.",
     held: "Pricing, booking confirmations, complaints and anything sensitive are drafted and held until you approve them.",
   },
-} as const;
+  pricing: {
+    heading: "Pricing",
+    tiers: socialPricing.tiers,
+    note: socialPricing.intro,
+  },
+  closing: { heading: "Want Royto Social running your accounts?" },
+  metaTitle: "Royto Social",
+  metaDescription:
+    "Royto Social plans, writes, schedules and helps answer your social media; you approve anything that needs your judgment. Taking its first clients now.",
+} as const satisfies PackageContent & { metaTitle: string; metaDescription: string };

@@ -1,16 +1,25 @@
 /** Homepage copy — verbatim from attachments/copy.md. */
 
 export const hero = {
-  eyebrow: "Royto — an AI agency for North Carolina businesses",
-  headline: "AI that does the work.",
+  /** The brand line rides the eyebrow; the H1 is the concrete promise. */
+  eyebrow: "Royto — AI that does the work. For trades in the Triangle.",
+  headline:
+    "The phone answered, the quote written, the review asked for — while you’re on the job.",
   /**
    * Authored line breaks for the headline reveal. Keep in step with
    * `headline` above — these are what actually render.
    */
-  headlineLines: ["AI that does", "the work."],
-  sub: "We build the automation that takes the repetitive part of your week off your plate — quotes and paperwork, customer messages, the website that feeds them — and then we run it for you. Not a tool to learn. Work that stops being yours.",
+  headlineLines: [
+    "The phone answered,",
+    "the quote written,",
+    "the review asked for —",
+    "while you’re on the job.",
+  ],
+  sub: "HVAC, plumbing, electrical, roofing. We build the automation that answers the call you’d have missed, drafts the quote from the enquiry, and asks for the review after every job — and then we run it. Not a tool to learn. Work that stops being yours.",
+  /** Everyone who isn’t a trade is one link away. */
+  escape: { label: "Not a trade? The same six things apply", href: "/what-we-automate" },
   primaryCta: { label: "Get a free audit", href: "/contact" },
-  secondaryCta: { label: "See how we work", href: "/#how-we-work" },
+  secondaryCta: { label: "See Never miss a lead", href: "/never-miss-a-lead" },
   canvasLabel: "Example workflow",
 } as const;
 

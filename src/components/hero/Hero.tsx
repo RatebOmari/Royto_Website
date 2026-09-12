@@ -28,7 +28,7 @@ export function Hero() {
             text={hero.headline}
             lines={hero.headlineLines}
             delay={120}
-            className="mt-6 text-hero font-extrabold text-ink"
+            className="mt-6 max-w-[22ch] text-hero-long font-extrabold text-ink"
           />
 
           {/* The sub lands 300ms after the last headline line. */}
@@ -36,7 +36,13 @@ export function Hero() {
             className="hero-in mt-6 measure-lede text-lede text-ink-soft"
             style={{ "--hero-delay": "1160ms" } as React.CSSProperties}
           >
-            {hero.sub}
+            {hero.sub}{" "}
+            <Link
+              href={hero.escape.href}
+              className="whitespace-nowrap font-mono text-mono-sm uppercase tracking-[0.09em] text-teal-ink"
+            >
+              {hero.escape.label} <span aria-hidden="true">→</span>
+            </Link>
           </p>
 
           <div

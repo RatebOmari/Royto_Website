@@ -26,9 +26,9 @@ export const site = {
   name: "Royto",
   /** The wordmark is always lowercase, with the period in teal. */
   wordmark: "royto",
-  title: "Royto — AI agency for North Carolina businesses",
+  title: "Royto — AI that does the work, for trades in the Triangle",
   description:
-    "AI automation that takes repetitive work off your plate — quotes, paperwork, customer messages — built and then run for you. Free audit. Raleigh, NC.",
+    "The phone answered, the quote written, the review asked for — while you’re on the job. AI automation for HVAC, plumbing, electrical and roofing, built and run for you. Raleigh, NC.",
   tagline:
     "Royto — an AI agency for small and mid-sized businesses. Raleigh, North Carolina. We build the automation, and then we run it.",
   legal: "© 2026 Royto. All rights reserved.",
@@ -39,12 +39,13 @@ export const site = {
 export type NavLink = { label: string; href: string };
 
 /**
- * Four items. "How it works" lives on the homepage and /pricing, so it needs
- * no entry; Royto Social is reached from its capability and the footer.
+ * Four items. The flagship package takes the slot; Websites is a lane, not
+ * the thesis, and lives in the footer and the map. "How it works" is on the
+ * homepage and /pricing.
  */
 export const navLinks: NavLink[] = [
   { label: "What we automate", href: "/what-we-automate" },
-  { label: "Websites", href: "/websites" },
+  { label: "Never miss a lead", href: "/never-miss-a-lead" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
 ];
@@ -67,8 +68,6 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
     heading: "Agency",
     links: [
       { label: "What we automate", href: "/what-we-automate" },
-      { label: "Home services", href: "/home-services" },
-      { label: "Websites", href: "/websites" },
       { label: "How we work", href: "/#how-we-work" },
       { label: "Pricing", href: "/pricing" },
       { label: "About", href: "/about" },
@@ -78,7 +77,7 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
     heading: "Packages",
     links: [
       { label: "Never miss a lead", href: "/never-miss-a-lead" },
-      { label: "Royto Social", href: "/products/royto-social" },
+      { label: "Royto Social", href: "/royto-social" },
       { label: "Websites", href: "/websites" },
     ],
   },

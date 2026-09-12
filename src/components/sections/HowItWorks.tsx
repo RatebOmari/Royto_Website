@@ -1,4 +1,5 @@
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
+import { AuditMapExample } from "@/components/sections/AuditMapExample";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -48,6 +49,11 @@ export function HowItWorks() {
             );
           })}
         </Reveal>
+
+        {/* What the audit hands you, beside the stage that explains it. */}
+        <div className="mt-10 max-w-[640px]">
+          <AuditMapExample />
+        </div>
 
         <Reveal delay={0.16}>
           <div className="mt-10">

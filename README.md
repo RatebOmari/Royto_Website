@@ -45,14 +45,14 @@ it is written inline in a component. Edit the text, save, done.
 | `pages.ts` | Each page's `<title>`, meta description, H1 and lede |
 | `home.ts` | Hero, and the founding-client line it carries |
 | `home-sections.ts` | How it works (with prices), included/not, approval, founder, final CTA, About page |
-| `capabilities.ts` | The six capability areas (plus the custom-builds line), their status tags and examples |
-| `products.ts` | The Royto Social package page |
-| `pricing.ts` | The two lanes, agency tiers, the lead package and Royto Social blocks, typical engagement, the example audit map and monthly numbers |
+| `capabilities.ts` | The six areas — pain line, status, how you buy it — the homepage index and the /what-we-automate map |
+| `products.ts` | The Royto Social package page (/royto-social) |
+| `pricing.ts` | The two lanes, agency tiers, the package index lines, typical engagement, the example audit map and monthly numbers |
 | `faq.ts` | FAQ entries (`pricing: true` also shows them on /pricing; `home: false` keeps one off the homepage) |
 | `contact.ts` | Contact intents — the `?for=` values, their ledes, message prompts and email subjects |
 | `websites.ts` | The homepage Websites section, the three packages, and /websites |
 | `lead-package.ts` | Never miss a lead — the flagship package page and its pricing |
-| `home-services.ts` | The /home-services vertical page |
+| `home-services.ts` | The three-pains section on the homepage (the trade front door) |
 | `legal.ts` | Privacy, Terms, and the /work holding page |
 
 Two things to know when editing:
@@ -130,7 +130,7 @@ src/
 │   ├── motion/             Reveal, Magnetic, CountUp, Cursor
 │   ├── hero/               FlowCanvas + hero composition
 │   ├── diagrams/           the capability micro-diagrams (six areas + custom builds)
-│   ├── sections/           one file per page section
+│   ├── sections/           one file per page section; PackagePage is the one template for the three package pages
 │   └── ui/                 Button, Card, Tag, Wordmark, PageHeader, FounderPortrait
 ├── content/                all copy (see above)
 ├── lib/                    motion system, fonts, theme + media-query hooks

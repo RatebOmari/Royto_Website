@@ -83,14 +83,25 @@ export const monthlyReportExample = {
   note: "Illustrative. Yours reports what your automation actually did, in your units, on the first of every month.",
 } as const;
 
-/** The lead package inside lane one: configured, not built, so it is priced monthly. */
-export const leadPricing = {
-  eyebrow: "Ready-made package",
-  heading: "Never miss a lead",
-  intro:
-    "Calls answered and booked, enquiries replied to in minutes, a review after every job — configured to your business on a voice platform, so it is live in days and priced by the month rather than scoped as a build.",
-  link: { label: "See what Never miss a lead includes", href: "/never-miss-a-lead" },
-} as const;
+/**
+ * The two packages inside lane one, as index lines: a starting price and a
+ * link. Their tiers live on their own pages — a price lives where the offer
+ * is bought, plus once here.
+ */
+export const packageIndex = [
+  {
+    name: "Never miss a lead",
+    body: "Calls answered and booked, enquiries replied to in minutes, a review after every job — configured on a voice platform, live in days.",
+    price: "From $449/mo",
+    href: "/never-miss-a-lead",
+  },
+  {
+    name: "Royto Social",
+    body: "Content & social as a build we’ve already scoped — twelve posts a month, written and scheduled, the inbox drafted.",
+    price: "From $750/mo",
+    href: "/royto-social",
+  },
+] as const;
 
 export const pricingSection = {
   eyebrow: "Pricing",
@@ -135,7 +146,7 @@ export const socialPricing = {
   heading: "Royto Social",
   intro:
     "Content & social as a build we’ve already scoped, so there is nothing to audit first. It includes the work itself — twelve posts a month, written and scheduled, and the inbox drafted — which is why it sits above a Run plan, where we operate something already built.",
-  link: { label: "See what Royto Social includes", href: "/products/royto-social" },
+  link: { label: "See what Royto Social includes", href: "/royto-social" },
   tiers: [
     {
       name: "Pilot",

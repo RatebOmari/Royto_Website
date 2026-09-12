@@ -13,6 +13,8 @@
  * through at cost plus margin, never absorbed.
  */
 
+import type { PackageContent } from "@/components/sections/PackagePage";
+
 export const leadPackage = {
   name: "Never miss a lead",
   eyebrow: "Never miss a lead — a Royto package",
@@ -41,7 +43,8 @@ export const leadPackage = {
     "Paid ad management or lead generation",
     "Original recorded greetings or voice talent beyond the platform’s voices",
   ],
-  approval: {
+  how: {
+    kind: "approval",
     heading: "How approval works",
     automatic:
       "Hours, location, availability, “do you offer X”, booking into open slots, the missed-call text-back and the review request are handled automatically.",
@@ -68,7 +71,8 @@ export const leadPackage = {
     ],
     note: "Cancel with 30 days’ notice. What we configured is yours; the platform subscription can move to your name.",
   },
+  closing: { heading: "How many calls did you miss last week?" },
   metaTitle: "Never miss a lead",
   metaDescription:
     "Calls answered 24/7, web enquiries replied to in minutes, a review after every job — configured to your business in days. From $449/mo. Raleigh, NC.",
-} as const;
+} as const satisfies PackageContent & { name: string; metaTitle: string; metaDescription: string };
