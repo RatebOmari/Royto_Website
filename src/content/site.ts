@@ -107,7 +107,6 @@ export const founder = {
   name: "Rateb Al-Omari",
   role: "Founder, Royto",
   signature: "Rateb Al-Omari — Founder, Royto",
-  /** TODO(placeholder): no founder photograph yet. FounderPortrait renders a
-   *  designed placeholder — swap it for the real image when one exists. */
-  photo: null,
+  /** public/founder.jpg — rendered by FounderPortrait. */
+  photo: "/founder.jpg",
 } as const;

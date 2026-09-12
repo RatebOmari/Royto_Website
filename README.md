@@ -81,7 +81,6 @@ grep -rn "TODO(placeholder)\|TODO(copy)\|TODO(review)" src/
 | `CONTACT_EMAIL` | [`src/content/site.ts:9`](src/content/site.ts) | `hello@royto.tech`. Confirm the mailbox exists and is monitored. Every CTA and the form fallback point here. |
 | **SMTP credentials** | Vercel → Settings → Environment Variables | The contact form sends over SMTP via Namecheap Private Email. Needs `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD` (and optionally `SMTP_PORT`, `CONTACT_TO`). **Until these are set the form returns a 502 and tells the visitor to email instead** — it will never claim to have sent something it didn't. |
 | Social URLs | [`src/content/site.ts`](src/content/site.ts) | Instagram and Facebook resolve. LinkedIn was removed (the company page didn't exist) — add it back when it does. |
-| Founder photo | [`src/components/ui/FounderPortrait.tsx`](src/components/ui/FounderPortrait.tsx) | Renders a designed placeholder with "Photo to come". Replace the component body; keep the frame and 4:5 ratio. |
 | Privacy page | [`src/content/legal.ts`](src/content/legal.ts) | Real draft written from what the site actually does, marked "Draft — review before launch" on the page. `noindex` and disallowed in `robots.ts` until reviewed — lift both then. |
 | Terms page | [`src/content/legal.ts`](src/content/legal.ts) | Same treatment. Engagement terms live in the written scope, not here. |
 | `/work` | [`src/app/work/page.tsx`](src/app/work/page.tsx) | Honestly empty holding page, `noindex`. The first founding-client write-up goes here; nothing invented in the meantime. |

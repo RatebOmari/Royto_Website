@@ -1,35 +1,22 @@
+import Image from "next/image";
+
 /**
- * TODO(placeholder): there is no founder photograph yet.
- *
- * This is a *designed* placeholder, not a grey box and not a stock image —
- * the brief is explicit that where real proof will eventually go, we leave a
- * clearly marked empty state. Replace the whole component body with the real
- * image when one exists; the frame and aspect ratio should stay.
+ * The founder portrait. 4:5 frame, same treatment as the placeholder it
+ * replaced — the frame and ratio are the constant; the image is the change.
+ * Priority is off: the portrait is below the fold on both pages it appears
+ * on, so it must not compete with the hero for bandwidth.
  */
 export function FounderPortrait({ name }: { name: string }) {
-  const initials = name
-    .split(/[\s-]+/)
-    .map((part) => part[0])
-    .slice(0, 2)
-    .join("");
-
   return (
     <figure className="m-0">
       <div className="relative aspect-[4/5] overflow-hidden rounded-panel border border-line bg-paper-raised">
-        <div aria-hidden="true" className="blueprint absolute inset-0 opacity-50" />
-        <div className="absolute inset-0 grid place-items-center">
-          <div className="text-center">
-            <span
-              aria-hidden="true"
-              className="font-display text-[clamp(48px,9vw,88px)] font-extrabold leading-none tracking-[-0.04em] text-ink/12"
-            >
-              {initials}
-            </span>
-          </div>
-        </div>
-        <p className="mono-label absolute bottom-4 left-4 text-slate">
-          Photo to come
-        </p>
+        <Image
+          src="/founder.jpg"
+          alt={`${name}, founder of Royto`}
+          fill
+          sizes="(min-width: 1024px) 320px, (min-width: 640px) 40vw, 100vw"
+          className="object-cover object-top"
+        />
       </div>
     </figure>
   );
