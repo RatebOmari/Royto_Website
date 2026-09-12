@@ -24,6 +24,9 @@ export function CapabilityIndex() {
           heading={capabilitiesSection.heading}
           intro={capabilitiesSection.intro}
         />
+        <Reveal delay={0.16}>
+          <p className="mt-4 measure text-body text-ink-soft">{capabilitiesSection.audience}</p>
+        </Reveal>
 
         <Reveal as="ol" stagger={stagger.line} className="mt-12 border-t border-line">
           {capabilities.map((capability, index) => (
