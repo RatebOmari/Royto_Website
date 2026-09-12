@@ -170,9 +170,9 @@ Measured on the production build, not assumed.
 | Check | Result |
 |---|---|
 | `npm run build` | Clean — no TS errors, no ESLint warnings |
-| Lighthouse `/` mobile | Perf 93–95 across four runs · A11y 100 · Best Practices 100 · SEO 100 (11 Sep 2026, after the one-front-door restructure). The LCP element is the nav wordmark with a ~2.6 s simulated render delay — the framework floor below, not page content — so the score moves with run-to-run noise rather than with what is on the page. |
+| Lighthouse `/` mobile | Perf 94–95 across three runs · A11y 100 · Best Practices 100 · SEO 100 (12 Sep 2026, every-business homepage with the packages row). The LCP element is the nav wordmark with a ~2.6 s simulated render delay — the framework floor below, not page content — so the score moves with run-to-run noise rather than with what is on the page. |
 | Lighthouse `/` desktop | Perf 100 · A11y 100 · Best Practices 100 · SEO 100 |
-| Interior pages, mobile | 91–94 Perf, 100 across the other three. `/pricing` sits at 93 after the restructure added the Royto Social block and the example audit map; converting its Included section from Motion to the CSS reveal did not move the score — the LCP is the framework floor described below, not app animation. `/contact` is server-rendered on demand (it reads `?for=`) |
+| Interior pages, mobile | 93–95 Perf, 100 across the other three (/packages 94). `/pricing` sits at 93 after the restructure added the Royto Social block and the example audit map; converting its Included section from Motion to the CSS reveal did not move the score — the LCP is the framework floor described below, not app animation. `/contact` is server-rendered on demand (it reads `?for=`) |
 | Responsive | No horizontal overflow at 375 / 768 / 1440 / 1920, both themes, all 7 pages |
 | Keyboard | Every focusable on every page has a 2px teal ring at 3px offset; skip link first |
 | Reduced motion | Zero animations running, all reveals visible, canvas static |
