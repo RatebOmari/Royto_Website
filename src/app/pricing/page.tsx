@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Faq } from "@/components/sections/Faq";
 import { Included } from "@/components/sections/Included";
 import { MonthlyReportExample } from "@/components/sections/MonthlyReportExample";
+import { PackageSummaryCard } from "@/components/sections/PackagesRow";
 import { PricingCard } from "@/components/sections/Pricing";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -12,11 +13,11 @@ import { faq } from "@/content/faq";
 import { pages } from "@/content/pages";
 import {
   lanes,
-  packageIndex,
   tiers,
   typicalEngagement,
   whatChangesPrice,
 } from "@/content/pricing";
+import { packages } from "@/content/packages";
 import { fixedScopeNote, websitePackages } from "@/content/websites";
 import { cx } from "@/lib/utils";
 
@@ -76,27 +77,15 @@ export default function Page() {
             <MonthlyReportExample />
           </div>
 
-          {/* The two packages inside the lane: a starting price and a link; the tiers live on their pages. */}
+          {/* The two automation packages inside the lane: a starting price and a link; the tiers live on their pages. */}
           <Reveal as="ul" delay={0.1} className="mt-14 grid gap-4 md:grid-cols-2">
-            {packageIndex.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="block h-full rounded-card">
-                  <Card as="div" className="h-full items-start p-7">
-                    <p className="mono-label text-slate">Ready-made package</p>
-                    <p className="mt-3 text-h3 font-semibold text-ink">{item.name}</p>
-                    <p className="mt-3 text-small text-ink-soft">{item.body}</p>
-                    <p className="mt-5 flex items-baseline justify-between gap-4">
-                      <span className="font-display text-[22px] font-extrabold leading-none tracking-[-0.02em] text-ink">
-                        {item.price}
-                      </span>
-                      <span className="font-mono text-mono-sm uppercase tracking-[0.09em] text-teal-ink">
-                        See what’s included <span aria-hidden="true">→</span>
-                      </span>
-                    </p>
-                  </Card>
-                </Link>
-              </li>
-            ))}
+            {packages
+              .filter((item) => item.href !== "/websites")
+              .map((item) => (
+                <li key={item.name}>
+                  <PackageSummaryCard item={item} />
+                </li>
+              ))}
           </Reveal>
         </div>
       </section>

@@ -72,7 +72,7 @@ export const founderSection = {
   eyebrow: "Why Royto exists",
   heading: "Built by someone who automates for a living.",
   /** Two sentences here; the whole story is on /about. */
-  body: "Royto is built by Rateb Al-Omari, an engineer in Raleigh who spent years building automation inside a technical firm — and stood up its digital solutions practice — before turning the same instinct toward other North Carolina businesses. The ones with real customers, real paperwork, and nobody to hand the admin to.",
+  body: "Royto is built by Rateb Al-Omari, an engineer who spent years building automation inside a technical firm — and stood up its digital solutions practice — before turning the same instinct toward other businesses. The ones with real customers, real paperwork, and nobody to hand the admin to.",
   link: { label: "More about Royto", href: "/about" },
 } as const;
 

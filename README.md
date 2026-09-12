@@ -1,6 +1,6 @@
 # royto.tech
 
-The marketing site for **Royto**, an AI agency for small and mid-sized businesses in North Carolina.
+The marketing site for **Royto**, an AI agency for small and mid-sized businesses — based in Raleigh, working anywhere.
 
 Next.js 16 (App Router) · TypeScript strict · Tailwind CSS v4 · Motion · Lenis.
 No CMS, no UI kit, and no runtime network requests — fonts are self-hosted,
@@ -52,7 +52,7 @@ it is written inline in a component. Edit the text, save, done.
 | `contact.ts` | Contact intents — the `?for=` values, their ledes, message prompts and email subjects |
 | `websites.ts` | The homepage Websites section, the three packages, and /websites |
 | `lead-package.ts` | Never miss a lead — the flagship package page and its pricing |
-| `home-services.ts` | The three-pains section on the homepage (the trade front door) |
+| `packages.ts` | The three package summaries — the homepage row and the /packages hub |
 | `legal.ts` | Privacy, Terms, and the /work holding page |
 
 Two things to know when editing:

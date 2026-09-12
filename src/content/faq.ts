@@ -55,9 +55,9 @@ export const faq: FaqItem[] = [
     home: false,
   },
   {
-    question: "Do you only work with North Carolina businesses?",
+    question: "Where are you, and does it matter?",
     answer:
-      "For now, mostly yes — and deliberately. We’re in Raleigh: the Triangle (Raleigh, Durham, Chapel Hill) first, the rest of North Carolina next. Being able to sit in your office beats a video call, and the early work is better for it. If you’re elsewhere and the fit is obviously right, ask anyway.",
+      "We’re based in Raleigh, North Carolina, and work with businesses anywhere. In the Triangle we’ll come to your office; everywhere else it’s a call, and the work is the same. Every build runs on your own accounts, so where we sit doesn’t change what you get.",
   },
   {
     question: "We’re bigger than a small business. Is that a problem?",

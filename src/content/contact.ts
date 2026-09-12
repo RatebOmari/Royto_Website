@@ -41,7 +41,7 @@ export const contactIntents: Record<ContactIntent, IntentCopy> = {
   },
   founding: {
     label: "Becoming a founding client",
-    lede: "Tell me what’s eating your week, and where in North Carolina you are. The first two or three founding clients get a free audit, the build at 25% off the scoped price, and my full attention — in exchange for permission to write up what we did.",
+    lede: "Tell me what’s eating your week. The first two or three founding clients get a free audit, the build at 25% off the scoped price, and my full attention — in exchange for permission to write up what we did.",
     prompt: "What’s eating your week?",
     subject: "Founding client application",
   },

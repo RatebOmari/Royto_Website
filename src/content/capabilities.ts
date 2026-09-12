@@ -173,7 +173,7 @@ export const capabilitiesSection = {
     "Every business has a different version of the same problem: work that repeats, that only a few people seem able to do. These are the six places we usually find it.",
   /** Who this is for — stated once, where the offer is laid out. */
   audience:
-    "Built for North Carolina businesses of five to two hundred people — starting with the trades: HVAC, plumbing, electrical, roofing. If the same work repeats every week, it applies to you too.",
+    "Businesses of five to two hundred people, in any industry where the same work repeats every week.",
   /**
    * TODO(placeholder): name the tools once the list is confirmed — only ones
    * that can actually be connected today. Until then the line stays generic.

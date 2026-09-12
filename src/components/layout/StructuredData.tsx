@@ -52,7 +52,7 @@ export function StructuredData() {
   const service = {
     "@type": "Service",
     "@id": `${SITE_URL}/#service`,
-    name: "AI automation for North Carolina businesses",
+    name: "AI automation for small and mid-sized businesses",
     serviceType: "AI automation agency",
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "State", name: location.areaServed },

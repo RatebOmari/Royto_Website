@@ -25,7 +25,7 @@ export const leadPackage = {
   secondaryCta: { label: "See what’s included", href: "#included" },
   forWho: {
     heading: "Who it’s for",
-    body: "Trades and home services first — HVAC, plumbing, electrical, roofing — and any business where the phone rings while you’re on a job, enquiries land after hours, and nobody has time to chase reviews. If you’ve ever found a voicemail two days late, it’s for you.",
+    body: "Any business where the phone rings while you’re busy, enquiries land after hours, and nobody has time to chase reviews — trades, clinics, salons, professional services, anyone with a phone number on the door. If you’ve ever found a voicemail two days late, it’s for you.",
   },
   included: [
     "Calls answered 24/7 in your business’s voice, with the caller’s details captured",
@@ -74,5 +74,5 @@ export const leadPackage = {
   closing: { heading: "How many calls did you miss last week?" },
   metaTitle: "Never miss a lead",
   metaDescription:
-    "Calls answered 24/7, web enquiries replied to in minutes, a review after every job — configured to your business in days. From $449/mo. Raleigh, NC.",
+    "Calls answered 24/7, web enquiries replied to in minutes, a review after every job — configured to your business in days. From $449/mo.",
 } as const satisfies PackageContent & { name: string; metaTitle: string; metaDescription: string };

@@ -91,7 +91,7 @@ export const work = {
   eyebrow: "Work",
   title: "Case studies",
   holding:
-    "No case studies yet — the first founding client work goes here. Royto is taking its first two or three North Carolina businesses now, in exchange for permission to write up what we did.",
+    "No case studies yet — the first founding client work goes here. Royto is taking its first two or three founding clients now, in exchange for permission to write up what we did.",
   cta: { label: "Apply as a founding client", href: "/contact" },
   metaTitle: "Work",
   metaDescription:

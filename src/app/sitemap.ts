@@ -9,6 +9,7 @@ const routes = [
   { path: "", priority: 1 },
   { path: "/what-we-automate", priority: 0.9 },
   { path: "/websites", priority: 0.9 },
+  { path: "/packages", priority: 0.9 },
   { path: "/never-miss-a-lead", priority: 0.9 },
   { path: "/royto-social", priority: 0.8 },
   { path: "/pricing", priority: 0.9 },

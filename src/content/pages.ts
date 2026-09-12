@@ -30,7 +30,7 @@ export const pages = {
     lede: "Most small business websites are a brochure that sits there. We build yours as the place leads actually arrive — fast, current, and wired to do something once someone lands on it.",
     metaTitle: "Websites",
     metaDescription:
-      "Fixed-scope websites for North Carolina businesses, built with lead capture and follow-up wired in. From $2,500.",
+      "Fixed-scope websites built with lead capture and follow-up wired in. From $2,500.",
   },
   pricing: {
     title: "Pricing",
@@ -44,7 +44,7 @@ export const pages = {
     title: "An engineer who got tired of watching people do work a system could do.",
     metaTitle: "About",
     metaDescription:
-      "Royto is built by Rateb Al-Omari, a Raleigh engineer who automated repetitive work for years before turning to North Carolina businesses.",
+      "Royto is built by Rateb Al-Omari, an engineer who automated repetitive work for years before turning the same instinct toward other businesses.",
   },
   contact: {
     title: "What would you stop doing yourself?",

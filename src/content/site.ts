@@ -26,9 +26,9 @@ export const site = {
   name: "Royto",
   /** The wordmark is always lowercase, with the period in teal. */
   wordmark: "royto",
-  title: "Royto — AI that does the work, for trades in the Triangle",
+  title: "Royto — AI that does the work",
   description:
-    "The phone answered, the quote written, the review asked for — while you’re on the job. AI automation for HVAC, plumbing, electrical and roofing, built and run for you. Raleigh, NC.",
+    "AI automation that takes repetitive work off your plate — quotes, paperwork, customer messages — built and then run for you, for any business. Free audit.",
   tagline:
     "Royto — an AI agency for small and mid-sized businesses. Raleigh, North Carolina. We build the automation, and then we run it.",
   legal: "© 2026 Royto. All rights reserved.",
@@ -39,13 +39,12 @@ export const site = {
 export type NavLink = { label: string; href: string };
 
 /**
- * Four items. The flagship package takes the slot; Websites is a lane, not
- * the thesis, and lives in the footer and the map. "How it works" is on the
- * homepage and /pricing.
+ * Four items. Packages is a category, so it gets the slot rather than any
+ * one package. "How it works" is on the homepage and /pricing.
  */
 export const navLinks: NavLink[] = [
   { label: "What we automate", href: "/what-we-automate" },
-  { label: "Never miss a lead", href: "/never-miss-a-lead" },
+  { label: "Packages", href: "/packages" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
 ];
@@ -76,6 +75,7 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
   {
     heading: "Packages",
     links: [
+      { label: "All packages", href: "/packages" },
       { label: "Never miss a lead", href: "/never-miss-a-lead" },
       { label: "Royto Social", href: "/royto-social" },
       { label: "Websites", href: "/websites" },
