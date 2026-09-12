@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import {
   contactIntents,
   DEFAULT_INTENT,
@@ -117,6 +117,36 @@ async function deliver(payload: ContactPayload): Promise<void> {
   });
 }
 
+/**
+ * Forwards the enquiry to the Royto platform so it appears as a lead in the
+ * portal. Runs after the response: the visitor never waits on it, and a
+ * portal outage never turns a delivered email into a failed submission.
+ * Silent when the two variables are unset.
+ */
+async function forwardToPortal(payload: ContactPayload): Promise<void> {
+  const { ROYTO_INTAKE_URL, ROYTO_INTAKE_KEY } = process.env;
+  if (!ROYTO_INTAKE_URL || !ROYTO_INTAKE_KEY) return;
+
+  const response = await fetch(ROYTO_INTAKE_URL, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${ROYTO_INTAKE_KEY}`,
+    },
+    body: JSON.stringify({
+      name: payload.name,
+      business: payload.business,
+      email: payload.email,
+      message: payload.message,
+      intent: contactIntents[payload.intent].label,
+      source: "royto.tech",
+    }),
+  });
+  if (!response.ok) {
+    console.error("[contact] portal intake failed:", response.status, await response.text());
+  }
+}
+
 export async function POST(request: Request) {
   let body: Partial<ContactPayload> & { for?: string };
   try {
@@ -136,15 +166,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, errors }, { status: 400 });
   }
 
+  const payload: ContactPayload = {
+    name: body.name!.trim(),
+    business: body.business!.trim(),
+    message: body.message!.trim(),
+    email: body.email!.trim(),
+    // An unknown or missing value is filed as an audit, never rejected.
+    intent: isContactIntent(body.intent) ? body.intent : DEFAULT_INTENT,
+  };
+
   try {
-    await deliver({
-      name: body.name!.trim(),
-      business: body.business!.trim(),
-      message: body.message!.trim(),
-      email: body.email!.trim(),
-      // An unknown or missing value is filed as an audit, never rejected.
-      intent: isContactIntent(body.intent) ? body.intent : DEFAULT_INTENT,
-    });
+    await deliver(payload);
   } catch (error) {
     // Logged for the server, never echoed to the visitor — the message could
     // contain host or credential detail.
@@ -157,6 +189,12 @@ export async function POST(request: Request) {
       { status: 502 },
     );
   }
+
+  after(() =>
+    forwardToPortal(payload).catch((error) => {
+      console.error("[contact] portal intake failed:", error);
+    }),
+  );
 
   return NextResponse.json({ ok: true });
 }
