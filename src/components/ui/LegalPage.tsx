@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
-import { legalNotice, type LegalSection } from "@/content/legal";
+import { type LegalSection } from "@/content/legal";
 
 /** The shared shape of /privacy and /terms: one column, plain sections. */
 export function LegalPage({
@@ -24,11 +24,7 @@ export function LegalPage({
             <p className="mt-6 measure-lede text-lede text-ink-soft">{lede}</p>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-mono text-slate">
-              <span>{updated}</span>
-              {/* TODO(review): remove once the copy has been reviewed. */}
-              <span className="text-gold">{legalNotice}</span>
-            </p>
+            <p className="mt-8 font-mono text-mono text-slate">{updated}</p>
           </Reveal>
         </div>
       </header>

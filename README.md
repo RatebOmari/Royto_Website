@@ -73,7 +73,7 @@ Two things to know when editing:
 Every one is greppable:
 
 ```bash
-grep -rn "TODO(placeholder)\|TODO(copy)\|TODO(review)" src/
+grep -rn "TODO(placeholder)\|TODO(copy)" src/
 ```
 
 | What | Where | Notes |
@@ -81,8 +81,7 @@ grep -rn "TODO(placeholder)\|TODO(copy)\|TODO(review)" src/
 | `CONTACT_EMAIL` | [`src/content/site.ts:9`](src/content/site.ts) | `hello@royto.tech`. Confirm the mailbox exists and is monitored. Every CTA and the form fallback point here. |
 | **SMTP credentials** | Vercel → Settings → Environment Variables | The contact form sends over SMTP via Namecheap Private Email. Needs `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD` (and optionally `SMTP_PORT`, `CONTACT_TO`). **Until these are set the form returns a 502 and tells the visitor to email instead** — it will never claim to have sent something it didn't. |
 | Social URLs | [`src/content/site.ts`](src/content/site.ts) | Instagram and Facebook resolve. LinkedIn was removed (the company page didn't exist) — add it back when it does. |
-| Privacy page | [`src/content/legal.ts`](src/content/legal.ts) | Real draft written from what the site actually does, marked "Draft — review before launch" on the page. `noindex` and disallowed in `robots.ts` until reviewed — lift both then. |
-| Terms page | [`src/content/legal.ts`](src/content/legal.ts) | Same treatment. Engagement terms live in the written scope, not here. |
+| Privacy and Terms | [`src/content/legal.ts`](src/content/legal.ts) | Reviewed against the live site and published 12 Sep 2026 (indexed, in the sitemap). Written from what the site actually does; engagement terms live in the written scope. Not lawyer-reviewed — worth doing before the first paid engagement. |
 | `/work` | [`src/app/work/page.tsx`](src/app/work/page.tsx) | Honestly empty holding page, `noindex`. The first founding-client write-up goes here; nothing invented in the meantime. |
 | Capability examples | [`src/content/capabilities.ts:36`](src/content/capabilities.ts) | The copy deck doesn't supply these seven (six areas plus custom builds), so they were written to match its voice. **The only non-deck prose on the site — read them before launch.** |
 

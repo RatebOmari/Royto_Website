@@ -96,7 +96,6 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
     links: [
       { label: "Work", href: "/work" },
       { label: "Contact", href: "/contact" },
-      /** TODO(review): both legal pages are drafts awaiting review. */
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
     ],

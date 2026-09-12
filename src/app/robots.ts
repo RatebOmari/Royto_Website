@@ -6,9 +6,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // Unreviewed drafts, the empty /work route and the form endpoint have
-      // nothing to index yet.
-      disallow: ["/api/", "/privacy", "/terms", "/work"],
+      // The empty /work route and the form endpoint have nothing to index.
+      disallow: ["/api/", "/work"],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
